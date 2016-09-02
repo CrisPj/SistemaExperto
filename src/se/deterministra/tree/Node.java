@@ -22,7 +22,7 @@ public class Node {
      */
     public void insertNode(Node _node)
     {
-        if(id>_node.getId())
+        if(id > _node.getId())
         {
             if(left == null)
             {

@@ -1,5 +1,10 @@
 package se.deterministra.tree;
 
+import se.determinista.files.Index_File;
+
+import java.io.File;
+import java.util.ArrayList;
+
 /**
  * Created by Andrés on 01/09/2016.
  */
@@ -7,18 +12,13 @@ public class indexTree {
 
     private Node tree;
 
-    /**
-     * Constructor for the tree, requires the root node.
-     * @param _root
-     */
-    public indexTree(Node _root)
-    {
-        tree = _root;
-    }
 
     public void insertNodeToTree(Node _node)
     {
-        tree.insertNode(_node);
+        if(tree!=null)
+            tree.insertNode(_node);
+        else
+            tree = _node;
     }
 
     /**
@@ -46,6 +46,31 @@ public class indexTree {
                     else
                         return -1;
 
+    }
+
+    public void generateIndexTree()
+    {
+        try
+        {
+            Index_File index = new Index_File("E:\\knowledgebase"+Index_File.FILE_EXTENSION,"rw");
+            ArrayList<String> rulesAddresses = index.getRulesAddresses();
+            byte arrayIndex=0;
+            do
+            {
+                String address = rulesAddresses.get(arrayIndex);
+                if(address!=null)
+                {
+                    Node node = new Node(Byte.parseByte(address.split("-")[0]),Long.parseLong(address.split("-")[1]));
+                    insertNodeToTree(node);
+                    System.out.println(""+node.getId()+"-"+node.getMemoryAddress());
+                }
+                arrayIndex++;
+            }while(arrayIndex<rulesAddresses.size());
+        }
+        catch(Exception ex)
+        {
+
+        }
     }
 
 }

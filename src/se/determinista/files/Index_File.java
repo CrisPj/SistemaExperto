@@ -6,6 +6,7 @@
 package se.determinista.files;
 
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,6 +40,25 @@ public class Index_File {
         {
             System.out.println("Error:" + ex.getMessage());
         }
+    }
+
+    public ArrayList getRulesAddresses()
+    {
+        ArrayList<String> rules = new ArrayList<>();
+
+        try
+        {
+            file.seek(0);
+            do
+            {
+                rules.add(file.readByte()+"-"+file.readLong());
+            }while(true);
+        }catch(Exception ex)
+        {
+            System.out.println("Fin del archivo índice: "+rules.size());
+        }
+
+        return rules;
     }
 
 }

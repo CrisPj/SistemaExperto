@@ -35,6 +35,7 @@ public class SEDeterminista {
             _file.newRecord(new Rule((byte)6,new String[]{"Tos","Fiebre","Escurrimiento","Prurito","Ardor"},"Gripe"));
         }
 
+        _file.generateTree();
         Scanner sc = new Scanner(System.in);
         byte number=0;
         do

@@ -1,43 +1,37 @@
-package se.deterministra.tree;
+package se.determinista.tree;
 
 /**
  * Created by Andrés on 01/09/2016.
  */
 public class Node {
 
-    private byte id;
-    private long memoryAddress;
     protected Node left;
     protected Node right;
+    private byte id;
+    private long memoryAddress;
 
-    public Node(byte _id,long _memoryAddress)
-    {
+    public Node(byte _id, long _memoryAddress) {
         id = _id;
         memoryAddress = _memoryAddress;
     }
 
-    /**This method inserts a new node in the tree if the value of the entering node is minor than the
+    /**
+     * This method inserts a new node in the tree if the value of the entering node is minor than the
      * value of its root, goes to left, if not, goes right.
+     *
      * @param _node
      */
-    public void insertNode(Node _node)
-    {
-        if(id > _node.getId())
-        {
-            if(left == null)
-            {
+    public void insertNode(Node _node) {
+        if (id > _node.getId()) {
+            if (left == null) {
                 left = _node;
-            }else
-            {
+            } else {
                 left.insertNode(_node);
             }
-        }else
-        {
-            if(right == null)
-            {
+        } else {
+            if (right == null) {
                 right = _node;
-            }else
-            {
+            } else {
                 right.insertNode(_node);
             }
         }
@@ -53,13 +47,11 @@ public class Node {
         memoryAddress = _memoryAddress;
     }*/
 
-    public byte getId()
-    {
+    public byte getId() {
         return id;
     }
 
-    public long getMemoryAddress()
-    {
+    public long getMemoryAddress() {
         return memoryAddress;
     }
 }

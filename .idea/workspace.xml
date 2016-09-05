@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970cb1a9-2a45-4276-abed-e7faf9ba5f48" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;">
+    <list default="true" id="970cb1a9-2a45-4276-abed-e7faf9ba5f48" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java" afterPath="$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" afterPath="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/files/IndexFile.java" afterPath="$PROJECT_DIR$/src/se/determinista/files/IndexFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/files/MasterFile.java" afterPath="$PROJECT_DIR$/src/se/determinista/files/MasterFile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" afterPath="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/tree/IndexTree.java" afterPath="$PROJECT_DIR$/src/se/determinista/tree/IndexTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/tree/Node.java" afterPath="$PROJECT_DIR$/src/se/determinista/tree/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/tree/Rule.java" afterPath="$PROJECT_DIR$/src/se/determinista/tree/Rule.java" />
     </list>
     <ignored path="SE-Determinista.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/src/se/determinista/files/MasterFile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="382">
-              <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+              <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#MasterFile#0" expanded="false" />
                 <element signature="docComment;method#MasterFile#0;class#MasterFile#0" expanded="false" />
@@ -71,7 +64,7 @@
                 <element signature="docComment;method#castToRule#0;class#MasterFile#0" expanded="false" />
                 <element signature="method#castToRule#0;class#MasterFile#0" expanded="false" />
                 <element signature="method#getAllRulesRecords#0;class#MasterFile#0" expanded="false" />
-                <marker date="1473113935347" expanded="false" signature="6883:6953" ph="/**...*/" />
+                <marker date="1473114307967" expanded="false" signature="6890:6967" ph="/**...*/" />
               </folding>
             </state>
           </provider>
@@ -99,17 +92,25 @@
       <file leaf-file-name="InferenceEngine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
+            <state relative-caret-position="469">
+              <caret line="126" column="4" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="4" />
               <folding>
+                <element signature="docComment;method#InferenceEngine#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="method#InferenceEngine#0;class#InferenceEngine#0" expanded="false" />
+                <element signature="docComment;method#initialize#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="method#initialize#0;class#InferenceEngine#0" expanded="false" />
+                <element signature="docComment;method#forwardChaining#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="method#forwardChaining#0;class#InferenceEngine#0" expanded="false" />
+                <element signature="docComment;method#isContainedInFacts#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="method#isContainedInFacts#0;class#InferenceEngine#0" expanded="false" />
+                <element signature="docComment;method#equate#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="method#equate#0;class#InferenceEngine#0" expanded="false" />
+                <element signature="docComment;method#refractRule#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="method#refractRule#0;class#InferenceEngine#0" expanded="false" />
-                <element signature="method#resolveConflictiveSet#0;class#InferenceEngine#0" expanded="false" />
+                <element signature="docComment;method#resolveConflictSet#0;class#InferenceEngine#0" expanded="false" />
+                <element signature="docComment;method#applyRuleAndUpdateFacts#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="method#applyRuleAndUpdateFacts#0;class#InferenceEngine#0" expanded="false" />
+                <marker date="1473114706591" expanded="false" signature="3708:3892" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -119,8 +120,9 @@
         <entry file="file://$PROJECT_DIR$/src/se/determinista/files/IndexFile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
-              <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="docComment;method#IndexFile#0;class#IndexFile#0" expanded="false" />
                 <element signature="method#IndexFile#0;class#IndexFile#0" expanded="false" />
                 <element signature="docComment;method#newRecord#0;class#IndexFile#0" expanded="false" />
@@ -138,7 +140,7 @@
         <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Rule.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="530">
-              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding>
                 <element signature="docComment;method#Rule#0;class#Rule#0" expanded="false" />
                 <element signature="method#Rule#0;class#Rule#0" expanded="false" />
@@ -159,7 +161,7 @@
         <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Node.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="docComment;method#Node#0;class#Node#0" expanded="false" />
                 <element signature="method#Node#0;class#Node#0" expanded="false" />
@@ -918,7 +920,7 @@
       <workItem from="1473045494983" duration="8511000" />
       <workItem from="1473083137526" duration="4298000" />
       <workItem from="1473095674551" duration="12528000" />
-      <workItem from="1473113871824" duration="426000" />
+      <workItem from="1473113871824" duration="836000" />
     </task>
     <task id="LOCAL-00001" summary="Se modificó la lectura de las reglas">
       <created>1472791112765</created>
@@ -948,11 +950,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473046011375</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/master'&#10;">
+      <created>1473114309003</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1473114309003</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111690000" />
+    <option name="totallyTimeSpent" value="112100000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1449,7 +1458,7 @@
     <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="docComment;method#Node#0;class#Node#0" expanded="false" />
             <element signature="method#Node#0;class#Node#0" expanded="false" />
@@ -1464,7 +1473,7 @@
     <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Rule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="530">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
             <element signature="docComment;method#Rule#0;class#Rule#0" expanded="false" />
             <element signature="method#Rule#0;class#Rule#0" expanded="false" />
@@ -1483,8 +1492,9 @@
     <entry file="file://$PROJECT_DIR$/src/se/determinista/files/IndexFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;method#IndexFile#0;class#IndexFile#0" expanded="false" />
             <element signature="method#IndexFile#0;class#IndexFile#0" expanded="false" />
             <element signature="docComment;method#newRecord#0;class#IndexFile#0" expanded="false" />
@@ -1500,7 +1510,7 @@
     <entry file="file://$PROJECT_DIR$/src/se/determinista/files/MasterFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#MasterFile#0" expanded="false" />
             <element signature="docComment;method#MasterFile#0;class#MasterFile#0" expanded="false" />
@@ -1522,7 +1532,7 @@
             <element signature="docComment;method#castToRule#0;class#MasterFile#0" expanded="false" />
             <element signature="method#castToRule#0;class#MasterFile#0" expanded="false" />
             <element signature="method#getAllRulesRecords#0;class#MasterFile#0" expanded="false" />
-            <marker date="1473113935347" expanded="false" signature="6883:6953" ph="/**...*/" />
+            <marker date="1473114307967" expanded="false" signature="6890:6967" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -1546,17 +1556,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
+        <state relative-caret-position="469">
+          <caret line="126" column="4" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="4" />
           <folding>
+            <element signature="docComment;method#InferenceEngine#0;class#InferenceEngine#0" expanded="false" />
             <element signature="method#InferenceEngine#0;class#InferenceEngine#0" expanded="false" />
+            <element signature="docComment;method#initialize#0;class#InferenceEngine#0" expanded="false" />
             <element signature="method#initialize#0;class#InferenceEngine#0" expanded="false" />
+            <element signature="docComment;method#forwardChaining#0;class#InferenceEngine#0" expanded="false" />
             <element signature="method#forwardChaining#0;class#InferenceEngine#0" expanded="false" />
+            <element signature="docComment;method#isContainedInFacts#0;class#InferenceEngine#0" expanded="false" />
             <element signature="method#isContainedInFacts#0;class#InferenceEngine#0" expanded="false" />
+            <element signature="docComment;method#equate#0;class#InferenceEngine#0" expanded="false" />
             <element signature="method#equate#0;class#InferenceEngine#0" expanded="false" />
+            <element signature="docComment;method#refractRule#0;class#InferenceEngine#0" expanded="false" />
             <element signature="method#refractRule#0;class#InferenceEngine#0" expanded="false" />
-            <element signature="method#resolveConflictiveSet#0;class#InferenceEngine#0" expanded="false" />
+            <element signature="docComment;method#resolveConflictSet#0;class#InferenceEngine#0" expanded="false" />
+            <element signature="docComment;method#applyRuleAndUpdateFacts#0;class#InferenceEngine#0" expanded="false" />
             <element signature="method#applyRuleAndUpdateFacts#0;class#InferenceEngine#0" expanded="false" />
+            <marker date="1473114706591" expanded="false" signature="3708:3892" ph="{...}" />
           </folding>
         </state>
       </provider>

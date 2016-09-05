@@ -29,6 +29,9 @@ public class InferenceEngine {
         conflictiveSet = new ArrayList<>();
     }
 
+    /**
+     * Initializes the engine asking the user for the goal to reach.
+     */
     public void initialize() {
         System.out.print("Ingrese la meta que deesea alcanzar, NONE para inferir sin meta específica, o \"x\" para cancelar");
         goal = new Scanner(System.in).next();
@@ -36,12 +39,15 @@ public class InferenceEngine {
             forwardChaining();
     }
 
+    /**
+     * Starts the forward chaining with the specified Knowledge base, facts base and goal
+     */
     private void forwardChaining() {
         conflictiveSet.add((byte) 1);
         while (!isContainedInFacts(goal) && (conflictiveSet.size() > 0 && conflictiveSet != null)) {
             conflictiveSet = equate(mfile, ffile);
             if (conflictiveSet != null && conflictiveSet.size() > 0) {
-                byte ruleID = resolveConflictiveSet(conflictiveSet);
+                byte ruleID = resolveConflictSet(conflictiveSet);
                 applyRuleAndUpdateFacts(ruleID);
             }
         }
@@ -54,6 +60,12 @@ public class InferenceEngine {
         }
     }
 
+    /**
+     * Search for the goal in the Facts Base
+     *
+     * @param _goal
+     * @return
+     */
     private boolean isContainedInFacts(String _goal) {
         if (ffile.getAllFacts().contains(_goal))
             return true;
@@ -61,6 +73,12 @@ public class InferenceEngine {
             return false;
     }
 
+    /**
+     * Equates the Master File and the Facts base to obtain a conflict set of Rules
+     * @param _knowledgebase
+     * @param _factsbase
+     * @return
+     */
     private ArrayList<Byte> equate(MasterFile _knowledgebase, FactsFile _factsbase) {
         ArrayList<Byte> rulesID = new ArrayList<>();
         ArrayList<Rule> rules = _knowledgebase.getAllRulesRecords();
@@ -81,6 +99,11 @@ public class InferenceEngine {
         return rulesID;
     }
 
+    /**
+     * Refracts the specified rule and returns true if was already applied.
+     * @param _ruleID
+     * @return
+     */
     private boolean refractRule(byte _ruleID) {
         if (appliedRules.contains(_ruleID))
             return true;
@@ -88,7 +111,13 @@ public class InferenceEngine {
             return false;
     }
 
-    private byte resolveConflictiveSet(ArrayList<Byte> _rulesID) {
+    /**
+     * Chooses a rule from the conflict set.
+     *
+     * @param _rulesID
+     * @return The Rule with lowest ID number
+     */
+    private byte resolveConflictSet(ArrayList<Byte> _rulesID) {
         byte chosen = _rulesID.get(0);
         for (byte ruleID : _rulesID) {
             if (ruleID < chosen)
@@ -97,6 +126,10 @@ public class InferenceEngine {
         return chosen;
     }
 
+    /**
+     * Applies the specified rule and update the Facts Base with the rule consequent
+     * @param _ruleID
+     */
     private void applyRuleAndUpdateFacts(byte _ruleID) {
         ffile.insertFact(mfile.getRule(_ruleID).getConsequent());
         appliedRules.add(_ruleID);

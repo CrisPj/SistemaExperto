@@ -17,6 +17,9 @@ public class MainMenu {
     private FactsFile ffile;
     private InferenceEngine engine;
 
+    /**
+     * Creates a new Menu and the files of the system
+     */
     public MainMenu() {
         mfile = new MasterFile(path, "rw");
         ffile = new FactsFile(path, "rw");
@@ -24,6 +27,9 @@ public class MainMenu {
         showMenu();
     }
 
+    /**
+     * Shows the main Menu
+     */
     public void showMenu() {
         String option = null;
         do {
@@ -45,6 +51,11 @@ public class MainMenu {
         } while (!option.equals("x"));
     }
 
+    /**
+     * Manages the chosen option of the user
+     *
+     * @param _option
+     */
     public void manageOption(String _option) {
         switch (_option) {
             case "1":

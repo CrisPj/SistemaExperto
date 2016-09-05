@@ -16,7 +16,7 @@ public class IndexTree {
      *
      * @param _node
      */
-    public void insertNodeToTree(Node _node) {
+    private void insertNodeToTree(Node _node) {
         if (tree != null)
             tree.insertNode(_node);
         else
@@ -32,7 +32,14 @@ public class IndexTree {
         return searchRuleAddress(_id, tree);
     }
 
-    public long searchRuleAddress(long _id, Node _root) {
+    /**
+     * Searches in the tree for
+     *
+     * @param _id
+     * @param _root
+     * @return
+     */
+    private long searchRuleAddress(long _id, Node _root) {
         if (_root.getId() == _id)
             return _root.getMemoryAddress();
         else if (_root.getId() > _id)

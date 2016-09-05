@@ -32,6 +32,12 @@ public class MasterFile {
         createFile(_name, _permissions);
     }
 
+    /**
+     * Create the Master and Index files with the specified paremeters
+     *
+     * @param _name
+     * @param _permissions
+     */
     public void createFile(String _name, String _permissions) {
         try {
             path = _name;
@@ -46,7 +52,7 @@ public class MasterFile {
      *
      * @param _rule
      */
-    public void newRecord(Rule _rule) {
+    private void newRecord(Rule _rule) {
         StringBuffer buffer;
         try {
             file.seek(file.length());
@@ -96,7 +102,7 @@ public class MasterFile {
                 for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
                     currRecord[i] = file.readChar();
                 }
-                rule.setConsq(new String(currRecord));
+                rule.setConsequent(new String(currRecord));
             }
         } catch (Exception ex) {
             System.out.println("Error, la regla no existe en la base de conocimientos : " + ex.getMessage());
@@ -123,45 +129,6 @@ public class MasterFile {
         } else {
             createFile("E:\\knowledgebase", "rw");
         }
-    }
-
-    /**
-     * This method generates a Rule based on the formated input, malformed input will throw exception.
-     *
-     * @param _input
-     * @return A new Rule
-     * @throws Exception
-     */
-    private Rule castToRule(String _input) throws Exception {
-        return new Rule(Byte.parseByte(_input.split("-")[0]), _input.split("-")[1].split(","), _input.split("-")[2]);
-    }
-
-    public ArrayList<Rule> getAllRulesRecords() {
-        ArrayList<Rule> rules = new ArrayList<>();
-        String[] recordsArray;
-        char[] currRecord;
-        try {
-            file.seek(0);
-            Rule rule;
-            do {
-                rule = new Rule();
-                recordsArray = new String[Rule.RECORDS_QUANTITY];
-                currRecord = new char[Rule.SINGULAR_RECORD_SIZE];
-                rule.setId(file.readByte());
-                for (int recordNumber = 0; recordNumber < Rule.RECORDS_QUANTITY; recordNumber++) {
-                    for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
-                        currRecord[i] = file.readChar();
-                    }
-                    recordsArray[recordNumber] = new String(currRecord);
-                }
-                rule.setRecords(recordsArray);
-                file.skipBytes(Rule.SINGULAR_RECORD_SIZE * 2);
-                rules.add(rule);
-            } while (true);
-        } catch (Exception ex) {
-            //System.out.println("\nAll rules set\n");
-        }
-        return rules;
     }
 
     /**
@@ -194,10 +161,18 @@ public class MasterFile {
         }
     }
 
+    /**
+     * Shows the Index stored in IndexFile to the user
+     */
     public void showIndex() {
         index.showIndex();
     }
 
+    /**
+     * Returns all the records contained separated by comma
+     * @param _records
+     * @return
+     */
     public String getRecords(String[] _records) {
         int counter = 0;
         String records = "";
@@ -220,14 +195,47 @@ public class MasterFile {
     }
 
     /**
-     * Closes the stream of the file
+     * This method generates a Rule based on the formated input, malformed input will throw exception.
+     *
+     * @param _input
+     * @return A new Rule
+     * @throws Exception
      */
-    public void close() {
+    private Rule castToRule(String _input) throws Exception {
+        return new Rule(Byte.parseByte(_input.split("-")[0]), _input.split("-")[1].split(","), _input.split("-")[2]);
+    }
+
+    /**
+     * Returns the records of all the rules
+     *
+     * @return
+     */
+    public ArrayList<Rule> getAllRulesRecords() {
+        ArrayList<Rule> rules = new ArrayList<>();
+        String[] recordsArray;
+        char[] currRecord;
         try {
-            this.close();
+            file.seek(0);
+            Rule rule;
+            do {
+                rule = new Rule();
+                recordsArray = new String[Rule.RECORDS_QUANTITY];
+                currRecord = new char[Rule.SINGULAR_RECORD_SIZE];
+                rule.setId(file.readByte());
+                for (int recordNumber = 0; recordNumber < Rule.RECORDS_QUANTITY; recordNumber++) {
+                    for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
+                        currRecord[i] = file.readChar();
+                    }
+                    recordsArray[recordNumber] = new String(currRecord);
+                }
+                rule.setRecords(recordsArray);
+                file.skipBytes(Rule.SINGULAR_RECORD_SIZE * 2);
+                rules.add(rule);
+            } while (true);
         } catch (Exception ex) {
-            System.out.println("" + ex.getMessage());
+            //System.out.println("\nAll rules set\n");
         }
+        return rules;
     }
 
 }

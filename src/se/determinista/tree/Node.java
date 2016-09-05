@@ -10,6 +10,12 @@ public class Node {
     private byte id;
     private long memoryAddress;
 
+    /**
+     * Constructs a new Node with the specified id and memory address for a new inserted Rule
+     *
+     * @param _id
+     * @param _memoryAddress
+     */
     public Node(byte _id, long _memoryAddress) {
         id = _id;
         memoryAddress = _memoryAddress;
@@ -18,7 +24,6 @@ public class Node {
     /**
      * This method inserts a new node in the tree if the value of the entering node is minor than the
      * value of its root, goes to left, if not, goes right.
-     *
      * @param _node
      */
     public void insertNode(Node _node) {
@@ -37,21 +42,20 @@ public class Node {
         }
     }
 
-    /*public void setId(byte _id)
-    {
-        id = _id;
-    }
-
-    public void setMemoryAddress(long _memoryAddress)
-    {
-        memoryAddress = _memoryAddress;
-    }*/
-
+    /**
+     * Returns the id of the rule stored in this Node
+     * @return Rule id stored in file
+     */
     public byte getId() {
         return id;
     }
 
+    /**
+     * Returns the memory address of the rule with the specified ID
+     * @return Memory Address of the rule
+     */
     public long getMemoryAddress() {
         return memoryAddress;
     }
+
 }

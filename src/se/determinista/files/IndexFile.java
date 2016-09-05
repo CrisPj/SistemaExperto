@@ -27,6 +27,12 @@ public class IndexFile {
         }
     }
 
+    /**
+     * Writes a new record to the Index, specifying the rule ID and its memory address
+     *
+     * @param _id
+     * @param _memoryAddress
+     */
     public void newRecord(byte _id, long _memoryAddress) {
         try {
             file.seek(file.length());
@@ -37,7 +43,12 @@ public class IndexFile {
         }
     }
 
-    public ArrayList getRulesAddresses() {
+    /**
+     * Returns all the addresses of the rules
+     *
+     * @return ArrayList<String>
+     */
+    public ArrayList<String> getRulesAddresses() {
         ArrayList<String> rules = new ArrayList<>();
 
         try {
@@ -53,7 +64,7 @@ public class IndexFile {
     }
 
     /**
-     * Shows in therminal the Index for the rules contained in the MasterFile
+     * Shows in terminal the Index for the rules contained in the MasterFile
      */
     public void showIndex() {
         boolean EOF = false;

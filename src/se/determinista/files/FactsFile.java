@@ -64,6 +64,9 @@ public class FactsFile {
         return facts;
     }
 
+    /**
+     * Prints in terminal all the facts contained in the FactsFile
+     */
     public void printAllFacts() {
         try {
             ArrayList<String> facts = getAllFacts();
@@ -74,6 +77,9 @@ public class FactsFile {
         }
     }
 
+    /**
+     * Asks the user for the facts to infer.
+     */
     public void insertFacts() {
         String a = null;
         do {
@@ -85,6 +91,9 @@ public class FactsFile {
         } while (!a.equals("x"));
     }
 
+    /**
+     * Erases all the facts contained in the FactsFile
+     */
     public void deleteAllFacts() {
         try {
             file.setLength(0);

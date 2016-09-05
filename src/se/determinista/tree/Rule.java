@@ -15,15 +15,77 @@ public class Rule {
     private String[] records;
     private String consequent;
 
+    /**
+     * Creates a new empty Rule
+     */
     public Rule() {
     }
 
+    /**
+     * Constructs a Rule specifying its Id, records and consequent
+     *
+     * @param _id
+     * @param _records
+     * @param _consequent
+     */
     public Rule(byte _id, String[] _records, String _consequent) {
         id = _id;
         records = _records;
         consequent = _consequent;
     }
 
+    /**
+     * Returns the Rule id
+     *
+     * @return byte
+     */
+    public byte getId() {
+        return id;
+    }
+
+    /**
+     * Sets the rule id in a byte data type
+     * @param _id
+     */
+    public void setId(byte _id) {
+        id = _id;
+    }
+
+    /**
+     * Returns all the records for this rule
+     *
+     * @return String[]
+     */
+    public String[] getRecords() {
+        return records;
+    }
+
+    /**
+     * Sets the records for this rule
+     * @param _records
+     */
+    public void setRecords(String[] _records) {
+        records = _records;
+    }
+
+    /**
+     * Returns the consequent of this Rule
+     * @return String
+     */
+    public String getConsequent() {
+        return consequent;
+    }
+
+    /**
+     * Sets the consequent of this rule
+     *
+     * @param _consequent
+     */
+    public void setConsequent(String _consequent) {
+        consequent = _consequent;
+    }
+
+    /*
     public static void printRule(Rule _rule) {
         if (_rule.getRecords() != null) {
             System.out.println("ID:" + _rule.getId() +
@@ -36,29 +98,6 @@ public class Rule {
                     + "->" + _rule.getConsequent());
         }
     }
-
-    public byte getId() {
-        return id;
-    }
-
-    public void setId(byte _id) {
-        id = _id;
-    }
-
-    public String[] getRecords() {
-        return records;
-    }
-
-    public void setRecords(String[] _records) {
-        records = _records;
-    }
-
-    public String getConsequent() {
-        return consequent;
-    }
-
-    public void setConsq(String _consequent) {
-        consequent = _consequent;
-    }
+*/
 
 }

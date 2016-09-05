@@ -15,33 +15,33 @@ public class InferenceEngine {
     private MasterFile mfile;
     private FactsFile ffile;
     private ArrayList<Byte> appliedRules;
-    private ArrayList<Byte> ConflictiveSet;
+    private ArrayList<Byte> conflictiveSet;
     private String goal = null;
 
     /**
-     *
+     *Constructs a new InferenceEngine with the specified Knowledge Base and Facts Base
      */
     public InferenceEngine(MasterFile _mfile, FactsFile _ffile) {
         mfile = _mfile;
         mfile.generateTree();
         ffile = _ffile;
         appliedRules = new ArrayList<>();
-        ConflictiveSet = new ArrayList<>();
+        conflictiveSet = new ArrayList<>();
     }
 
     public void initialize() {
         System.out.print("Ingrese la meta que deesea alcanzar, NONE para inferir sin meta específica, o \"x\" para cancelar");
         goal = new Scanner(System.in).next();
         if (!goal.equals("x"))
-            ForwardChaining();
+            forwardChaining();
     }
 
-    public void ForwardChaining() {
-        ConflictiveSet.add((byte) 1);
-        while (!isContainedInFacts(goal) && (ConflictiveSet.size() > 0 && ConflictiveSet != null)) {
-            ConflictiveSet = equate(mfile, ffile);
-            if (ConflictiveSet != null && ConflictiveSet.size() > 0) {
-                byte ruleID = ResolveConflictiveSet(ConflictiveSet);
+    private void forwardChaining() {
+        conflictiveSet.add((byte) 1);
+        while (!isContainedInFacts(goal) && (conflictiveSet.size() > 0 && conflictiveSet != null)) {
+            conflictiveSet = equate(mfile, ffile);
+            if (conflictiveSet != null && conflictiveSet.size() > 0) {
+                byte ruleID = resolveConflictiveSet(conflictiveSet);
                 applyRuleAndUpdateFacts(ruleID);
             }
         }
@@ -54,7 +54,7 @@ public class InferenceEngine {
         }
     }
 
-    public boolean isContainedInFacts(String _goal) {
+    private boolean isContainedInFacts(String _goal) {
         if (ffile.getAllFacts().contains(_goal))
             return true;
         else
@@ -88,7 +88,7 @@ public class InferenceEngine {
             return false;
     }
 
-    private byte ResolveConflictiveSet(ArrayList<Byte> _rulesID) {
+    private byte resolveConflictiveSet(ArrayList<Byte> _rulesID) {
         byte chosen = _rulesID.get(0);
         for (byte ruleID : _rulesID) {
             if (ruleID < chosen)

@@ -81,14 +81,14 @@ public class FactsFile {
      * Asks the user for the facts to infer.
      */
     public void insertFacts() {
-        String a = null;
+        String input = null;
         do {
             System.out.println("Ingrese un hecho a la base o \"x\" para finalizar");
-            a = new Scanner(System.in).next();
-            if (!a.equals("x")) {
-                insertFact(a);
+            input = new Scanner(System.in).next();
+            if (!input.equals("x")) {
+                insertFact(input);
             }
-        } while (!a.equals("x"));
+        } while (!input.equals("x"));
     }
 
     /**

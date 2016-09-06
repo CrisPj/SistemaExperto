@@ -37,7 +37,7 @@ public class MainMenu {
                     "1.- Ver las reglas en la base de conocimientos\n" +
                     "2.- Ver índice de reglas\n" +
                     "3.- Agregar reglas a la base de conocimientos\n" +
-                    "4.- Borrar reglas a la base de conocimientos\n" +
+                    "4.- Borrar todas reglas a la base de conocimientos\n" +
                     "5.- Ver los antecedentes en la base de hechos\n" +
                     "6.- Agregar hechos a la base de hechos\n" +
                     "7.- Realizar inferencia (encadenamiento hacia adelante)\n" +
@@ -68,7 +68,7 @@ public class MainMenu {
                 mfile.insertNewRules();
                 break;
             case "4":
-                //mfile.deleteRules();
+                mfile.deleteAllRules();
                 break;
             case "5":
                 ffile.printAllFacts();

@@ -38,7 +38,7 @@ public class MasterFile {
      * @param _name
      * @param _permissions
      */
-    public void createFile(String _name, String _permissions) {
+    private void createFile(String _name, String _permissions) {
         try {
             path = _name;
             file = new RandomAccessFile(_name + FILE_EXTENSION, _permissions);
@@ -238,4 +238,11 @@ public class MasterFile {
         return rules;
     }
 
+
+    public void deleteAllRules() {
+        try {
+            file.setLength(0);
+        } catch (Exception ex) {
+        }
+    }
 }

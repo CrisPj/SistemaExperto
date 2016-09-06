@@ -15,7 +15,7 @@ public class InferenceEngine {
     private MasterFile mfile;
     private FactsFile ffile;
     private ArrayList<Byte> appliedRules;
-    private ArrayList<Byte> conflictiveSet;
+    private ArrayList<Byte> conflictSet;
     private String goal = null;
 
     /**
@@ -26,7 +26,7 @@ public class InferenceEngine {
         mfile.generateTree();
         ffile = _ffile;
         appliedRules = new ArrayList<>();
-        conflictiveSet = new ArrayList<>();
+        conflictSet = new ArrayList<>();
     }
 
     /**
@@ -43,11 +43,11 @@ public class InferenceEngine {
      * Starts the forward chaining with the specified Knowledge base, facts base and goal
      */
     private void forwardChaining() {
-        conflictiveSet.add((byte) 1);
-        while (!isContainedInFacts(goal) && (conflictiveSet.size() > 0 && conflictiveSet != null)) {
-            conflictiveSet = equate(mfile, ffile);
-            if (conflictiveSet != null && conflictiveSet.size() > 0) {
-                byte ruleID = resolveConflictSet(conflictiveSet);
+        conflictSet.add((byte) 1);
+        while (!isContainedInFacts(goal) && (conflictSet.size() > 0 && conflictSet != null)) {
+            conflictSet = equate(mfile, ffile);
+            if (conflictSet != null && conflictSet.size() > 0) {
+                byte ruleID = resolveConflictSet(conflictSet);
                 applyRuleAndUpdateFacts(ruleID);
             }
         }

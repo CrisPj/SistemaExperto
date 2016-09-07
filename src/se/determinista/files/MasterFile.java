@@ -242,6 +242,7 @@ public class MasterFile {
     public void deleteAllRules() {
         try {
             file.setLength(0);
+            index.deleteContent();
         } catch (Exception ex) {
         }
     }

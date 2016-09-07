@@ -78,4 +78,11 @@ public class IndexFile {
             System.out.println("\nFinished reading IndexFile\n");
         }
     }
+
+    public void deleteContent() {
+        try {
+            file.setLength(0);
+        } catch (Exception ex) {
+        }
+    }
 }

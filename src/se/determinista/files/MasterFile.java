@@ -117,7 +117,7 @@ public class MasterFile {
         if (new java.io.File(path + MasterFile.FILE_EXTENSION).exists()) {
             String input = null;
             do {
-                System.out.println("Ingrese una nueva regla con el formato ID-Ant1,,Ant3,...,Ant5-Consecuente \n O  \"x\" para salir");
+                System.out.println("Ingrese una nueva regla con el formato ID-Ant1^Ant2^...^Ant5-Consecuente \n O  \"x\" para salir");
                 input = new Scanner(System.in).next();
                 if (!input.equals("x"))
                     try {
@@ -128,6 +128,7 @@ public class MasterFile {
             } while (!input.equals("x"));
         } else {
             createFile("E:\\knowledgebase", "rw");
+            insertNewRules();
         }
     }
 
@@ -169,7 +170,7 @@ public class MasterFile {
     }
 
     /**
-     * Returns all the records contained separated by comma
+     * Returns all the records contained in the Rule separated by comma
      * @param _records
      * @return
      */
@@ -178,12 +179,14 @@ public class MasterFile {
         String records = "";
         for (String record : _records) {
             if (counter < Rule.RECORDS_QUANTITY) {
-                records += record + ",";
+                if (!record.trim().isEmpty()) {
+                    records += record + "^";
+                }
             } else {
-                records += record;
+                //1records += record;
             }
         }
-        return records;
+        return records.substring(0, records.length() - 1);
     }
 
     /**
@@ -202,7 +205,7 @@ public class MasterFile {
      * @throws Exception
      */
     private Rule castToRule(String _input) throws Exception {
-        return new Rule(Byte.parseByte(_input.split("-")[0]), _input.split("-")[1].split(","), _input.split("-")[2]);
+        return new Rule(Byte.parseByte(_input.split("-")[0]), _input.split("-")[1].split("\\^"), _input.split("-")[2]);
     }
 
     /**

@@ -83,12 +83,12 @@ public class FactsFile {
     public void insertFacts() {
         String input = null;
         do {
-            System.out.println("Ingrese un hecho a la base o \"x\" para finalizar");
+            System.out.println("Ingrese un hecho a la base o END para finalizar");
             input = new Scanner(System.in).next();
-            if (!input.equals("x")) {
+            if (!input.equals("END")) {
                 insertFact(input);
             }
-        } while (!input.equals("x"));
+        } while (!input.equals("END"));
     }
 
     /**

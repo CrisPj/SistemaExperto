@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="970cb1a9-2a45-4276-abed-e7faf9ba5f48" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/files/IndexFile.java" afterPath="$PROJECT_DIR$/src/se/determinista/files/IndexFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" afterPath="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/files/MasterFile.java" afterPath="$PROJECT_DIR$/src/se/determinista/files/MasterFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" afterPath="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" />
     </list>
     <ignored path="SE-Determinista.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +43,8 @@
       <file leaf-file-name="MasterFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/files/MasterFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+            <state relative-caret-position="334">
+              <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#MasterFile#0" expanded="false" />
                 <element signature="docComment;method#MasterFile#0;class#MasterFile#0" expanded="false" />
@@ -51,14 +52,10 @@
                 <element signature="method#createFile#0;class#MasterFile#0" expanded="false" />
                 <element signature="docComment;method#newRecord#0;class#MasterFile#0" expanded="false" />
                 <element signature="docComment;method#getRule#0;class#MasterFile#0" expanded="false" />
-                <element signature="method#getRule#0;class#MasterFile#0" expanded="false" />
                 <element signature="docComment;method#insertNewRules#0;class#MasterFile#0" expanded="false" />
                 <element signature="docComment;method#printAllRules#0;class#MasterFile#0" expanded="false" />
                 <element signature="docComment;method#showIndex#0;class#MasterFile#0" expanded="false" />
-                <element signature="docComment;method#getRecords#0;class#MasterFile#0" expanded="false" />
-                <element signature="method#getRecords#0;class#MasterFile#0" expanded="false" />
                 <element signature="docComment;method#castToRule#0;class#MasterFile#0" expanded="false" />
-                <element signature="method#castToRule#0;class#MasterFile#0" expanded="false" />
                 <element signature="docComment;method#getAllRulesRecords#0;class#MasterFile#0" expanded="false" />
                 <element signature="method#getAllRulesRecords#0;class#MasterFile#0" expanded="false" />
               </folding>
@@ -66,56 +63,100 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InferenceEngine.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="IndexTree.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/IndexTree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <element signature="docComment;method#insertNodeToTree#0;class#IndexTree#0" expanded="false" />
+                <element signature="docComment;method#getRuleMemoryAddress#0;class#IndexTree#0" expanded="false" />
+                <element signature="e#680#681#0" expanded="true" />
+                <element signature="docComment;method#searchRuleAddress#0;class#IndexTree#0" expanded="false" />
+                <element signature="method#searchRuleAddress#0;class#IndexTree#0" expanded="false" />
+                <element signature="docComment;method#generateIndexTree#0;class#IndexTree#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Rule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <element signature="docComment;method#Rule#0;class#Rule#0" expanded="false" />
+                <element signature="docComment;method#Rule#1;class#Rule#0" expanded="false" />
+                <element signature="docComment;method#getId#0;class#Rule#0" expanded="false" />
+                <element signature="docComment;method#setId#0;class#Rule#0" expanded="false" />
+                <element signature="docComment;method#getRecords#0;class#Rule#0" expanded="false" />
+                <element signature="docComment;method#setRecords#0;class#Rule#0" expanded="false" />
+                <element signature="docComment;method#getConsequent#0;class#Rule#0" expanded="false" />
+                <element signature="docComment;method#setConsequent#0;class#Rule#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InferenceEngine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
               <folding>
                 <element signature="docComment;method#InferenceEngine#0;class#InferenceEngine#0" expanded="false" />
-                <element signature="method#InferenceEngine#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="docComment;method#initialize#0;class#InferenceEngine#0" expanded="false" />
-                <element signature="method#initialize#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="docComment;method#forwardChaining#0;class#InferenceEngine#0" expanded="false" />
-                <element signature="method#forwardChaining#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="docComment;method#isContainedInFacts#0;class#InferenceEngine#0" expanded="false" />
-                <element signature="method#isContainedInFacts#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="docComment;method#equate#0;class#InferenceEngine#0" expanded="false" />
-                <element signature="method#equate#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="docComment;method#refractRule#0;class#InferenceEngine#0" expanded="false" />
-                <element signature="method#refractRule#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="docComment;method#resolveConflictSet#0;class#InferenceEngine#0" expanded="false" />
-                <element signature="method#resolveConflictSet#0;class#InferenceEngine#0" expanded="false" />
                 <element signature="docComment;method#applyRuleAndUpdateFacts#0;class#InferenceEngine#0" expanded="false" />
-                <element signature="method#applyRuleAndUpdateFacts#0;class#InferenceEngine#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexFile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/determinista/files/IndexFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="752">
-              <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
-              <folding>
-                <element signature="docComment;method#IndexFile#0;class#IndexFile#0" expanded="false" />
-                <element signature="method#IndexFile#0;class#IndexFile#0" expanded="false" />
-                <element signature="docComment;method#newRecord#0;class#IndexFile#0" expanded="false" />
-                <element signature="docComment;method#getRulesAddresses#0;class#IndexFile#0" expanded="false" />
-                <element signature="method#getRulesAddresses#0;class#IndexFile#0" expanded="false" />
-                <element signature="docComment;method#showIndex#0;class#IndexFile#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeterministES.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DeterministES.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/DeterministES.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+            <state relative-caret-position="256">
+              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1024">
+              <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+              <folding>
+                <element signature="docComment;method#MainMenu#0;class#MainMenu#0" expanded="false" />
+                <element signature="docComment;method#showMenu#0;class#MainMenu#0" expanded="false" />
+                <element signature="docComment;method#manageOption#0;class#MainMenu#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FactsFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/determinista/files/FactsFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
+              <folding>
+                <element signature="docComment;method#FactsFile#0;class#FactsFile#0" expanded="false" />
+                <element signature="method#FactsFile#0;class#FactsFile#0" expanded="false" />
+                <element signature="docComment;method#insertFact#0;class#FactsFile#0" expanded="false" />
+                <element signature="docComment;method#getAllFacts#0;class#FactsFile#0" expanded="false" />
+                <element signature="docComment;method#printAllFacts#0;class#FactsFile#0" expanded="false" />
+                <element signature="docComment;method#insertFacts#0;class#FactsFile#0" expanded="false" />
+                <element signature="docComment;method#deleteAllFacts#0;class#FactsFile#0" expanded="false" />
+                <element signature="method#deleteAllFacts#0;class#FactsFile#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,10 +204,10 @@
         <option value="$PROJECT_DIR$/src/se/determinista/tree/Node.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/tree/IndexTree.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java" />
-        <option value="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" />
-        <option value="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" />
-        <option value="$PROJECT_DIR$/src/se/determinista/files/MasterFile.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/files/IndexFile.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/files/MasterFile.java" />
       </list>
     </option>
   </component>
@@ -208,7 +249,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -339,7 +380,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -822,7 +863,8 @@
       <workItem from="1473095674551" duration="12528000" />
       <workItem from="1473113871824" duration="17181000" />
       <workItem from="1473165440413" duration="1042000" />
-      <workItem from="1473258248733" duration="50000" />
+      <workItem from="1473258248733" duration="2439000" />
+      <workItem from="1473389278435" duration="6058000" />
     </task>
     <task id="LOCAL-00001" summary="Se modificó la lectura de las reglas">
       <created>1472791112765</created>
@@ -873,11 +915,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473139987944</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Merge remote-tracking branch 'origin/master'&#10;">
+      <created>1473258306938</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1473258306938</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129537000" />
+    <option name="totallyTimeSpent" value="137984000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -894,12 +943,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39148074" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.49791667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.525355" sideWeight="0.51458335" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.62068963" sideWeight="0.48541668" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.62474644" sideWeight="0.48541668" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.49791667" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -908,13 +958,12 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4107505" sideWeight="0.7359375" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53549695" sideWeight="0.7359375" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.49791667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="896" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24270834" sideWeight="0.5139912" order="0" side_tool="true" content_ui="tabs" />
@@ -947,13 +996,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/se/determinista/files/FactsFile.java</url>
-          <line>62</line>
+          <url>file://$PROJECT_DIR$/src/se/determinista/files/MasterFile.java</url>
+          <line>208</line>
           <properties />
-          <option name="timeStamp" value="56" />
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/se/determinista/files/MasterFile.java</url>
+          <line>123</line>
+          <properties />
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="63" />
+      <option name="time" value="77" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1327,56 +1382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-          <folding>
-            <element signature="docComment;method#MainMenu#0;class#MainMenu#0" expanded="false" />
-            <element signature="docComment;method#showMenu#0;class#MainMenu#0" expanded="false" />
-            <element signature="docComment;method#manageOption#0;class#MainMenu#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/IndexTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;method#insertNodeToTree#0;class#IndexTree#0" expanded="false" />
-            <element signature="docComment;method#getRuleMemoryAddress#0;class#IndexTree#0" expanded="false" />
-            <element signature="docComment;method#searchRuleAddress#0;class#IndexTree#0" expanded="false" />
-            <element signature="method#searchRuleAddress#0;class#IndexTree#0" expanded="false" />
-            <element signature="docComment;method#generateIndexTree#0;class#IndexTree#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Rule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
-          <folding>
-            <element signature="docComment;method#Rule#0;class#Rule#0" expanded="false" />
-            <element signature="method#Rule#0;class#Rule#0" expanded="false" />
-            <element signature="docComment;method#Rule#1;class#Rule#0" expanded="false" />
-            <element signature="method#Rule#1;class#Rule#0" expanded="false" />
-            <element signature="docComment;method#getId#0;class#Rule#0" expanded="false" />
-            <element signature="e#907#908#0" expanded="false" />
-            <element signature="e#932#933#0" expanded="false" />
-            <element signature="docComment;method#setId#0;class#Rule#0" expanded="false" />
-            <element signature="docComment;method#getRecords#0;class#Rule#0" expanded="false" />
-            <element signature="e#1197#1198#0" expanded="false" />
-            <element signature="e#1227#1228#0" expanded="false" />
-            <element signature="docComment;method#setRecords#0;class#Rule#0" expanded="false" />
-            <element signature="docComment;method#getConsequent#0;class#Rule#0" expanded="false" />
-            <element signature="docComment;method#setConsequent#0;class#Rule#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -1384,10 +1389,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/IndexFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="33" />
+          <folding>
+            <element signature="docComment;method#IndexFile#0;class#IndexFile#0" expanded="false" />
+            <element signature="method#IndexFile#0;class#IndexFile#0" expanded="false" />
+            <element signature="docComment;method#newRecord#0;class#IndexFile#0" expanded="false" />
+            <element signature="docComment;method#getRulesAddresses#0;class#IndexFile#0" expanded="false" />
+            <element signature="method#getRulesAddresses#0;class#IndexFile#0" expanded="false" />
+            <element signature="docComment;method#showIndex#0;class#IndexFile#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/files/FactsFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+        <state relative-caret-position="291">
+          <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
           <folding>
             <element signature="docComment;method#FactsFile#0;class#FactsFile#0" expanded="false" />
             <element signature="method#FactsFile#0;class#FactsFile#0" expanded="false" />
@@ -1401,25 +1421,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/IndexFile.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+        <state relative-caret-position="1024">
+          <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
           <folding>
-            <element signature="docComment;method#IndexFile#0;class#IndexFile#0" expanded="false" />
-            <element signature="method#IndexFile#0;class#IndexFile#0" expanded="false" />
-            <element signature="docComment;method#newRecord#0;class#IndexFile#0" expanded="false" />
-            <element signature="docComment;method#getRulesAddresses#0;class#IndexFile#0" expanded="false" />
-            <element signature="method#getRulesAddresses#0;class#IndexFile#0" expanded="false" />
-            <element signature="docComment;method#showIndex#0;class#IndexFile#0" expanded="false" />
+            <element signature="docComment;method#MainMenu#0;class#MainMenu#0" expanded="false" />
+            <element signature="docComment;method#showMenu#0;class#MainMenu#0" expanded="false" />
+            <element signature="docComment;method#manageOption#0;class#MainMenu#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/DeterministES.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Rule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;method#Rule#0;class#Rule#0" expanded="false" />
+            <element signature="docComment;method#Rule#1;class#Rule#0" expanded="false" />
+            <element signature="docComment;method#getId#0;class#Rule#0" expanded="false" />
+            <element signature="docComment;method#setId#0;class#Rule#0" expanded="false" />
+            <element signature="docComment;method#getRecords#0;class#Rule#0" expanded="false" />
+            <element signature="docComment;method#setRecords#0;class#Rule#0" expanded="false" />
+            <element signature="docComment;method#getConsequent#0;class#Rule#0" expanded="false" />
+            <element signature="docComment;method#setConsequent#0;class#Rule#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/IndexTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;method#insertNodeToTree#0;class#IndexTree#0" expanded="false" />
+            <element signature="docComment;method#getRuleMemoryAddress#0;class#IndexTree#0" expanded="false" />
+            <element signature="e#680#681#0" expanded="true" />
+            <element signature="docComment;method#searchRuleAddress#0;class#IndexTree#0" expanded="false" />
+            <element signature="method#searchRuleAddress#0;class#IndexTree#0" expanded="false" />
+            <element signature="docComment;method#generateIndexTree#0;class#IndexTree#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/files/MasterFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+        <state relative-caret-position="334">
+          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#MasterFile#0" expanded="false" />
             <element signature="docComment;method#MasterFile#0;class#MasterFile#0" expanded="false" />
@@ -1427,14 +1484,10 @@
             <element signature="method#createFile#0;class#MasterFile#0" expanded="false" />
             <element signature="docComment;method#newRecord#0;class#MasterFile#0" expanded="false" />
             <element signature="docComment;method#getRule#0;class#MasterFile#0" expanded="false" />
-            <element signature="method#getRule#0;class#MasterFile#0" expanded="false" />
             <element signature="docComment;method#insertNewRules#0;class#MasterFile#0" expanded="false" />
             <element signature="docComment;method#printAllRules#0;class#MasterFile#0" expanded="false" />
             <element signature="docComment;method#showIndex#0;class#MasterFile#0" expanded="false" />
-            <element signature="docComment;method#getRecords#0;class#MasterFile#0" expanded="false" />
-            <element signature="method#getRecords#0;class#MasterFile#0" expanded="false" />
             <element signature="docComment;method#castToRule#0;class#MasterFile#0" expanded="false" />
-            <element signature="method#castToRule#0;class#MasterFile#0" expanded="false" />
             <element signature="docComment;method#getAllRulesRecords#0;class#MasterFile#0" expanded="false" />
             <element signature="method#getAllRulesRecords#0;class#MasterFile#0" expanded="false" />
           </folding>
@@ -1443,34 +1496,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="45">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="docComment;method#InferenceEngine#0;class#InferenceEngine#0" expanded="false" />
-            <element signature="method#InferenceEngine#0;class#InferenceEngine#0" expanded="false" />
             <element signature="docComment;method#initialize#0;class#InferenceEngine#0" expanded="false" />
-            <element signature="method#initialize#0;class#InferenceEngine#0" expanded="false" />
             <element signature="docComment;method#forwardChaining#0;class#InferenceEngine#0" expanded="false" />
-            <element signature="method#forwardChaining#0;class#InferenceEngine#0" expanded="false" />
             <element signature="docComment;method#isContainedInFacts#0;class#InferenceEngine#0" expanded="false" />
-            <element signature="method#isContainedInFacts#0;class#InferenceEngine#0" expanded="false" />
             <element signature="docComment;method#equate#0;class#InferenceEngine#0" expanded="false" />
-            <element signature="method#equate#0;class#InferenceEngine#0" expanded="false" />
             <element signature="docComment;method#refractRule#0;class#InferenceEngine#0" expanded="false" />
-            <element signature="method#refractRule#0;class#InferenceEngine#0" expanded="false" />
             <element signature="docComment;method#resolveConflictSet#0;class#InferenceEngine#0" expanded="false" />
-            <element signature="method#resolveConflictSet#0;class#InferenceEngine#0" expanded="false" />
             <element signature="docComment;method#applyRuleAndUpdateFacts#0;class#InferenceEngine#0" expanded="false" />
-            <element signature="method#applyRuleAndUpdateFacts#0;class#InferenceEngine#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/DeterministES.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>

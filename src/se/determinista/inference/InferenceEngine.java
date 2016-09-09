@@ -33,9 +33,9 @@ public class InferenceEngine {
      * Initializes the engine asking the user for the goal to reach.
      */
     public void initialize() {
-        System.out.print("Ingrese la meta que deesea alcanzar, NONE para inferir sin meta específica, o \"x\" para cancelar");
+        System.out.print("Ingrese la meta que deesea alcanzar, NONE para inferir sin meta específica, o TERMINAR para cancelar");
         goal = new Scanner(System.in).next();
-        if (!goal.equals("x"))
+        if (!goal.equals("TERMINAR"))
             forwardChaining();
     }
 

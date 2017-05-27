@@ -2,6 +2,7 @@ package se.determinista.UI;
 
 import se.determinista.archivos.ArchivoHechos;
 import se.determinista.archivos.ArchivoMaestro;
+import se.determinista.common.Constantes;
 import se.determinista.inferencia.motorInferencia;
 
 import java.util.Scanner;
@@ -13,9 +14,9 @@ public class MainMenu {
     private se.determinista.inferencia.motorInferencia motorInferencia;
 
     public MainMenu() {
-        String nombreArchivo = "baseConocimiento";
-        archivoMaestro = new ArchivoMaestro(nombreArchivo, "rw");
-        archivoHechos = new ArchivoHechos(nombreArchivo, "rw");
+        String nombreArchivo = Constantes.NOMBRE_ARCHIVOS;
+        archivoMaestro = new ArchivoMaestro(nombreArchivo, Constantes.LECTURA_ESCRITURA);
+        archivoHechos = new ArchivoHechos(nombreArchivo, Constantes.LECTURA_ESCRITURA);
         motorInferencia = new motorInferencia(archivoMaestro, archivoHechos);
         mostrarMenu();
     }

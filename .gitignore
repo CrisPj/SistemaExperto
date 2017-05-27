@@ -47,6 +47,6 @@ fabric.properties
 
 .gitignore
 
-baseConocimiento.index
-baseConocimiento.master
-baseConocimiento.fct
+*.index
+*.master
+*.hechos

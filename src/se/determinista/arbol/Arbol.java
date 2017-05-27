@@ -1,6 +1,7 @@
 package se.determinista.arbol;
 
 import se.determinista.archivos.ArchivoIndice;
+import se.determinista.common.Constantes;
 
 import java.util.ArrayList;
 
@@ -33,7 +34,7 @@ public class Arbol
 
     public void generarArbol() {
         try {
-            ArchivoIndice index = new ArchivoIndice("baseConocimiento" + ArchivoIndice.EXTENSION, "rw");
+            ArchivoIndice index = new ArchivoIndice(Constantes.NOMBRE_ARCHIVOS + Constantes.EXTENCION_INDICE, Constantes.LECTURA_ESCRITURA);
             ArrayList<String> dirReglas = index.getDirRegistros();
             byte contador = 0;
             do {
@@ -45,7 +46,7 @@ public class Arbol
                 contador++;
             } while (contador < dirReglas.size());
         } catch (Exception ex) {
-            System.out.println("Fallo al crear el arbol");
+            System.out.println("Fallo al crear el arbolito\n"+ex.getMessage());
         }
     }
 }

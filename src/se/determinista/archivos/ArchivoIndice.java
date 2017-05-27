@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class ArchivoIndice
 {
 
-    public final static String EXTENSION = ".index";
     private RandomAccessFile archivo;
 
     /**
@@ -59,9 +58,6 @@ public class ArchivoIndice
         return reglas;
     }
 
-    /**
-     * Shows in terminal the Index for the rules contained in the ArchivoMaestro
-     */
     public void mostrarIndice() {
         try {
             archivo.seek(0);

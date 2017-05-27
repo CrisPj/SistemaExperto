@@ -2,6 +2,7 @@ package se.determinista.archivos;
 
 import se.determinista.arbol.Arbol;
 import se.determinista.arbol.Regla;
+import se.determinista.common.Constantes;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 
 public class ArchivoMaestro
 {
-    public static String EXTENSION = ".master";
+
     private RandomAccessFile archivo;
     private ArchivoIndice index;
     private se.determinista.arbol.Arbol Arbol;
@@ -24,8 +25,8 @@ public class ArchivoMaestro
     private void crearArchivo(String nombre, String permisos) {
         try {
             ruta = nombre;
-            archivo = new RandomAccessFile(nombre + EXTENSION, permisos);
-            index = new ArchivoIndice(nombre + ArchivoIndice.EXTENSION, permisos);
+            archivo = new RandomAccessFile(nombre + Constantes.EXTENCION_CONOCIMIENTO, permisos);
+            index = new ArchivoIndice(nombre + Constantes.EXTENCION_INDICE, permisos);
         } catch (Exception ex) {
             System.out.println("Fallo al crear archivo maestro");
         }
@@ -83,7 +84,7 @@ public class ArchivoMaestro
     }
 
     public void insertarNuevasReglas() {
-        if (new java.io.File(ruta + ArchivoMaestro.EXTENSION).exists()) {
+        if (new java.io.File(ruta + Constantes.EXTENCION_CONOCIMIENTO).exists()) {
             String input;
             do {
                 System.out.println("Ingrese una nueva regla con el formato ID-Ant1^Ant2^...^Ant5-Consecuente \n O  \"x\" para salir");
@@ -96,7 +97,7 @@ public class ArchivoMaestro
                     }
             } while (!input.equals("x"));
         } else {
-            crearArchivo("baseConocimiento", "rw");
+            crearArchivo(Constantes.NOMBRE_ARCHIVOS, Constantes.LECTURA_ESCRITURA);
             insertarNuevasReglas();
         }
     }

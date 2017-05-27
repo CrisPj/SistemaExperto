@@ -1,6 +1,7 @@
 package se.determinista.archivos;
 
 import se.determinista.arbol.Regla;
+import se.determinista.common.Constantes;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -8,12 +9,12 @@ import java.util.Scanner;
 
 public class ArchivoHechos
 {
-    private String EXTENSION = ".fct";
+
     private RandomAccessFile file;
 
-    public ArchivoHechos(String _name, String _permissions) {
+    public ArchivoHechos(String nombre, String permisos) {
         try {
-            file = new RandomAccessFile(_name + EXTENSION, _permissions);
+            file = new RandomAccessFile(nombre + Constantes.EXTENCION_HECHOS, permisos);
         } catch (Exception ex) {
             System.out.println("Archivo no pudo ser creado");
         }

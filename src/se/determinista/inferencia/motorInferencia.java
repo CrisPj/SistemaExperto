@@ -79,12 +79,12 @@ public class motorInferencia
 
 
     private byte resolverConjuntoConflicto(ArrayList<Byte> idReglas) {
-        byte chosen = idReglas.get(0);
+        byte regla = idReglas.get(0);
         for (byte ruleID : idReglas) {
-            if (ruleID < chosen)
-                chosen = ruleID;
+            if (ruleID < regla)
+                regla = ruleID;
         }
-        return chosen;
+        return regla;
     }
 
     private void aplicarRegla(byte idRegla) {

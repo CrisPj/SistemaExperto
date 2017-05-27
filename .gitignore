@@ -46,3 +46,7 @@ crashlytics-build.properties
 fabric.properties
 
 .gitignore
+
+baseConocimiento.index
+baseConocimiento.master
+baseConocimiento.fct

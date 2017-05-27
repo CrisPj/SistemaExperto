@@ -1,6 +1,6 @@
 package se.determinista.tree;
 
-import se.determinista.files.IndexFile;
+import se.determinista.files.ArchivoIndice;
 
 import java.util.ArrayList;
 
@@ -55,12 +55,12 @@ public class IndexTree {
     }
 
     /**
-     * Generates the IndexTree according to the records in the IndexFile
+     * Generates the IndexTree according to the records in the ArchivoIndice
      */
     public void generateIndexTree() {
         try {
-            IndexFile index = new IndexFile("E:\\knowledgebase" + IndexFile.FILE_EXTENSION, "rw");
-            ArrayList<String> rulesAddresses = index.getRulesAddresses();
+            ArchivoIndice index = new ArchivoIndice("baseConocimiento" + ArchivoIndice.EXTENSION, "rw");
+            ArrayList<String> rulesAddresses = index.getDirRegistros();
             byte arrayIndex = 0;
             do {
                 String address = rulesAddresses.get(arrayIndex);

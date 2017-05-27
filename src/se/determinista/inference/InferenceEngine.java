@@ -1,7 +1,7 @@
 package se.determinista.inference;
 
+import se.determinista.files.ArchivoMaestro;
 import se.determinista.files.FactsFile;
-import se.determinista.files.MasterFile;
 import se.determinista.tree.Rule;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class InferenceEngine {
 
-    private MasterFile mfile;
+    private ArchivoMaestro mfile;
     private FactsFile ffile;
     private ArrayList<Byte> appliedRules;
     private ArrayList<Byte> conflictSet;
@@ -21,7 +21,7 @@ public class InferenceEngine {
     /**
      *Constructs a new InferenceEngine with the specified Knowledge Base and Facts Base
      */
-    public InferenceEngine(MasterFile _mfile, FactsFile _ffile) {
+    public InferenceEngine(ArchivoMaestro _mfile, FactsFile _ffile) {
         mfile = _mfile;
         mfile.generateTree();
         ffile = _ffile;
@@ -79,7 +79,7 @@ public class InferenceEngine {
      * @param _factsbase
      * @return
      */
-    private ArrayList<Byte> equate(MasterFile _knowledgebase, FactsFile _factsbase) {
+    private ArrayList<Byte> equate(ArchivoMaestro _knowledgebase, FactsFile _factsbase) {
         ArrayList<Byte> rulesID = new ArrayList<>();
         ArrayList<Rule> rules = _knowledgebase.getAllRulesRecords();
         for (Rule rule : rules) {

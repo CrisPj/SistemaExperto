@@ -1,7 +1,7 @@
 package se.determinista.UI;
 
+import se.determinista.files.ArchivoMaestro;
 import se.determinista.files.FactsFile;
-import se.determinista.files.MasterFile;
 import se.determinista.inference.InferenceEngine;
 
 import java.util.Scanner;
@@ -11,9 +11,7 @@ import java.util.Scanner;
  */
 public class MainMenu {
 
-    private static String path = "E:\\knowledgebase";
-
-    private MasterFile mfile;
+    private ArchivoMaestro mfile;
     private FactsFile ffile;
     private InferenceEngine engine;
 
@@ -21,7 +19,8 @@ public class MainMenu {
      * Creates a new Menu and the files of the system
      */
     public MainMenu() {
-        mfile = new MasterFile(path, "rw");
+        String path = "baseConocimiento";
+        mfile = new ArchivoMaestro(path, "rw");
         ffile = new FactsFile(path, "rw");
         engine = new InferenceEngine(mfile, ffile);
         showMenu();

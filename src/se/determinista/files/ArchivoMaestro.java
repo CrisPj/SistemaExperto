@@ -15,12 +15,11 @@ import java.util.Scanner;
 /**
  * @author Andrés
  */
-public class MasterFile {
-
-    public static String FILE_EXTENSION = ".kdb";
-
-    private RandomAccessFile file;
-    private IndexFile index;
+public class ArchivoMaestro
+{
+    public static String EXTENSION = ".master";
+    private RandomAccessFile archivo;
+    private ArchivoIndice index;
     private IndexTree IndexTree;
     private String path;
 
@@ -28,7 +27,7 @@ public class MasterFile {
      * @param _name
      * @param _permissions
      */
-    public MasterFile(String _name, String _permissions) {
+    public ArchivoMaestro(String _name, String _permissions) {
         createFile(_name, _permissions);
     }
 
@@ -41,24 +40,24 @@ public class MasterFile {
     private void createFile(String _name, String _permissions) {
         try {
             path = _name;
-            file = new RandomAccessFile(_name + FILE_EXTENSION, _permissions);
-            index = new IndexFile(_name + IndexFile.FILE_EXTENSION, _permissions);
+            archivo = new RandomAccessFile(_name + EXTENSION, _permissions);
+            index = new ArchivoIndice(_name + ArchivoIndice.EXTENSION, _permissions);
         } catch (Exception ex) {
         }
     }
 
     /**
-     * Sets a new Rule in the file, you must consider the size of each record.
+     * Sets a new Rule in the archivo, you must consider the size of each record.
      *
      * @param _rule
      */
     private void newRecord(Rule _rule) {
         StringBuffer buffer;
         try {
-            file.seek(file.length());
-            index.newRecord(_rule.getId(), file.getFilePointer());
-            // System.out.println("Memoria, papu :'v :" + file.getFilePointer());
-            file.writeByte(_rule.getId());
+            archivo.seek(archivo.length());
+            index.nuevoRegistro(_rule.getId(), archivo.getFilePointer());
+            // System.out.println("Memoria, papu :'v :" + archivo.getFilePointer());
+            archivo.writeByte(_rule.getId());
             for (int i = 0; i < Rule.RECORDS_QUANTITY; i++) {
                 try {
                     buffer = new StringBuffer(_rule.getRecords()[i]);
@@ -66,11 +65,11 @@ public class MasterFile {
                     buffer = new StringBuffer();
                 }
                 buffer.setLength(Rule.SINGULAR_RECORD_SIZE);
-                file.writeChars(buffer.toString());
+                archivo.writeChars(buffer.toString());
             }
             buffer = new StringBuffer(_rule.getConsequent());
             buffer.setLength(Rule.SINGULAR_RECORD_SIZE);
-            file.writeChars(buffer.toString());
+            archivo.writeChars(buffer.toString());
         } catch (Exception ex) {
 
         }
@@ -89,18 +88,18 @@ public class MasterFile {
 
         try {
             if (_ruleNumber > 0) {
-                file.seek(IndexTree.getRuleMemoryAddress(_ruleNumber));
-                rule.setId(file.readByte());
+                archivo.seek(IndexTree.getRuleMemoryAddress(_ruleNumber));
+                rule.setId(archivo.readByte());
                 for (int recordNumber = 0; recordNumber < Rule.RECORDS_QUANTITY; recordNumber++) {
                     for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
-                        currRecord[i] = file.readChar();
+                        currRecord[i] = archivo.readChar();
                     }
                     recordsArray[recordNumber] = new String(currRecord);
                 }
                 rule.setRecords(recordsArray);
 
                 for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
-                    currRecord[i] = file.readChar();
+                    currRecord[i] = archivo.readChar();
                 }
                 rule.setConsequent(new String(currRecord));
             }
@@ -111,10 +110,10 @@ public class MasterFile {
     }
 
     /**
-     * This method ask the user new Rules using the io file of the keyboard
+     * This method ask the user new Rules using the io archivo of the keyboard
      */
     public void insertNewRules() {
-        if (new java.io.File(path + MasterFile.FILE_EXTENSION).exists()) {
+        if (new java.io.File(path + ArchivoMaestro.EXTENSION).exists()) {
             String input = null;
             do {
                 System.out.println("Ingrese una nueva regla con el formato ID-Ant1^Ant2^...^Ant5-Consecuente \n O  \"x\" para salir");
@@ -127,13 +126,13 @@ public class MasterFile {
                     }
             } while (!input.equals("x"));
         } else {
-            createFile("E:\\knowledgebase", "rw");
+            createFile("baseConocimiento", "rw");
             insertNewRules();
         }
     }
 
     /**
-     * This method shows in terminal all the rules contained in the MasterFile
+     * This method shows in terminal all the rules contained in the ArchivoMaestro
      */
     public void printAllRules() {
         byte ruleId;
@@ -142,31 +141,31 @@ public class MasterFile {
         boolean EOF = false;
 
         try {
-            file.seek(0);
+            archivo.seek(0);
             do {
-                ruleId = file.readByte();
+                ruleId = archivo.readByte();
                 for (int recordNumber = 0; recordNumber < Rule.RECORDS_QUANTITY; recordNumber++) {
                     for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
-                        currCharacteristic[i] = file.readChar();
+                        currCharacteristic[i] = archivo.readChar();
                     }
                     recordsArray[recordNumber] = new String(currCharacteristic);
                 }
                 for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
-                    currCharacteristic[i] = file.readChar();
+                    currCharacteristic[i] = archivo.readChar();
                 }
                 System.out.println("ID: " + ruleId + " " + getRecords(recordsArray) + "-> " + new String(currCharacteristic));
             } while (!EOF);
         } catch (Exception ex) {
-            System.out.println("\nFinished reading MasterFile\n");
+            System.out.println("\nFinished reading ArchivoMaestro\n");
             EOF = true;
         }
     }
 
     /**
-     * Shows the Index stored in IndexFile to the user
+     * Shows the Index stored in ArchivoIndice to the user
      */
     public void showIndex() {
-        index.showIndex();
+        index.mostrarIndice();
     }
 
     /**
@@ -190,7 +189,7 @@ public class MasterFile {
     }
 
     /**
-     * This method generates the binary tree according to each rule number within the IndexFile
+     * This method generates the binary tree according to each rule number within the ArchivoIndice
      */
     public void generateTree() {
         IndexTree = new IndexTree();
@@ -218,21 +217,21 @@ public class MasterFile {
         String[] recordsArray;
         char[] currRecord;
         try {
-            file.seek(0);
+            archivo.seek(0);
             Rule rule;
             do {
                 rule = new Rule();
                 recordsArray = new String[Rule.RECORDS_QUANTITY];
                 currRecord = new char[Rule.SINGULAR_RECORD_SIZE];
-                rule.setId(file.readByte());
+                rule.setId(archivo.readByte());
                 for (int recordNumber = 0; recordNumber < Rule.RECORDS_QUANTITY; recordNumber++) {
                     for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
-                        currRecord[i] = file.readChar();
+                        currRecord[i] = archivo.readChar();
                     }
                     recordsArray[recordNumber] = new String(currRecord);
                 }
                 rule.setRecords(recordsArray);
-                file.skipBytes(Rule.SINGULAR_RECORD_SIZE * 2);
+                archivo.skipBytes(Rule.SINGULAR_RECORD_SIZE * 2);
                 rules.add(rule);
             } while (true);
         } catch (Exception ex) {
@@ -244,8 +243,8 @@ public class MasterFile {
 
     public void deleteAllRules() {
         try {
-            file.setLength(0);
-            index.deleteContent();
+            archivo.setLength(0);
+            index.limpiarArchivo();
         } catch (Exception ex) {
         }
     }

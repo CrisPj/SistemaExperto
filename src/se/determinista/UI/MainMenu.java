@@ -6,31 +6,22 @@ import se.determinista.inference.InferenceEngine;
 
 import java.util.Scanner;
 
-/**
- * Created by Andrés on 03/09/2016.
- */
 public class MainMenu {
 
-    private ArchivoMaestro mfile;
-    private ArchivoHechos ffile;
-    private InferenceEngine engine;
+    private ArchivoMaestro archivoMaestro;
+    private ArchivoHechos archivoHechos;
+    private InferenceEngine motorInferencia;
 
-    /**
-     * Creates a new Menu and the files of the system
-     */
     public MainMenu() {
-        String path = "baseConocimiento";
-        mfile = new ArchivoMaestro(path, "rw");
-        ffile = new ArchivoHechos(path, "rw");
-        engine = new InferenceEngine(mfile, ffile);
-        showMenu();
+        String nombreArchivo = "baseConocimiento";
+        archivoMaestro = new ArchivoMaestro(nombreArchivo, "rw");
+        archivoHechos = new ArchivoHechos(nombreArchivo, "rw");
+        motorInferencia = new InferenceEngine(archivoMaestro, archivoHechos);
+        mostrarMenu();
     }
 
-    /**
-     * Shows the main Menu
-     */
-    public void showMenu() {
-        String option = null;
+    public void mostrarMenu() {
+        String opcionUsuario;
         do {
             System.out.println("Ingrese una de las siguientes opciones:\n" +
                     "1.- Ver las reglas en la base de conocimientos\n" +
@@ -42,47 +33,42 @@ public class MainMenu {
                     "7.- Realizar inferencia (encadenamiento hacia adelante)\n" +
                     "8.- Realizar inferencia (encadenamiento hacia atrás)\n" +
                     "9.- Borrar todos los hechos\n" +
-                    "x.- Salir");
-            option = new Scanner(System.in).next();
-            if (!option.equals("x")) {
-                manageOption(option);
+                    "0.- Salir");
+            opcionUsuario = new Scanner(System.in).next();
+            if (!opcionUsuario.equals("0")) {
+                ejecutarOpcion(opcionUsuario);
             }
-        } while (!option.equals("x"));
+        } while (!opcionUsuario.equals("0"));
     }
 
-    /**
-     * Manages the chosen option of the user
-     *
-     * @param _option
-     */
-    public void manageOption(String _option) {
-        switch (_option) {
+    public void ejecutarOpcion(String opcion) {
+        switch (opcion) {
             case "1":
-                mfile.imprimirReglas();
+                archivoMaestro.imprimirReglas();
                 break;
             case "2":
-                mfile.mostrarIndex();
+                archivoMaestro.mostrarIndex();
                 break;
             case "3":
-                mfile.insertarNuevasReglas();
+                archivoMaestro.insertarNuevasReglas();
                 break;
             case "4":
-                mfile.eliminarReglas();
+                archivoMaestro.eliminarReglas();
                 break;
             case "5":
-                ffile.imprimirHechos();
+                archivoHechos.imprimirHechos();
                 break;
             case "6":
-                ffile.insertarHechos();
+                archivoHechos.insertarHechos();
                 break;
             case "7":
-                engine.initialize();
+                motorInferencia.initialize();
                 break;
             case "8":
-                //engine.initialize();
+                //motorInferencia.initialize();
                 break;
             case "9":
-                ffile.borrarHechos();
+                archivoHechos.borrarHechos();
                 break;
         }
     }

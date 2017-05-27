@@ -4,6 +4,7 @@ import se.determinista.archivos.ArchivoMaestro;
 import se.determinista.archivos.ArchivoHechos;
 import se.determinista.arbol.Regla;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,11 +25,13 @@ public class motorInferencia
         conjuntoConflicto = new ArrayList<>();
     }
 
-    public void inicializar() {
+    public void inicializar(boolean opcion) {
         System.out.print("Ingrese la meta que deesea alcanzar, NONE para inferir sin meta específica, o TERMINAR para cancelar");
         meta = new Scanner(System.in).next();
         if (!meta.equals("TERMINAR"))
+            if (opcion)
             encadenamientoHaciaDelante();
+            else encadenamientoHaciaAtras();
     }
 
     private void encadenamientoHaciaDelante() {
@@ -47,6 +50,45 @@ public class motorInferencia
             archivoHechos.imprimirHechos();
             System.out.println("\nFin del reporte\n");
         }
+    }
+
+    private void encadenamientoHaciaAtras() {
+
+        if (Verificar(archivoHechos,meta))
+        {
+            System.out.println("EXITO");
+        }
+        else System.out.println("FALLO");
+
+    }
+
+    private boolean Verificar(ArchivoHechos archivoHechos, String meta)
+    {
+        boolean verificado = false;
+        if (estaEnHechos(meta))
+        {
+            return true;
+        }
+        else
+        {
+            conjuntoConflicto = equiparar(archivoMaestro, archivoHechos);
+            while ((conjuntoConflicto != null && conjuntoConflicto.size() > 0) && !verificado)
+            {
+                byte id = resolverConjuntoConflicto(conjuntoConflicto);
+                conjuntoConflicto.remove(id);
+                ArrayDeque<String> nuevasMetas = new ArrayDeque<>();
+                nuevasMetas.add(archivoMaestro.obtenerRegla(id).getConsequente());
+                verificado = true;
+                while (!nuevasMetas.isEmpty() && verificado) {
+                    String Meta = nuevasMetas.pop();
+                    verificado = Verificar(archivoHechos,Meta);
+                    if (verificado) {
+                        aplicarRegla(id);
+                    }
+                }
+            }
+        }
+        return verificado;
     }
 
     private boolean estaEnHechos(String meta) {

@@ -63,10 +63,10 @@ public class MainMenu {
                 archivoHechos.insertarHechos();
                 break;
             case "7":
-                motorInferencia.inicializar();
+                motorInferencia.inicializar(true);
                 break;
             case "8":
-                //motorInferencia.inicializar();
+                motorInferencia.inicializar(false);
                 break;
             case "9":
                 archivoHechos.borrarHechos();

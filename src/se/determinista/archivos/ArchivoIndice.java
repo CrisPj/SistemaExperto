@@ -1,5 +1,5 @@
 
-package se.determinista.files;
+package se.determinista.archivos;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;

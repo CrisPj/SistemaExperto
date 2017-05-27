@@ -1,7 +1,7 @@
-package se.determinista.files;
+package se.determinista.archivos;
 
-import se.determinista.tree.Arbol;
-import se.determinista.tree.Regla;
+import se.determinista.arbol.Arbol;
+import se.determinista.arbol.Regla;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class ArchivoMaestro
     public static String EXTENSION = ".master";
     private RandomAccessFile archivo;
     private ArchivoIndice index;
-    private se.determinista.tree.Arbol Arbol;
+    private se.determinista.arbol.Arbol Arbol;
     private String ruta;
 
 

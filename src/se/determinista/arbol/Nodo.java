@@ -1,4 +1,4 @@
-package se.determinista.tree;
+package se.determinista.arbol;
 
 public class Nodo
 {

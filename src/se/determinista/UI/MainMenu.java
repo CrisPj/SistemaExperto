@@ -1,8 +1,8 @@
 package se.determinista.UI;
 
-import se.determinista.files.ArchivoHechos;
-import se.determinista.files.ArchivoMaestro;
-import se.determinista.inference.InferenceEngine;
+import se.determinista.archivos.ArchivoHechos;
+import se.determinista.archivos.ArchivoMaestro;
+import se.determinista.inferencia.motorInferencia;
 
 import java.util.Scanner;
 
@@ -10,13 +10,13 @@ public class MainMenu {
 
     private ArchivoMaestro archivoMaestro;
     private ArchivoHechos archivoHechos;
-    private InferenceEngine motorInferencia;
+    private se.determinista.inferencia.motorInferencia motorInferencia;
 
     public MainMenu() {
         String nombreArchivo = "baseConocimiento";
         archivoMaestro = new ArchivoMaestro(nombreArchivo, "rw");
         archivoHechos = new ArchivoHechos(nombreArchivo, "rw");
-        motorInferencia = new InferenceEngine(archivoMaestro, archivoHechos);
+        motorInferencia = new motorInferencia(archivoMaestro, archivoHechos);
         mostrarMenu();
     }
 
@@ -62,10 +62,10 @@ public class MainMenu {
                 archivoHechos.insertarHechos();
                 break;
             case "7":
-                motorInferencia.initialize();
+                motorInferencia.inicializar();
                 break;
             case "8":
-                //motorInferencia.initialize();
+                //motorInferencia.inicializar();
                 break;
             case "9":
                 archivoHechos.borrarHechos();

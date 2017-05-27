@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="970cb1a9-2a45-4276-abed-e7faf9ba5f48" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/DeterministES.java" afterPath="$PROJECT_DIR$/src/se/determinista/DeterministES.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/determinista/files/ArchivoHechos.java" afterPath="$PROJECT_DIR$/src/se/determinista/archivos/ArchivoHechos.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/determinista/files/ArchivoIndice.java" afterPath="$PROJECT_DIR$/src/se/determinista/archivos/ArchivoIndice.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java" afterPath="$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" afterPath="$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/determinista/tree/Arbol.java" afterPath="$PROJECT_DIR$/src/se/determinista/arbol/Arbol.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/determinista/tree/Nodo.java" afterPath="$PROJECT_DIR$/src/se/determinista/arbol/Nodo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/determinista/tree/Regla.java" afterPath="$PROJECT_DIR$/src/se/determinista/arbol/Regla.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java" afterPath="$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java" />
     </list>
     <ignored path="SE-Determinista.iws" />
@@ -38,7 +45,24 @@
     <favorites_list name="SE-Determinista" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="motorInferencia.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.3246753">
+              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1887#1888#0" expanded="true" />
+                <element signature="e#1954#1955#0" expanded="true" />
+                <element signature="e#2861#2862#0" expanded="true" />
+                <element signature="e#2917#2918#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -77,7 +101,6 @@
         <option value="$PROJECT_DIR$/src/se/determinista/files/Index_File.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/files/Master_File.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/tree/Rule.java" />
-        <option value="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/files/IndexFile.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/files/MasterFile.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/files/ArchivoIndice.java" />
@@ -92,6 +115,9 @@
         <option value="$PROJECT_DIR$/src/se/determinista/tree/Regla.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/DeterministES.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/inferencia/InferenceEngine.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java" />
       </list>
     </option>
   </component>
@@ -267,7 +293,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tree" />
+              <option name="myItemId" value="inferencia" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -289,7 +315,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="inference" />
+              <option name="myItemId" value="archivos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -311,7 +337,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="files" />
+              <option name="myItemId" value="arbol" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -614,7 +640,7 @@
       <workItem from="1495753107958" duration="97000" />
       <workItem from="1495753624736" duration="196000" />
       <workItem from="1495859100437" duration="2930000" />
-      <workItem from="1495905999659" duration="2930000" />
+      <workItem from="1495905999659" duration="3533000" />
     </task>
     <task id="LOCAL-00001" summary="Se modificó la lectura de las reglas">
       <created>1472791112765</created>
@@ -668,7 +694,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144137000" />
+    <option name="totallyTimeSpent" value="144740000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -681,7 +707,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39148074" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -691,7 +717,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.49791667" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21888727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21888727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16302083" sideWeight="0.48600882" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.49375" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -767,7 +793,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java</url>
+          <url>file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java</url>
           <line>92</line>
           <properties />
           <option name="timeStamp" value="73" />
@@ -790,7 +816,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoHechos.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoHechos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
@@ -800,35 +826,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoIndice.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoIndice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Nodo.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Nodo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Arbol.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Arbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Regla.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Regla.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
@@ -842,35 +868,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="105" column="13" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoIndice.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoIndice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Nodo.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Nodo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Arbol.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Arbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Regla.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Regla.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
@@ -884,42 +910,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoIndice.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoIndice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Nodo.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Nodo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Arbol.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Arbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Regla.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Regla.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="109" selection-start-line="14" selection-start-column="109" selection-end-line="14" selection-end-column="109" />
@@ -933,42 +959,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoIndice.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoIndice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Nodo.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Nodo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Arbol.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Arbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Regla.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Regla.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="109" selection-start-line="14" selection-start-column="109" selection-end-line="14" selection-end-column="109" />
@@ -982,35 +1008,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoIndice.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoIndice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Nodo.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Nodo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Arbol.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Arbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Regla.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Regla.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="109" selection-start-line="14" selection-start-column="109" selection-end-line="14" selection-end-column="109" />
@@ -1024,14 +1050,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Regla.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Regla.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="108" column="14" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
@@ -1045,14 +1071,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Regla.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Regla.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
@@ -1137,14 +1163,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.21428572">
-          <caret line="86" column="49" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.077922076">
@@ -1153,7 +1171,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.72402596">
           <caret line="187" column="61" selection-start-line="187" selection-start-column="61" selection-end-line="187" selection-end-column="61" />
@@ -1189,7 +1207,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoHechos.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoHechos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25487012">
           <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
@@ -1199,7 +1217,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoIndice.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoIndice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.91071427">
           <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
@@ -1207,7 +1225,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Regla.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Regla.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8831169">
           <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
@@ -1215,7 +1233,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Nodo.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Nodo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13798702">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
@@ -1223,7 +1241,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/tree/Arbol.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/arbol/Arbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8555195">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
@@ -1248,6 +1266,20 @@
           <folding>
             <element signature="e#137#138#0" expanded="true" />
             <element signature="e#167#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3246753">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1887#1888#0" expanded="true" />
+            <element signature="e#1954#1955#0" expanded="true" />
+            <element signature="e#2861#2862#0" expanded="true" />
+            <element signature="e#2917#2918#0" expanded="true" />
           </folding>
         </state>
       </provider>

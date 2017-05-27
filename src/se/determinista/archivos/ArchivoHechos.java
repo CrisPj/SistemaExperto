@@ -1,6 +1,6 @@
-package se.determinista.files;
+package se.determinista.archivos;
 
-import se.determinista.tree.Regla;
+import se.determinista.arbol.Regla;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;

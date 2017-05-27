@@ -1,6 +1,6 @@
-package se.determinista.tree;
+package se.determinista.arbol;
 
-import se.determinista.files.ArchivoIndice;
+import se.determinista.archivos.ArchivoIndice;
 
 import java.util.ArrayList;
 

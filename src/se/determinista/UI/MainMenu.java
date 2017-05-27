@@ -1,7 +1,7 @@
 package se.determinista.UI;
 
+import se.determinista.files.ArchivoHechos;
 import se.determinista.files.ArchivoMaestro;
-import se.determinista.files.FactsFile;
 import se.determinista.inference.InferenceEngine;
 
 import java.util.Scanner;
@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class MainMenu {
 
     private ArchivoMaestro mfile;
-    private FactsFile ffile;
+    private ArchivoHechos ffile;
     private InferenceEngine engine;
 
     /**
@@ -21,7 +21,7 @@ public class MainMenu {
     public MainMenu() {
         String path = "baseConocimiento";
         mfile = new ArchivoMaestro(path, "rw");
-        ffile = new FactsFile(path, "rw");
+        ffile = new ArchivoHechos(path, "rw");
         engine = new InferenceEngine(mfile, ffile);
         showMenu();
     }
@@ -70,10 +70,10 @@ public class MainMenu {
                 mfile.eliminarReglas();
                 break;
             case "5":
-                ffile.printAllFacts();
+                ffile.imprimirHechos();
                 break;
             case "6":
-                ffile.insertFacts();
+                ffile.insertarHechos();
                 break;
             case "7":
                 engine.initialize();
@@ -82,7 +82,7 @@ public class MainMenu {
                 //engine.initialize();
                 break;
             case "9":
-                ffile.deleteAllFacts();
+                ffile.borrarHechos();
                 break;
         }
     }

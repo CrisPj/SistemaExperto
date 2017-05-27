@@ -1,7 +1,7 @@
 package se.determinista.inference;
 
 import se.determinista.files.ArchivoMaestro;
-import se.determinista.files.FactsFile;
+import se.determinista.files.ArchivoHechos;
 import se.determinista.tree.Regla;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class InferenceEngine {
 
     private ArchivoMaestro mfile;
-    private FactsFile ffile;
+    private ArchivoHechos ffile;
     private ArrayList<Byte> appliedRules;
     private ArrayList<Byte> conflictSet;
     private String goal = null;
@@ -21,7 +21,7 @@ public class InferenceEngine {
     /**
      *Constructs a new InferenceEngine with the specified Knowledge Base and Facts Base
      */
-    public InferenceEngine(ArchivoMaestro _mfile, FactsFile _ffile) {
+    public InferenceEngine(ArchivoMaestro _mfile, ArchivoHechos _ffile) {
         mfile = _mfile;
         mfile.generarArbol();
         ffile = _ffile;
@@ -55,7 +55,7 @@ public class InferenceEngine {
             System.out.println("\nÉXITO\n");
         else {
             System.out.println("Estatus:\n");
-            ffile.printAllFacts();
+            ffile.imprimirHechos();
             System.out.println("\nFin del reporte\n");
         }
     }
@@ -67,7 +67,7 @@ public class InferenceEngine {
      * @return
      */
     private boolean isContainedInFacts(String _goal) {
-        if (ffile.getAllFacts().contains(_goal))
+        if (ffile.obtenerHechos().contains(_goal))
             return true;
         else
             return false;
@@ -79,12 +79,12 @@ public class InferenceEngine {
      * @param _factsbase
      * @return
      */
-    private ArrayList<Byte> equate(ArchivoMaestro _knowledgebase, FactsFile _factsbase) {
+    private ArrayList<Byte> equate(ArchivoMaestro _knowledgebase, ArchivoHechos _factsbase) {
         ArrayList<Byte> rulesID = new ArrayList<>();
         ArrayList<Regla> reglas = _knowledgebase.mostrarTodasReglas();
         for (Regla regla : reglas) {
             String records[] = regla.getRecords();
-            ArrayList<String> facts = _factsbase.getAllFacts();
+            ArrayList<String> facts = _factsbase.obtenerHechos();
             boolean flag = true;
             for (int i = 0; i < records.length; i++) {
                 String s = records[i].trim();
@@ -131,7 +131,7 @@ public class InferenceEngine {
      * @param _ruleID
      */
     private void applyRuleAndUpdateFacts(byte _ruleID) {
-        ffile.insertFact(mfile.obtenerRegla(_ruleID).getConsequent());
+        ffile.insertarHecho(mfile.obtenerRegla(_ruleID).getConsequent());
         appliedRules.add(_ruleID);
     }
 }

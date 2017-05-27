@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="970cb1a9-2a45-4276-abed-e7faf9ba5f48" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/determinista/tree/IndexTree.java" afterPath="$PROJECT_DIR$/src/se/determinista/tree/Arbol.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/determinista/tree/Rule.java" afterPath="$PROJECT_DIR$/src/se/determinista/tree/Regla.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" afterPath="$PROJECT_DIR$/src/se/determinista/files/ArchivoHechos.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java" afterPath="$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java" afterPath="$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" afterPath="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" afterPath="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/tree/Node.java" afterPath="$PROJECT_DIR$/src/se/determinista/tree/Node.java" />
     </list>
     <ignored path="SE-Determinista.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,39 +40,7 @@
     <favorites_list name="SE-Determinista" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ArchivoMaestro.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72402596">
-              <caret line="187" column="61" selection-start-line="187" selection-start-column="61" selection-end-line="187" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FactsFile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/determinista/files/FactsFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding>
-                <element signature="docComment;method#FactsFile#0;class#FactsFile#0" expanded="false" />
-                <element signature="method#FactsFile#0;class#FactsFile#0" expanded="false" />
-                <element signature="docComment;method#insertFact#0;class#FactsFile#0" expanded="false" />
-                <element signature="docComment;method#getAllFacts#0;class#FactsFile#0" expanded="false" />
-                <element signature="docComment;method#printAllFacts#0;class#FactsFile#0" expanded="false" />
-                <element signature="docComment;method#insertFacts#0;class#FactsFile#0" expanded="false" />
-                <element signature="docComment;method#deleteAllFacts#0;class#FactsFile#0" expanded="false" />
-                <element signature="method#deleteAllFacts#0;class#FactsFile#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -118,7 +82,6 @@
         <option value="$PROJECT_DIR$/src/se/determinista/tree/Rule.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/tree/Node.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" />
-        <option value="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/files/IndexFile.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/files/MasterFile.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java" />
@@ -126,6 +89,8 @@
         <option value="$PROJECT_DIR$/src/se/determinista/tree/IndexTree.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/files/FactsFile.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/files/ArchivoHechos.java" />
       </list>
     </option>
   </component>
@@ -604,7 +569,7 @@
       <workItem from="1495753107958" duration="97000" />
       <workItem from="1495753624736" duration="196000" />
       <workItem from="1495859100437" duration="2930000" />
-      <workItem from="1495905999659" duration="695000" />
+      <workItem from="1495905999659" duration="1149000" />
     </task>
     <task id="LOCAL-00001" summary="Se modificó la lectura de las reglas">
       <created>1472791112765</created>
@@ -658,7 +623,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141902000" />
+    <option name="totallyTimeSpent" value="142356000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -670,8 +635,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39148074" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -681,7 +646,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.49791667" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21888727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21888727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16302083" sideWeight="0.48600882" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.49375" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -772,13 +737,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/DeterministES.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -791,19 +749,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/FactsFile.java">
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoHechos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
           <folding>
-            <element signature="docComment;method#FactsFile#0;class#FactsFile#0" expanded="false" />
-            <element signature="method#FactsFile#0;class#FactsFile#0" expanded="false" />
-            <element signature="docComment;method#insertFact#0;class#FactsFile#0" expanded="false" />
-            <element signature="docComment;method#getAllFacts#0;class#FactsFile#0" expanded="false" />
-            <element signature="docComment;method#printAllFacts#0;class#FactsFile#0" expanded="false" />
-            <element signature="docComment;method#insertFacts#0;class#FactsFile#0" expanded="false" />
-            <element signature="docComment;method#deleteAllFacts#0;class#FactsFile#0" expanded="false" />
-            <element signature="method#deleteAllFacts#0;class#FactsFile#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1196,14 +1147,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoIndice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.077922076">
@@ -1229,23 +1172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/FactsFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;method#FactsFile#0;class#FactsFile#0" expanded="false" />
-            <element signature="method#FactsFile#0;class#FactsFile#0" expanded="false" />
-            <element signature="docComment;method#insertFact#0;class#FactsFile#0" expanded="false" />
-            <element signature="docComment;method#getAllFacts#0;class#FactsFile#0" expanded="false" />
-            <element signature="docComment;method#printAllFacts#0;class#FactsFile#0" expanded="false" />
-            <element signature="docComment;method#insertFacts#0;class#FactsFile#0" expanded="false" />
-            <element signature="docComment;method#deleteAllFacts#0;class#FactsFile#0" expanded="false" />
-            <element signature="method#deleteAllFacts#0;class#FactsFile#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoMaestro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.72402596">
@@ -1253,6 +1179,50 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/se.determinista.files">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>se.determinista.files</OriginalElement>
+          <nodes>
+            <node x="" y="">se.determinista.files.ArchivoIndice</node>
+            <node x="" y="">se.determinista.files.FactsFile</node>
+            <node x="" y="">se.determinista.files.ArchivoMaestro</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="71.5" y="388.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoHechos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25487012">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/files/ArchivoIndice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.91071427">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

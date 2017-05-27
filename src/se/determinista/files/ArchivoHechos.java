@@ -22,7 +22,7 @@ public class ArchivoHechos
     public void insertarHecho(String hecho) {
         try {
             StringBuilder buffer = new StringBuilder(hecho);
-            buffer.setLength(Regla.SINGULAR_RECORD_SIZE);
+            buffer.setLength(Regla.TAM_REGISTRO);
             file.writeChars(buffer.toString());
         } catch (Exception ex) {
             System.out.println("No se pudo insertar hecho");
@@ -34,8 +34,8 @@ public class ArchivoHechos
         try {
             file.seek(0);
             do {
-                char[] hecho = new char[Regla.SINGULAR_RECORD_SIZE];
-                for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++)
+                char[] hecho = new char[Regla.TAM_REGISTRO];
+                for (int i = 0; i < Regla.TAM_REGISTRO; i++)
                     hecho[i] = file.readChar();
                 hechos.add(new String(hecho).trim());
             } while (true);

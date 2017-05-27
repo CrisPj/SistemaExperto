@@ -83,7 +83,7 @@ public class InferenceEngine {
         ArrayList<Byte> rulesID = new ArrayList<>();
         ArrayList<Regla> reglas = _knowledgebase.mostrarTodasReglas();
         for (Regla regla : reglas) {
-            String records[] = regla.getRecords();
+            String records[] = regla.getReglas();
             ArrayList<String> facts = _factsbase.obtenerHechos();
             boolean flag = true;
             for (int i = 0; i < records.length; i++) {
@@ -93,8 +93,8 @@ public class InferenceEngine {
                     i = records.length;
                 }
             }
-            if (flag && !refractRule(regla.getId()))
-                rulesID.add(regla.getId());
+            if (flag && !refractRule(regla.getLlave()))
+                rulesID.add(regla.getLlave());
         }
         return rulesID;
     }
@@ -131,7 +131,7 @@ public class InferenceEngine {
      * @param _ruleID
      */
     private void applyRuleAndUpdateFacts(byte _ruleID) {
-        ffile.insertarHecho(mfile.obtenerRegla(_ruleID).getConsequent());
+        ffile.insertarHecho(mfile.obtenerRegla(_ruleID).getConsequente());
         appliedRules.add(_ruleID);
     }
 }

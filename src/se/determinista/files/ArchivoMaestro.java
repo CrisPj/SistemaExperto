@@ -35,19 +35,19 @@ public class ArchivoMaestro
         StringBuffer buffer;
         try {
             archivo.seek(archivo.length());
-            index.nuevoRegistro(regla.getId(), archivo.getFilePointer());
-            archivo.writeByte(regla.getId());
-            for (int i = 0; i < Regla.RECORDS_QUANTITY; i++) {
+            index.nuevoRegistro(regla.getLlave(), archivo.getFilePointer());
+            archivo.writeByte(regla.getLlave());
+            for (int i = 0; i < Regla.CANTIDAD_REGISTROS; i++) {
                 try {
-                    buffer = new StringBuffer(regla.getRecords()[i]);
+                    buffer = new StringBuffer(regla.getReglas()[i]);
                 } catch (Exception ex) {
                     buffer = new StringBuffer();
                 }
-                buffer.setLength(Regla.SINGULAR_RECORD_SIZE);
+                buffer.setLength(Regla.TAM_REGISTRO);
                 archivo.writeChars(buffer.toString());
             }
-            buffer = new StringBuffer(regla.getConsequent());
-            buffer.setLength(Regla.SINGULAR_RECORD_SIZE);
+            buffer = new StringBuffer(regla.getConsequente());
+            buffer.setLength(Regla.TAM_REGISTRO);
             archivo.writeChars(buffer.toString());
         } catch (Exception ex) {
             System.out.println("Fallo al escribir en archivo maestro");
@@ -56,25 +56,25 @@ public class ArchivoMaestro
 
     public Regla obtenerRegla(byte numeroRegla) {
         Regla regla = new Regla();
-        String[] registros = new String[Regla.RECORDS_QUANTITY];
-        char[] registroActual = new char[Regla.SINGULAR_RECORD_SIZE];
+        String[] registros = new String[Regla.CANTIDAD_REGISTROS];
+        char[] registroActual = new char[Regla.TAM_REGISTRO];
 
         try {
             if (numeroRegla > 0) {
-                archivo.seek(Arbol.getRuleMemoryAddress(numeroRegla));
-                regla.setId(archivo.readByte());
-                for (int recordNumber = 0; recordNumber < Regla.RECORDS_QUANTITY; recordNumber++) {
-                    for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++) {
+                archivo.seek(Arbol.getReglaDirLogica(numeroRegla));
+                regla.setLlave(archivo.readByte());
+                for (int recordNumber = 0; recordNumber < Regla.CANTIDAD_REGISTROS; recordNumber++) {
+                    for (int i = 0; i < Regla.TAM_REGISTRO; i++) {
                         registroActual[i] = archivo.readChar();
                     }
                     registros[recordNumber] = new String(registroActual);
                 }
-                regla.setRecords(registros);
+                regla.setReglas(registros);
 
-                for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++) {
+                for (int i = 0; i < Regla.TAM_REGISTRO; i++) {
                     registroActual[i] = archivo.readChar();
                 }
-                regla.setConsequent(new String(registroActual));
+                regla.setConsequente(new String(registroActual));
             }
         } catch (Exception ex) {
             System.out.println("Error, la regla no existe en la base de conocimientos : " + ex.getMessage());
@@ -103,19 +103,19 @@ public class ArchivoMaestro
 
     public void imprimirReglas() {
         byte ruleId;
-        String[] recordsArray = new String[Regla.RECORDS_QUANTITY];
-        char[] currCharacteristic = new char[Regla.SINGULAR_RECORD_SIZE];
+        String[] recordsArray = new String[Regla.CANTIDAD_REGISTROS];
+        char[] currCharacteristic = new char[Regla.TAM_REGISTRO];
          try {
             archivo.seek(0);
             do {
                 ruleId = archivo.readByte();
-                for (int recordNumber = 0; recordNumber < Regla.RECORDS_QUANTITY; recordNumber++) {
-                    for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++) {
+                for (int recordNumber = 0; recordNumber < Regla.CANTIDAD_REGISTROS; recordNumber++) {
+                    for (int i = 0; i < Regla.TAM_REGISTRO; i++) {
                         currCharacteristic[i] = archivo.readChar();
                     }
                     recordsArray[recordNumber] = new String(currCharacteristic);
                 }
-                for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++) {
+                for (int i = 0; i < Regla.TAM_REGISTRO; i++) {
                     currCharacteristic[i] = archivo.readChar();
                 }
                 System.out.println("ID: " + ruleId + " " + obtenerRegistros(recordsArray) + "-> " + new String(currCharacteristic));
@@ -133,7 +133,7 @@ public class ArchivoMaestro
         int counter = 0;
         String records = "";
         for (String registro : registros) {
-            if (counter < Regla.RECORDS_QUANTITY) {
+            if (counter < Regla.CANTIDAD_REGISTROS) {
                 if (!registro.trim().isEmpty()) {
                     records += registro + "^";
                 }
@@ -160,17 +160,17 @@ public class ArchivoMaestro
             Regla regla;
             do {
                 regla = new Regla();
-                registros = new String[Regla.RECORDS_QUANTITY];
-                registroActual = new char[Regla.SINGULAR_RECORD_SIZE];
-                regla.setId(archivo.readByte());
-                for (int recordNumber = 0; recordNumber < Regla.RECORDS_QUANTITY; recordNumber++) {
-                    for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++) {
+                registros = new String[Regla.CANTIDAD_REGISTROS];
+                registroActual = new char[Regla.TAM_REGISTRO];
+                regla.setLlave(archivo.readByte());
+                for (int recordNumber = 0; recordNumber < Regla.CANTIDAD_REGISTROS; recordNumber++) {
+                    for (int i = 0; i < Regla.TAM_REGISTRO; i++) {
                         registroActual[i] = archivo.readChar();
                     }
                     registros[recordNumber] = new String(registroActual);
                 }
-                regla.setRecords(registros);
-                archivo.skipBytes(Regla.SINGULAR_RECORD_SIZE * 2);
+                regla.setReglas(registros);
+                archivo.skipBytes(Regla.TAM_REGISTRO * 2);
                 reglas.add(regla);
             } while (true);
         } catch (Exception ex) {

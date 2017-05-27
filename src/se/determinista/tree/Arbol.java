@@ -4,77 +4,48 @@ import se.determinista.files.ArchivoIndice;
 
 import java.util.ArrayList;
 
-/**
- * Created by Andrés on 01/09/2016.
- */
 public class Arbol
 {
+    private Nodo arbol;
 
-    private Node tree;
-
-    /**
-     * Inserts a new Node and arranges it into the tree
-     *
-     * @param _node
-     */
-    private void insertNodeToTree(Node _node) {
-        if (tree != null)
-            tree.insertNode(_node);
+    private void insertarNodo(Nodo nodo) {
+        if (arbol != null)
+            arbol.insertarNodo(nodo);
         else
-            tree = _node;
+            arbol = nodo;
     }
 
-    /**
-     * This method returns the actual memory address offset of the rule with the specified id
-     *
-     * @return
-     */
-    public long getRuleMemoryAddress(byte _id) {
-        return searchRuleAddress(_id, tree);
+    public long getReglaDirLogica(byte llave) {
+        return buscarReglaDirLogica(llave, arbol);
     }
 
-    /**
-     * Searches in the tree for
-     *
-     * @param _id
-     * @param _root
-     * @return
-     */
-    private long searchRuleAddress(long _id, Node _root) {
-        if (_root.getId() == _id)
-            return _root.getMemoryAddress();
-        else if (_root.getId() > _id)
-            if (_root.left != null)
-                return searchRuleAddress(_id, _root.left);
-            else
-                return -1;
-        else if (_root.right != null)
-            return searchRuleAddress(_id, _root.right);
+    private long buscarReglaDirLogica(long llave, Nodo raiz) {
+        if (raiz.getLlave() == llave)
+            return raiz.getDirLogica();
+        else if (raiz.getLlave() > llave)
+            return raiz.izquierdo != null ? buscarReglaDirLogica(llave, raiz.izquierdo) : -1;
+        else if (raiz.derecho != null)
+            return buscarReglaDirLogica(llave, raiz.derecho);
         else
             return -1;
 
     }
 
-    /**
-     * Generates the Arbol according to the records in the ArchivoIndice
-     */
     public void generarArbol() {
         try {
             ArchivoIndice index = new ArchivoIndice("baseConocimiento" + ArchivoIndice.EXTENSION, "rw");
-            ArrayList<String> rulesAddresses = index.getDirRegistros();
-            byte arrayIndex = 0;
+            ArrayList<String> dirReglas = index.getDirRegistros();
+            byte contador = 0;
             do {
-                String address = rulesAddresses.get(arrayIndex);
-                if (address != null) {
-                    Node node = new Node(Byte.parseByte(address.split("-")[0]), Long.parseLong(address.split("-")[1]));
-                    insertNodeToTree(node);
-                    // System.out.println("" + node.getId() + "-" + node.getMemoryAddress());
+                String direccion = dirReglas.get(contador);
+                if (direccion != null) {
+                    Nodo nodo = new Nodo(Byte.parseByte(direccion.split("-")[0]), Long.parseLong(direccion.split("-")[1]));
+                    insertarNodo(nodo);
                 }
-                arrayIndex++;
-            } while (arrayIndex < rulesAddresses.size());
+                contador++;
+            } while (contador < dirReglas.size());
         } catch (Exception ex) {
-
+            System.out.println("Fallo al crear el arbol");
         }
     }
-
 }

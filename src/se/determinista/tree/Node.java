@@ -11,7 +11,7 @@ public class Node {
     private long memoryAddress;
 
     /**
-     * Constructs a new Node with the specified id and memory address for a new inserted Rule
+     * Constructs a new Node with the specified id and memory address for a new inserted Regla
      *
      * @param _id
      * @param _memoryAddress
@@ -44,7 +44,7 @@ public class Node {
 
     /**
      * Returns the id of the rule stored in this Node
-     * @return Rule id stored in file
+     * @return Regla id stored in file
      */
     public byte getId() {
         return id;

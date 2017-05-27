@@ -3,7 +3,8 @@ package se.determinista.tree;
 /**
  * Created by Andrés on 31/08/2016.
  */
-public class Rule {
+public class Regla
+{
 
 
     public static byte ID_SIZE = 1;
@@ -16,26 +17,26 @@ public class Rule {
     private String consequent;
 
     /**
-     * Creates a new empty Rule
+     * Creates a new empty Regla
      */
-    public Rule() {
+    public Regla() {
     }
 
     /**
-     * Constructs a Rule specifying its Id, records and consequent
+     * Constructs a Regla specifying its Id, records and consequent
      *
      * @param _id
      * @param _records
      * @param _consequent
      */
-    public Rule(byte _id, String[] _records, String _consequent) {
+    public Regla(byte _id, String[] _records, String _consequent) {
         id = _id;
         records = _records;
         consequent = _consequent;
     }
 
     /**
-     * Returns the Rule id
+     * Returns the Regla id
      *
      * @return byte
      */
@@ -69,7 +70,7 @@ public class Rule {
     }
 
     /**
-     * Returns the consequent of this Rule
+     * Returns the consequent of this Regla
      * @return String
      */
     public String getConsequent() {
@@ -86,15 +87,15 @@ public class Rule {
     }
 
     /*
-    public static void printRule(Rule _rule) {
-        if (_rule.getRecords() != null) {
+    public static void printRule(Regla _rule) {
+        if (_rule.obtenerRegistros() != null) {
             System.out.println("ID:" + _rule.getId() +
                     " Antecedentes: "
-                    + _rule.getRecords()[0] + ","
-                    + _rule.getRecords()[1] + ","
-                    + _rule.getRecords()[2] + ","
-                    + _rule.getRecords()[3] + ","
-                    + _rule.getRecords()[4] + ""
+                    + _rule.obtenerRegistros()[0] + ","
+                    + _rule.obtenerRegistros()[1] + ","
+                    + _rule.obtenerRegistros()[2] + ","
+                    + _rule.obtenerRegistros()[3] + ","
+                    + _rule.obtenerRegistros()[4] + ""
                     + "->" + _rule.getConsequent());
         }
     }

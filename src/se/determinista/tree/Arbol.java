@@ -7,7 +7,8 @@ import java.util.ArrayList;
 /**
  * Created by Andrés on 01/09/2016.
  */
-public class IndexTree {
+public class Arbol
+{
 
     private Node tree;
 
@@ -55,9 +56,9 @@ public class IndexTree {
     }
 
     /**
-     * Generates the IndexTree according to the records in the ArchivoIndice
+     * Generates the Arbol according to the records in the ArchivoIndice
      */
-    public void generateIndexTree() {
+    public void generarArbol() {
         try {
             ArchivoIndice index = new ArchivoIndice("baseConocimiento" + ArchivoIndice.EXTENSION, "rw");
             ArrayList<String> rulesAddresses = index.getDirRegistros();

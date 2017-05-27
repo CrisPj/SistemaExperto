@@ -1,251 +1,191 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.determinista.files;
 
-import se.determinista.tree.IndexTree;
-import se.determinista.tree.Rule;
+import se.determinista.tree.Arbol;
+import se.determinista.tree.Regla;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * @author Andrés
- */
 public class ArchivoMaestro
 {
     public static String EXTENSION = ".master";
     private RandomAccessFile archivo;
     private ArchivoIndice index;
-    private IndexTree IndexTree;
-    private String path;
+    private se.determinista.tree.Arbol Arbol;
+    private String ruta;
 
-    /**
-     * @param _name
-     * @param _permissions
-     */
-    public ArchivoMaestro(String _name, String _permissions) {
-        createFile(_name, _permissions);
+
+    public ArchivoMaestro(String nombre, String permisos) {
+        crearArchivo(nombre, permisos);
     }
 
-    /**
-     * Create the Master and Index files with the specified paremeters
-     *
-     * @param _name
-     * @param _permissions
-     */
-    private void createFile(String _name, String _permissions) {
+
+    private void crearArchivo(String nombre, String permisos) {
         try {
-            path = _name;
-            archivo = new RandomAccessFile(_name + EXTENSION, _permissions);
-            index = new ArchivoIndice(_name + ArchivoIndice.EXTENSION, _permissions);
+            ruta = nombre;
+            archivo = new RandomAccessFile(nombre + EXTENSION, permisos);
+            index = new ArchivoIndice(nombre + ArchivoIndice.EXTENSION, permisos);
         } catch (Exception ex) {
+            System.out.println("Fallo al crear archivo maestro");
         }
     }
 
-    /**
-     * Sets a new Rule in the archivo, you must consider the size of each record.
-     *
-     * @param _rule
-     */
-    private void newRecord(Rule _rule) {
+    private void nuevoRegistro(Regla regla) {
         StringBuffer buffer;
         try {
             archivo.seek(archivo.length());
-            index.nuevoRegistro(_rule.getId(), archivo.getFilePointer());
-            // System.out.println("Memoria, papu :'v :" + archivo.getFilePointer());
-            archivo.writeByte(_rule.getId());
-            for (int i = 0; i < Rule.RECORDS_QUANTITY; i++) {
+            index.nuevoRegistro(regla.getId(), archivo.getFilePointer());
+            archivo.writeByte(regla.getId());
+            for (int i = 0; i < Regla.RECORDS_QUANTITY; i++) {
                 try {
-                    buffer = new StringBuffer(_rule.getRecords()[i]);
+                    buffer = new StringBuffer(regla.getRecords()[i]);
                 } catch (Exception ex) {
                     buffer = new StringBuffer();
                 }
-                buffer.setLength(Rule.SINGULAR_RECORD_SIZE);
+                buffer.setLength(Regla.SINGULAR_RECORD_SIZE);
                 archivo.writeChars(buffer.toString());
             }
-            buffer = new StringBuffer(_rule.getConsequent());
-            buffer.setLength(Rule.SINGULAR_RECORD_SIZE);
+            buffer = new StringBuffer(regla.getConsequent());
+            buffer.setLength(Regla.SINGULAR_RECORD_SIZE);
             archivo.writeChars(buffer.toString());
         } catch (Exception ex) {
-
+            System.out.println("Fallo al escribir en archivo maestro");
         }
     }
 
-    /**
-     * You should specify the ID of the rule about you want to know its information.
-     *
-     * @param _ruleNumber
-     * @return The Rule with the specified ID if it exists
-     */
-    public Rule getRule(byte _ruleNumber) {
-        Rule rule = new Rule();
-        String[] recordsArray = new String[Rule.RECORDS_QUANTITY];
-        char[] currRecord = new char[Rule.SINGULAR_RECORD_SIZE];
+    public Regla obtenerRegla(byte numeroRegla) {
+        Regla regla = new Regla();
+        String[] registros = new String[Regla.RECORDS_QUANTITY];
+        char[] registroActual = new char[Regla.SINGULAR_RECORD_SIZE];
 
         try {
-            if (_ruleNumber > 0) {
-                archivo.seek(IndexTree.getRuleMemoryAddress(_ruleNumber));
-                rule.setId(archivo.readByte());
-                for (int recordNumber = 0; recordNumber < Rule.RECORDS_QUANTITY; recordNumber++) {
-                    for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
-                        currRecord[i] = archivo.readChar();
+            if (numeroRegla > 0) {
+                archivo.seek(Arbol.getRuleMemoryAddress(numeroRegla));
+                regla.setId(archivo.readByte());
+                for (int recordNumber = 0; recordNumber < Regla.RECORDS_QUANTITY; recordNumber++) {
+                    for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++) {
+                        registroActual[i] = archivo.readChar();
                     }
-                    recordsArray[recordNumber] = new String(currRecord);
+                    registros[recordNumber] = new String(registroActual);
                 }
-                rule.setRecords(recordsArray);
+                regla.setRecords(registros);
 
-                for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
-                    currRecord[i] = archivo.readChar();
+                for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++) {
+                    registroActual[i] = archivo.readChar();
                 }
-                rule.setConsequent(new String(currRecord));
+                regla.setConsequent(new String(registroActual));
             }
         } catch (Exception ex) {
             System.out.println("Error, la regla no existe en la base de conocimientos : " + ex.getMessage());
         }
-        return rule;
+        return regla;
     }
 
-    /**
-     * This method ask the user new Rules using the io archivo of the keyboard
-     */
-    public void insertNewRules() {
-        if (new java.io.File(path + ArchivoMaestro.EXTENSION).exists()) {
-            String input = null;
+    public void insertarNuevasReglas() {
+        if (new java.io.File(ruta + ArchivoMaestro.EXTENSION).exists()) {
+            String input;
             do {
                 System.out.println("Ingrese una nueva regla con el formato ID-Ant1^Ant2^...^Ant5-Consecuente \n O  \"x\" para salir");
                 input = new Scanner(System.in).next();
                 if (!input.equals("x"))
                     try {
-                        newRecord(castToRule(input));
+                        nuevoRegistro(mostrarRegla(input));
                     } catch (Exception ex) {
                         System.out.println("Regla mal formada");
                     }
             } while (!input.equals("x"));
         } else {
-            createFile("baseConocimiento", "rw");
-            insertNewRules();
+            crearArchivo("baseConocimiento", "rw");
+            insertarNuevasReglas();
         }
     }
 
-    /**
-     * This method shows in terminal all the rules contained in the ArchivoMaestro
-     */
-    public void printAllRules() {
+    public void imprimirReglas() {
         byte ruleId;
-        String[] recordsArray = new String[Rule.RECORDS_QUANTITY];
-        char[] currCharacteristic = new char[Rule.SINGULAR_RECORD_SIZE];
-        boolean EOF = false;
-
-        try {
+        String[] recordsArray = new String[Regla.RECORDS_QUANTITY];
+        char[] currCharacteristic = new char[Regla.SINGULAR_RECORD_SIZE];
+         try {
             archivo.seek(0);
             do {
                 ruleId = archivo.readByte();
-                for (int recordNumber = 0; recordNumber < Rule.RECORDS_QUANTITY; recordNumber++) {
-                    for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
+                for (int recordNumber = 0; recordNumber < Regla.RECORDS_QUANTITY; recordNumber++) {
+                    for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++) {
                         currCharacteristic[i] = archivo.readChar();
                     }
                     recordsArray[recordNumber] = new String(currCharacteristic);
                 }
-                for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
+                for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++) {
                     currCharacteristic[i] = archivo.readChar();
                 }
-                System.out.println("ID: " + ruleId + " " + getRecords(recordsArray) + "-> " + new String(currCharacteristic));
-            } while (!EOF);
+                System.out.println("ID: " + ruleId + " " + obtenerRegistros(recordsArray) + "-> " + new String(currCharacteristic));
+            } while (true);
         } catch (Exception ex) {
             System.out.println("\nFinished reading ArchivoMaestro\n");
-            EOF = true;
         }
     }
 
-    /**
-     * Shows the Index stored in ArchivoIndice to the user
-     */
-    public void showIndex() {
+    public void mostrarIndex() {
         index.mostrarIndice();
     }
 
-    /**
-     * Returns all the records contained in the Rule separated by comma
-     * @param _records
-     * @return
-     */
-    public String getRecords(String[] _records) {
+    public String obtenerRegistros(String[] registros) {
         int counter = 0;
         String records = "";
-        for (String record : _records) {
-            if (counter < Rule.RECORDS_QUANTITY) {
-                if (!record.trim().isEmpty()) {
-                    records += record + "^";
+        for (String registro : registros) {
+            if (counter < Regla.RECORDS_QUANTITY) {
+                if (!registro.trim().isEmpty()) {
+                    records += registro + "^";
                 }
-            } else {
-                //1records += record;
             }
         }
         return records.substring(0, records.length() - 1);
     }
 
-    /**
-     * This method generates the binary tree according to each rule number within the ArchivoIndice
-     */
-    public void generateTree() {
-        IndexTree = new IndexTree();
-        IndexTree.generateIndexTree();
+    public void generarArbol() {
+        Arbol = new Arbol();
+        Arbol.generarArbol();
     }
 
-    /**
-     * This method generates a Rule based on the formated input, malformed input will throw exception.
-     *
-     * @param _input
-     * @return A new Rule
-     * @throws Exception
-     */
-    private Rule castToRule(String _input) throws Exception {
-        return new Rule(Byte.parseByte(_input.split("-")[0]), _input.split("-")[1].split("\\^"), _input.split("-")[2]);
+    private Regla mostrarRegla(String entrada) throws Exception {
+        return new Regla(Byte.parseByte(entrada.split("-")[0]), entrada.split("-")[1].split("\\^"), entrada.split("-")[2]);
     }
 
-    /**
-     * Returns the records of all the rules
-     *
-     * @return
-     */
-    public ArrayList<Rule> getAllRulesRecords() {
-        ArrayList<Rule> rules = new ArrayList<>();
-        String[] recordsArray;
-        char[] currRecord;
+    public ArrayList<Regla> mostrarTodasReglas() {
+        ArrayList<Regla> reglas = new ArrayList<>();
+        String[] registros;
+        char[] registroActual;
         try {
             archivo.seek(0);
-            Rule rule;
+            Regla regla;
             do {
-                rule = new Rule();
-                recordsArray = new String[Rule.RECORDS_QUANTITY];
-                currRecord = new char[Rule.SINGULAR_RECORD_SIZE];
-                rule.setId(archivo.readByte());
-                for (int recordNumber = 0; recordNumber < Rule.RECORDS_QUANTITY; recordNumber++) {
-                    for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++) {
-                        currRecord[i] = archivo.readChar();
+                regla = new Regla();
+                registros = new String[Regla.RECORDS_QUANTITY];
+                registroActual = new char[Regla.SINGULAR_RECORD_SIZE];
+                regla.setId(archivo.readByte());
+                for (int recordNumber = 0; recordNumber < Regla.RECORDS_QUANTITY; recordNumber++) {
+                    for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++) {
+                        registroActual[i] = archivo.readChar();
                     }
-                    recordsArray[recordNumber] = new String(currRecord);
+                    registros[recordNumber] = new String(registroActual);
                 }
-                rule.setRecords(recordsArray);
-                archivo.skipBytes(Rule.SINGULAR_RECORD_SIZE * 2);
-                rules.add(rule);
+                regla.setRecords(registros);
+                archivo.skipBytes(Regla.SINGULAR_RECORD_SIZE * 2);
+                reglas.add(regla);
             } while (true);
         } catch (Exception ex) {
-            //System.out.println("\nAll rules set\n");
+            System.out.println("Todas las reglas leidas");
         }
-        return rules;
+        return reglas;
     }
 
 
-    public void deleteAllRules() {
+    public void eliminarReglas() {
         try {
             archivo.setLength(0);
             index.limpiarArchivo();
         } catch (Exception ex) {
+            System.out.println("Archivo no pudo ser eliminado");
         }
     }
 }

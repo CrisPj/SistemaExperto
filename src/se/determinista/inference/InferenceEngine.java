@@ -2,7 +2,7 @@ package se.determinista.inference;
 
 import se.determinista.files.ArchivoMaestro;
 import se.determinista.files.FactsFile;
-import se.determinista.tree.Rule;
+import se.determinista.tree.Regla;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -23,7 +23,7 @@ public class InferenceEngine {
      */
     public InferenceEngine(ArchivoMaestro _mfile, FactsFile _ffile) {
         mfile = _mfile;
-        mfile.generateTree();
+        mfile.generarArbol();
         ffile = _ffile;
         appliedRules = new ArrayList<>();
         conflictSet = new ArrayList<>();
@@ -81,9 +81,9 @@ public class InferenceEngine {
      */
     private ArrayList<Byte> equate(ArchivoMaestro _knowledgebase, FactsFile _factsbase) {
         ArrayList<Byte> rulesID = new ArrayList<>();
-        ArrayList<Rule> rules = _knowledgebase.getAllRulesRecords();
-        for (Rule rule : rules) {
-            String records[] = rule.getRecords();
+        ArrayList<Regla> reglas = _knowledgebase.mostrarTodasReglas();
+        for (Regla regla : reglas) {
+            String records[] = regla.getRecords();
             ArrayList<String> facts = _factsbase.getAllFacts();
             boolean flag = true;
             for (int i = 0; i < records.length; i++) {
@@ -93,8 +93,8 @@ public class InferenceEngine {
                     i = records.length;
                 }
             }
-            if (flag && !refractRule(rule.getId()))
-                rulesID.add(rule.getId());
+            if (flag && !refractRule(regla.getId()))
+                rulesID.add(regla.getId());
         }
         return rulesID;
     }
@@ -115,7 +115,7 @@ public class InferenceEngine {
      * Chooses a rule from the conflict set.
      *
      * @param _rulesID
-     * @return The Rule with lowest ID number
+     * @return The Regla with lowest ID number
      */
     private byte resolveConflictSet(ArrayList<Byte> _rulesID) {
         byte chosen = _rulesID.get(0);
@@ -131,7 +131,7 @@ public class InferenceEngine {
      * @param _ruleID
      */
     private void applyRuleAndUpdateFacts(byte _ruleID) {
-        ffile.insertFact(mfile.getRule(_ruleID).getConsequent());
+        ffile.insertFact(mfile.obtenerRegla(_ruleID).getConsequent());
         appliedRules.add(_ruleID);
     }
 }

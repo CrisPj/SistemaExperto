@@ -1,6 +1,6 @@
 package se.determinista.files;
 
-import se.determinista.tree.Rule;
+import se.determinista.tree.Regla;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class FactsFile {
     public void insertFact(String _fact) {
         try {
             StringBuffer buffer = new StringBuffer(_fact);
-            buffer.setLength(Rule.SINGULAR_RECORD_SIZE);
+            buffer.setLength(Regla.SINGULAR_RECORD_SIZE);
             file.writeChars(buffer.toString());
         } catch (Exception ex) {
         }
@@ -52,8 +52,8 @@ public class FactsFile {
         try {
             file.seek(0);
             do {
-                char[] fact = new char[Rule.SINGULAR_RECORD_SIZE];
-                for (int i = 0; i < Rule.SINGULAR_RECORD_SIZE; i++)
+                char[] fact = new char[Regla.SINGULAR_RECORD_SIZE];
+                for (int i = 0; i < Regla.SINGULAR_RECORD_SIZE; i++)
                     fact[i] = file.readChar();
                 facts.add(new String(fact).trim());
             } while (true);

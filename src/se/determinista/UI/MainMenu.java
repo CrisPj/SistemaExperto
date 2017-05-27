@@ -58,16 +58,16 @@ public class MainMenu {
     public void manageOption(String _option) {
         switch (_option) {
             case "1":
-                mfile.printAllRules();
+                mfile.imprimirReglas();
                 break;
             case "2":
-                mfile.showIndex();
+                mfile.mostrarIndex();
                 break;
             case "3":
-                mfile.insertNewRules();
+                mfile.insertarNuevasReglas();
                 break;
             case "4":
-                mfile.deleteAllRules();
+                mfile.eliminarReglas();
                 break;
             case "5":
                 ffile.printAllFacts();

@@ -122,7 +122,7 @@ public class ArchivoMaestro
                 System.out.println("ID: " + ruleId + " " + obtenerRegistros(recordsArray) + "-> " + new String(currCharacteristic));
             } while (true);
         } catch (Exception ex) {
-            System.out.println("\nFinished reading ArchivoMaestro\n");
+            System.out.println("\nTermine de leer el ArchivoMaestro\n");
         }
     }
 

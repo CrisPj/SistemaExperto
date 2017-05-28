@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970cb1a9-2a45-4276-abed-e7faf9ba5f48" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;" />
+    <list default="true" id="970cb1a9-2a45-4276-abed-e7faf9ba5f48" name="Default" comment="Merge remote-tracking branch 'origin/master'&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/DeterministES.java" afterPath="$PROJECT_DIR$/src/se/determinista/DeterministES.java" />
+    </list>
     <ignored path="SE-Determinista.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -47,24 +49,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrincipalFrame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PrincipalFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+            <state relative-caret-position="144">
+              <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="38" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeterministES.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DeterministES.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/DeterministES.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <state relative-caret-position="160">
+              <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding>
-                <element signature="e#137#138#0" expanded="true" />
-                <element signature="e#167#168#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,7 +144,6 @@
         <option value="$PROJECT_DIR$/src/se/determinista/tree/Nodo.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/tree/Arbol.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/tree/Regla.java" />
-        <option value="$PROJECT_DIR$/src/se/determinista/DeterministES.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/inference/InferenceEngine.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/inferencia/InferenceEngine.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -154,6 +154,7 @@
         <option value="$PROJECT_DIR$/src/se/determinista/UI/MainMenu.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/DeterministES.java" />
       </list>
     </option>
   </component>
@@ -599,7 +600,7 @@
       <workItem from="1495753624736" duration="196000" />
       <workItem from="1495859100437" duration="2930000" />
       <workItem from="1495905999659" duration="6616000" />
-      <workItem from="1495991935655" duration="6565000" />
+      <workItem from="1495991935655" duration="6851000" />
     </task>
     <task id="LOCAL-00001" summary="Se modificó la lectura de las reglas">
       <created>1472791112765</created>
@@ -661,7 +662,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154388000" />
+    <option name="totallyTimeSpent" value="154674000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1194,17 +1195,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/DeterministES.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding>
-            <element signature="e#137#138#0" expanded="true" />
-            <element signature="e#167#168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1243,9 +1233,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+        <state relative-caret-position="144">
+          <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="38" selection-end-column="43" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/DeterministES.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

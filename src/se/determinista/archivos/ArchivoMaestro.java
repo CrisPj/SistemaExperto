@@ -47,7 +47,7 @@ public class ArchivoMaestro
                 buffer.setLength(Regla.TAM_REGISTRO);
                 archivo.writeChars(buffer.toString());
             }
-            buffer = new StringBuffer(regla.getConsequente());
+            buffer = new StringBuffer(regla.getConsecuente());
             buffer.setLength(Regla.TAM_REGISTRO);
             archivo.writeChars(buffer.toString());
         } catch (Exception ex) {
@@ -75,7 +75,7 @@ public class ArchivoMaestro
                 for (int i = 0; i < Regla.TAM_REGISTRO; i++) {
                     registroActual[i] = archivo.readChar();
                 }
-                regla.setConsequente(new String(registroActual));
+                regla.setConsecuente(new String(registroActual));
             }
         } catch (Exception ex) {
             System.out.println("Error, la regla no existe en la base de conocimientos : " + ex.getMessage());

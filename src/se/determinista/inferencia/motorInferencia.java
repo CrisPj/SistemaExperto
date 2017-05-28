@@ -77,7 +77,7 @@ public class motorInferencia
                 byte id = resolverConjuntoConflicto(conjuntoConflicto);
                 conjuntoConflicto.remove(id);
                 ArrayDeque<String> nuevasMetas = new ArrayDeque<>();
-                nuevasMetas.add(archivoMaestro.obtenerRegla(id).getConsequente());
+                nuevasMetas.add(archivoMaestro.obtenerRegla(id).getConsecuente());
                 verificado = true;
                 while (!nuevasMetas.isEmpty() && verificado) {
                     String Meta = nuevasMetas.pop();
@@ -130,7 +130,7 @@ public class motorInferencia
     }
 
     private void aplicarRegla(byte idRegla) {
-        archivoHechos.insertarHecho(archivoMaestro.obtenerRegla(idRegla).getConsequente());
+        archivoHechos.insertarHecho(archivoMaestro.obtenerRegla(idRegla).getConsecuente());
         reglasAplicadas.add(idRegla);
     }
 }

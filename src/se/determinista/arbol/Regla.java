@@ -8,15 +8,15 @@ public class Regla
 
     private byte llave;
     private String[] reglas;
-    private String consequente;
+    private String consecuente;
 
     public Regla() {
     }
 
-    public Regla(byte llave, String[] reglas, String consequente) {
+    public Regla(byte llave, String[] reglas, String consecuente) {
         this.llave = llave;
         this.reglas = reglas;
-        this.consequente = consequente;
+        this.consecuente = consecuente;
     }
 
     public byte getLlave() {
@@ -35,12 +35,12 @@ public class Regla
         this.reglas = reglas;
     }
 
-    public String getConsequente() {
-        return consequente;
+    public String getConsecuente() {
+        return consecuente;
     }
 
-    public void setConsequente(String consequente) {
-        this.consequente = consequente;
+    public void setConsecuente(String consecuente) {
+        this.consecuente = consecuente;
     }
 
 }

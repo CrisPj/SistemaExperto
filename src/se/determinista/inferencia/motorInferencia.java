@@ -26,7 +26,7 @@ public class motorInferencia
     }
 
     public void inicializar(boolean opcion) {
-        System.out.print("Ingrese la meta que deesea alcanzar, NONE para inferir sin meta específica, o TERMINAR para cancelar");
+        System.out.print("Ingrese la meta que deesea alcanzar, NADA para inferir sin meta específica, o TERMINAR para cancelar");
         meta = new Scanner(System.in).next();
         if (!meta.equals("TERMINAR"))
             if (opcion)
@@ -43,7 +43,7 @@ public class motorInferencia
                 aplicarRegla(idRegla);
             }
         }
-        if (estaEnHechos(meta) && !meta.equals("NONE"))
+        if (estaEnHechos(meta) && !meta.equals("NADA"))
             System.out.println("\nÉXITO\n");
         else {
             System.out.println("Estatus:\n");

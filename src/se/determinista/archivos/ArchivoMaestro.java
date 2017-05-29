@@ -87,7 +87,7 @@ public class ArchivoMaestro
         if (new java.io.File(ruta + Constantes.EXTENCION_CONOCIMIENTO).exists()) {
             String input;
             do {
-                System.out.println("Ingrese una nueva regla con el formato ID-Ant1^Ant2^...^Ant5-Consecuente \n O  \"x\" para salir");
+                System.out.println("Ingrese una nueva regla con el formato ID-Ant1&Ant2&...&Ant5-Consecuente \n O  \"x\" para salir");
                 input = new Scanner(System.in).next();
                 if (!input.equals("x"))
                     try {
@@ -119,7 +119,7 @@ public class ArchivoMaestro
                 for (int i = 0; i < Regla.TAM_REGISTRO; i++) {
                     currCharacteristic[i] = archivo.readChar();
                 }
-                System.out.println("ID: " + ruleId + " " + obtenerRegistros(recordsArray) + "-> " + new String(currCharacteristic));
+                System.out.println("" + ruleId + ": " + obtenerRegistros(recordsArray) + " -> " + new String(currCharacteristic));
             } while (true);
         } catch (Exception ex) {
             System.out.println("\nTermine de leer el ArchivoMaestro\n");
@@ -137,7 +137,7 @@ public class ArchivoMaestro
         for (String registro : registros) {
             if (counter < Regla.CANTIDAD_REGISTROS) {
                 if (!registro.trim().isEmpty()) {
-                    records += registro + "^";
+                    records += registro + "&";
                 }
             }
         }
@@ -150,7 +150,7 @@ public class ArchivoMaestro
     }
 
     private Regla mostrarRegla(String entrada) throws Exception {
-        return new Regla(Byte.parseByte(entrada.split("-")[0]), entrada.split("-")[1].split("\\^"), entrada.split("-")[2]);
+        return new Regla(Byte.parseByte(entrada.split("-")[0]), entrada.split("-")[1].split("\\&"), entrada.split("-")[2]);
     }
 
     public ArrayList<Regla> mostrarTodasReglas() {

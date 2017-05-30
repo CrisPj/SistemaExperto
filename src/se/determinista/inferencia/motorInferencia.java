@@ -4,6 +4,7 @@ import se.determinista.archivos.ArchivoMaestro;
 import se.determinista.archivos.ArchivoHechos;
 import se.determinista.arbol.Regla;
 
+import javax.swing.*;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -29,9 +30,10 @@ public class motorInferencia
 
     }
 
-    public void inicializar(boolean opcion) {
+    public void inicializar(boolean opcion, String metita) {
+        meta=metita;
         System.out.print("Ingrese la meta que deesea alcanzar, NADA para inferir sin meta específica, o TERMINAR para cancelar");
-        meta = new Scanner(System.in).next();
+        //meta = new Scanner(System.in).next();
         if (!meta.equals("TERMINAR"))
             if (opcion)
             encadenamientoHaciaDelante();
@@ -47,8 +49,10 @@ public class motorInferencia
                 aplicarRegla(idRegla);
             }
         }
-        if (estaEnHechos(meta) && !meta.equals("NADA"))
+        if (estaEnHechos(meta) && !meta.equals("NADA")) {
             System.out.println("\nÉXITO\n");
+            JOptionPane.showMessageDialog(null, "Yes?", "Yes?", JOptionPane.INFORMATION_MESSAGE);
+        }
         else {
             System.out.println("Estatus:\n");
             archivoHechos.imprimirHechos();

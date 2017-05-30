@@ -59,7 +59,7 @@ public class EncadenamientoAdelanteFrame extends JFrame {
 		
 		JButton btnInferir = new JButton("Inferir");
 		btnInferir.addActionListener(e -> {
-			motorInferencia.inicializar(true);
+			//motorInferencia.inicializar(true);
         });
 		btnInferir.setBounds(182, 133, 117, 25);
 		panel.add(btnInferir);

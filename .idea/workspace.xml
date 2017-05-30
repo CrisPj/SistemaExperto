@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b605c185-80a5-4223-a446-4d375feeb227" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java" afterPath="$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SistemaExperto.hechos" afterPath="$PROJECT_DIR$/SistemaExperto.hechos" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/EncadenamientoAdelanteFrame.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/EncadenamientoAdelanteFrame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/EncadenamientoAtrasFrame.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/EncadenamientoAtrasFrame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame$1.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/inferencia/motorInferencia.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/inferencia/motorInferencia.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAdelanteFrame.java" afterPath="$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAdelanteFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAtrasFrame.java" afterPath="$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAtrasFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" afterPath="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java" afterPath="$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +25,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DeterministES.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DeterministES.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/DeterministES.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="160">
+              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -30,8 +38,8 @@
       <file leaf-file-name="EncadenamientoAdelanteFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAdelanteFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="61" column="12" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="46" />
+            <state relative-caret-position="160">
+              <caret line="61" column="14" lean-forward="false" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="motorInferencia.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="motorInferencia.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-320">
-              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="122">
+              <caret line="54" column="9" lean-forward="false" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -52,18 +60,8 @@
       <file leaf-file-name="InferenciaFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="79" column="50" lean-forward="false" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EncadenamientoAtrasFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAtrasFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-320">
-              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="237">
+              <caret line="80" column="54" lean-forward="false" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -92,8 +90,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAdelanteFrame.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAtrasFrame.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java" />
       </list>
     </option>
   </component>
@@ -448,23 +449,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1496117663003</updated>
-      <workItem from="1496117670526" duration="1435000" />
+      <workItem from="1496117670526" duration="2600000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1435000" />
+    <option name="totallyTimeSpent" value="2600000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="744" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -495,40 +497,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAdelanteFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="61" column="12" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAtrasFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-320">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="79" column="50" lean-forward="false" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-320">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -539,8 +507,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/DeterministES.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="160">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAdelanteFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="61" column="14" lean-forward="false" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAtrasFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="61" column="10" lean-forward="false" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="80" column="54" lean-forward="false" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="54" column="9" lean-forward="false" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
           <folding />
         </state>
       </provider>

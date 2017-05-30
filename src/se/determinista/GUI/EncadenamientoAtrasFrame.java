@@ -59,7 +59,7 @@ public class EncadenamientoAtrasFrame extends JFrame {
 		txtEncadenamientoAtras.setColumns(10);
 		
 		JButton btnInferir = new JButton("Inferir");
-		btnInferir.addActionListener(e -> motorInferencia.inicializar(false));
+		//btnInferir.addActionListener(e -> motorInferencia.inicializar(false));
 		btnInferir.setBounds(182, 133, 117, 25);
 		panel.add(btnInferir);
 	}

@@ -74,11 +74,11 @@ public class InferenciaFrame extends JFrame {
 		JButton btnInferir = new JButton("Inferir");
 		btnInferir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				String meta = txtrIngreseLaMeta.getText();
 				if(tipoDeInferencia.equals("Encadenamiento Hacia Adelante")){
-					motorInferencia.inicializar(true);
+					motorInferencia.inicializar(true,meta);
 				}else if(tipoDeInferencia.equals("Encadenamiento Hacia Atras")){
-					motorInferencia.inicializar(false);
+					motorInferencia.inicializar(false,meta);
 				}
 			}
 		});

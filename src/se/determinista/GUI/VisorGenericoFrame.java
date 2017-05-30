@@ -58,6 +58,7 @@ public class VisorGenericoFrame extends JFrame {
 		textPane.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textPane.setLocation(-252, 0);
 		textPane.setText(informacion);
+		textPane.setEditable(false);
 		scrollPane.setViewportView(textPane);
 		
 		JLabel lblAhoraPuedesCopiar = new JLabel("Visor de "+tipoDeVisor);

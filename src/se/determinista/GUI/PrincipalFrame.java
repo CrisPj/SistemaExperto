@@ -189,15 +189,16 @@ public class PrincipalFrame extends JFrame {
 		
 		JButton btnEncadenamientoHaciaAdelante = new JButton("Encadenamiento Hacia Adelante");
 		btnEncadenamientoHaciaAdelante.addActionListener(e -> {
-            EncadenamientoAdelanteFrame frame = new EncadenamientoAdelanteFrame(motorInferencia);
+            InferenciaFrame frame = new InferenciaFrame(motorInferencia,"Encadenamiento Hacia Adelante");
             frame.setVisible(true);
         });
 		panelMotor.add(btnEncadenamientoHaciaAdelante);
 		
 		JButton btnEncadenamientoHaciaAtras = new JButton("Encadenamiento Hacia Atras");
 		btnEncadenamientoHaciaAtras.addActionListener(e -> {
-            EncadenamientoAtrasFrame frame = new EncadenamientoAtrasFrame(motorInferencia);
-            frame.setVisible(true);
+
+			InferenciaFrame frame = new InferenciaFrame(motorInferencia,"Encadenamiento Hacia Atras");
+			frame.setVisible(true);
         });
 		panelMotor.add(btnEncadenamientoHaciaAtras);
 		

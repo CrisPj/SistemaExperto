@@ -42,7 +42,7 @@ public class InferenciaFrame extends JFrame {
 		txtrInfo.setEditable(false);
 		txtrInfo.setWrapStyleWord(true);
 		txtrInfo.setLineWrap(true);
-		txtrInfo.setText("Ingrese la meta que deesea alcanzar, NADA para inferir sin meta específica, o TERMINAR para cancelar");
+		txtrInfo.setText("Ingrese la meta que se desea alcanzar o deje vacio para inferir sin meta.");
 		txtrInfo.setBounds(12, 36, 456, 51);
 		panel.add(txtrInfo);
 		

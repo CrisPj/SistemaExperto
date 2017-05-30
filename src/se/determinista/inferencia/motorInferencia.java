@@ -34,7 +34,7 @@ public class motorInferencia
     public void inicializar(boolean opcion, String metita)
     {
         meta = metita;
-        System.out.print("Ingrese la meta que deesea alcanzar, NADA para inferir sin meta específica, o TERMINAR para cancelar");
+        System.out.print("Ingrese la meta que se desea alcanzar o deje vacio para inferir sin meta.");
         if (!meta.equals("TERMINAR"))
             if (opcion)
                 encadenamientoHaciaDelante();
@@ -53,9 +53,9 @@ public class motorInferencia
                 aplicarRegla(idRegla);
             }
         }
-        if (estaEnHechos(meta) && !meta.equals("NADA"))
+        if (estaEnHechos(meta) && !meta.equals(""))
             JOptionPane.showMessageDialog(null, "Exito, meta alcanzada; " + meta, "EXITO", JOptionPane.INFORMATION_MESSAGE);
-        else if (meta.equals("NADA"))
+        else if (meta.equals(""))
             JOptionPane.showMessageDialog(null, "Exito, meta alcanzada: " + archivoHechos.obtenerHechos().get(archivoHechos.obtenerHechos().size()-1), "EXITO", JOptionPane.INFORMATION_MESSAGE);
         else
         {

@@ -54,10 +54,18 @@ public class AddHechosBCFrame extends JFrame {
 		
 		JButton btnAgregarHecho = new JButton("Agregar");
 		btnAgregarHecho.addActionListener(e -> {
-			archivoHechos.insertarHecho(txtAgregarHechos.getText());
-
-            JOptionPane.showMessageDialog(null, "¡Hecho Agregado!","Exito al agregar el hecho.",JOptionPane.INFORMATION_MESSAGE);
-        });
+			try{
+				archivoHechos.insertarHecho(txtAgregarHechos.getText());
+				JOptionPane.showMessageDialog(null, "¡Hecho Agregado!","Exito al agregar el hecho.",JOptionPane.INFORMATION_MESSAGE);
+				txtAgregarHechos.setText("");
+			}catch (Exception ex){
+				JOptionPane.showMessageDialog(
+						null,
+						"El hecho no se agregó, revisa la sintaxis e intentalo de nuevo.",
+						"Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		});
 		btnAgregarHecho.setBounds(180, 109, 117, 25);
 		panel.add(btnAgregarHecho);
 		

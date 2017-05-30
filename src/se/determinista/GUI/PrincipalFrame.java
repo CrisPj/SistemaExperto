@@ -154,9 +154,13 @@ public class PrincipalFrame extends JFrame {
 		
 		JButton btnVerAntecedentesBH = new JButton("Ver antecedentes de la BH");
 		btnVerAntecedentesBH.addActionListener(e -> {
-            VisorGenericoFrame frame = new VisorGenericoFrame("Antecedentes",archivoHechos.imprimirHechos()); //Remplazar con los antecedentes segundo parametro
-            frame.setLocation(0, 0);
-            frame.setVisible(true);
+			try{
+				VisorGenericoFrame frame = new VisorGenericoFrame("Antecedentes",archivoHechos.imprimirHechos()); //Remplazar con los antecedentes segundo parametro
+				frame.setLocation(0, 0);
+				frame.setVisible(true);
+			}catch (Exception ex){
+				JOptionPane.showMessageDialog(null, "Aún no hay antecedentes en la base de hechos.","Sin hechos",JOptionPane.WARNING_MESSAGE);
+			}
         });
 		panelBH.add(btnVerAntecedentesBH);
 		

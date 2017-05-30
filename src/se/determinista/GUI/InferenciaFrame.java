@@ -3,7 +3,6 @@ package se.determinista.GUI;
 import se.determinista.inferencia.motorInferencia;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,7 +18,7 @@ import java.awt.event.ActionEvent;
 public class InferenciaFrame extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtEncadenamientoAtras;
+	private JTextField txtInputMeta;
 
 	/**
 	 * Launch the application.
@@ -58,23 +57,23 @@ public class InferenciaFrame extends JFrame {
 		lblEncadenamientoHaciaAdelante.setBounds(111, 12, 259, 15);
 		panel.add(lblEncadenamientoHaciaAdelante);
 		
-		JTextArea txtrIngreseLaMeta = new JTextArea();
-		txtrIngreseLaMeta.setEditable(false);
-		txtrIngreseLaMeta.setWrapStyleWord(true);
-		txtrIngreseLaMeta.setLineWrap(true);
-		txtrIngreseLaMeta.setText("Ingrese la meta que deesea alcanzar, NADA para inferir sin meta específica, o TERMINAR para cancelar");
-		txtrIngreseLaMeta.setBounds(12, 36, 456, 51);
-		panel.add(txtrIngreseLaMeta);
+		JTextArea txtrInfo = new JTextArea();
+		txtrInfo.setEditable(false);
+		txtrInfo.setWrapStyleWord(true);
+		txtrInfo.setLineWrap(true);
+		txtrInfo.setText("Ingrese la meta que deesea alcanzar, NADA para inferir sin meta específica, o TERMINAR para cancelar");
+		txtrInfo.setBounds(12, 36, 456, 51);
+		panel.add(txtrInfo);
 		
-		txtEncadenamientoAtras = new JTextField();
-		txtEncadenamientoAtras.setBounds(12, 96, 456, 28);
-		panel.add(txtEncadenamientoAtras);
-		txtEncadenamientoAtras.setColumns(10);
+		txtInputMeta = new JTextField();
+		txtInputMeta.setBounds(12, 96, 456, 28);
+		panel.add(txtInputMeta);
+		txtInputMeta.setColumns(10);
 		
 		JButton btnInferir = new JButton("Inferir");
 		btnInferir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String meta = txtrIngreseLaMeta.getText();
+				String meta = txtInputMeta.getText();
 				if(tipoDeInferencia.equals("Encadenamiento Hacia Adelante")){
 					motorInferencia.inicializar(true,meta);
 				}else if(tipoDeInferencia.equals("Encadenamiento Hacia Atras")){

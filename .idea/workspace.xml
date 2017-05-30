@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b605c185-80a5-4223-a446-4d375feeb227" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SistemaExperto.hechos" afterPath="$PROJECT_DIR$/SistemaExperto.hechos" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SistemaExperto.index" afterPath="$PROJECT_DIR$/SistemaExperto.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SistemaExperto.master" afterPath="$PROJECT_DIR$/SistemaExperto.master" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/AddHechosBCFrame$1.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/AddHechosBCFrame$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/AddReglasBCFrame.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/AddReglasBCFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/PrincipalFrame.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/PrincipalFrame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame$1.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java" afterPath="$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" afterPath="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,41 +22,18 @@
       <file leaf-file-name="PrincipalFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="69" column="55" lean-forward="true" selection-start-line="69" selection-start-column="55" selection-end-line="69" selection-end-column="55" />
+            <state relative-caret-position="68">
+              <caret line="58" column="29" lean-forward="true" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddReglasBCFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/AddReglasBCFrame.java">
+      <file leaf-file-name="InferenciaFrame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="80" column="49" lean-forward="true" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddHechosBCFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/AddHechosBCFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-              <folding>
-                <element signature="e#2441#2442#0" expanded="true" />
-                <element signature="e#2461#2462#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VisorGenericoFrame.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/VisorGenericoFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="59" column="38" lean-forward="true" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+            <state relative-caret-position="172">
+              <caret line="62" column="35" lean-forward="true" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -78,7 +52,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAdelanteFrame.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAtrasFrame.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java" />
@@ -88,6 +61,7 @@
         <option value="$PROJECT_DIR$/src/se/determinista/GUI/AddReglasBCFrame.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/GUI/AddHechosBCFrame.java" />
         <option value="$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java" />
+        <option value="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" />
       </list>
     </option>
   </component>
@@ -678,7 +652,7 @@
       <option name="presentableId" value="Default" />
       <updated>1496117663003</updated>
       <workItem from="1496117670526" duration="2600000" />
-      <workItem from="1496147206022" duration="7200000" />
+      <workItem from="1496147206022" duration="9063000" />
     </task>
     <task id="LOCAL-00001" summary="Se ha cambiado la cadena de salida al mostrar reglas y direcciones de ellas.">
       <created>1496150494528</created>
@@ -708,11 +682,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496153669745</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Se eliminan los hechos almacenados al iniciar el programa.">
+      <created>1496154527278</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1496154527278</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9800000" />
+    <option name="totallyTimeSpent" value="11663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -728,7 +709,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32680723" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32680723" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -760,7 +741,8 @@
     <MESSAGE value="Se controla excepcion cuando se consulta base de hechos vacia.&#10;Se hace un limpiado del ImputText cuando se agrega un hecho.&#10;Se controla excepcion si no se puede agregar un hecho." />
     <MESSAGE value="Se desabilita la edicion en el visor de informacion." />
     <MESSAGE value="Se agrega funcion al boton 'terminar' al agregar hechos y reglas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Se agrega funcion al boton 'terminar' al agregar hechos y reglas." />
+    <MESSAGE value="Se eliminan los hechos almacenados al iniciar el programa." />
+    <option name="LAST_COMMIT_MESSAGE" value="Se eliminan los hechos almacenados al iniciar el programa." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -819,14 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="80" column="54" lean-forward="false" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoMaestro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -867,14 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="69" column="55" lean-forward="true" selection-start-line="69" selection-start-column="55" selection-end-line="69" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/AddReglasBCFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -896,8 +862,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/VisorGenericoFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="59" column="38" lean-forward="true" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+        <state relative-caret-position="136">
+          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/PrincipalFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="58" column="29" lean-forward="true" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="62" column="35" lean-forward="true" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
           <folding />
         </state>
       </provider>

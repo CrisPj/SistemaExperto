@@ -1,15 +1,12 @@
 package se.determinista.inferencia;
 
-import javafx.beans.property.adapter.JavaBeanObjectProperty;
-import se.determinista.archivos.ArchivoMaestro;
-import se.determinista.archivos.ArchivoHechos;
 import se.determinista.arbol.Regla;
+import se.determinista.archivos.ArchivoHechos;
+import se.determinista.archivos.ArchivoMaestro;
 
 import javax.swing.*;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Scanner;
 
 public class motorInferencia
 {
@@ -38,7 +35,6 @@ public class motorInferencia
     {
         meta = metita;
         System.out.print("Ingrese la meta que deesea alcanzar, NADA para inferir sin meta específica, o TERMINAR para cancelar");
-        //meta = new Scanner(System.in).next();
         if (!meta.equals("TERMINAR"))
             if (opcion)
                 encadenamientoHaciaDelante();
@@ -58,9 +54,8 @@ public class motorInferencia
             }
         }
         if (estaEnHechos(meta) && !meta.equals("NADA"))
-        {
             JOptionPane.showMessageDialog(null, "Exito, meta alcanzada; " + meta, "EXITO", JOptionPane.INFORMATION_MESSAGE);
-        } else if (meta.equals("NADA"))
+        else if (meta.equals("NADA"))
             JOptionPane.showMessageDialog(null, "Exito, meta alcanzada: " + archivoHechos.obtenerHechos().get(archivoHechos.obtenerHechos().size()-1), "EXITO", JOptionPane.INFORMATION_MESSAGE);
         else
         {
@@ -143,10 +138,8 @@ public class motorInferencia
     {
         byte regla = idReglas.get(0);
         for (byte ruleID : idReglas)
-        {
             if (ruleID < regla)
                 regla = ruleID;
-        }
         return regla;
     }
 

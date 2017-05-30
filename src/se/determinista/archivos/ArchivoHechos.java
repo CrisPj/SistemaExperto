@@ -5,7 +5,6 @@ import se.determinista.common.Constantes;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ArchivoHechos
 {
@@ -41,7 +40,6 @@ public class ArchivoHechos
                 hechos.add(new String(hecho).trim());
             } while (true);
         } catch (Exception ex) {
-            // System.out.println("Reached EOF");
         }
         if (hechos.size() == 0) hechos = null;
         return hechos;

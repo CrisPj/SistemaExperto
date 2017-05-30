@@ -1,5 +1,7 @@
 package se.determinista.GUI;
 
+import se.determinista.inferencia.motorInferencia;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -18,27 +20,14 @@ public class EncadenamientoAdelanteFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtEncadenamientoAdelante;
-
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EncadenamientoAdelanteFrame frame = new EncadenamientoAdelanteFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	private se.determinista.inferencia.motorInferencia motorInferencia;
 
 	/**
 	 * Create the frame.
+	 * @param motorInferencia
 	 */
-	public EncadenamientoAdelanteFrame() {
+	public EncadenamientoAdelanteFrame(motorInferencia motorInferencia) {
+		this.motorInferencia = motorInferencia;
 		setTitle("-=Sistema Experto=- Encadenamiento hacia delante");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 500, 210);
@@ -69,12 +58,9 @@ public class EncadenamientoAdelanteFrame extends JFrame {
 		txtEncadenamientoAdelante.setColumns(10);
 		
 		JButton btnInferir = new JButton("Inferir");
-		btnInferir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
-			}
-		});
+		btnInferir.addActionListener(e -> {
+			motorInferencia.inicializar(true);
+        });
 		btnInferir.setBounds(182, 133, 117, 25);
 		panel.add(btnInferir);
 	}

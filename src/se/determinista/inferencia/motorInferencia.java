@@ -25,6 +25,10 @@ public class motorInferencia
         conjuntoConflicto = new ArrayList<>();
     }
 
+    public void justificacion() {
+
+    }
+
     public void inicializar(boolean opcion) {
         System.out.print("Ingrese la meta que deesea alcanzar, NADA para inferir sin meta específica, o TERMINAR para cancelar");
         meta = new Scanner(System.in).next();

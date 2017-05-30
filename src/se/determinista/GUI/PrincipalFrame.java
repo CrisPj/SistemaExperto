@@ -154,7 +154,7 @@ public class PrincipalFrame extends JFrame {
 		
 		JButton btnVerAntecedentesBH = new JButton("Ver antecedentes de la BH");
 		btnVerAntecedentesBH.addActionListener(e -> {
-            VisorGenericoFrame frame = new VisorGenericoFrame("Antecedentes","Aqui van todas los antecedentes"); //Remplazar con los antecedentes segundo parametro
+            VisorGenericoFrame frame = new VisorGenericoFrame("Antecedentes",archivoHechos.imprimirHechos()); //Remplazar con los antecedentes segundo parametro
             frame.setLocation(0, 0);
             frame.setVisible(true);
         });
@@ -162,7 +162,7 @@ public class PrincipalFrame extends JFrame {
 		
 		JButton btnAddHechosBH = new JButton("Agregar hechos a la BH");
 		btnAddHechosBH.addActionListener(e -> {
-            AddHechosBCFrame frame = new AddHechosBCFrame();
+            AddHechosBCFrame frame = new AddHechosBCFrame(archivoHechos);
             frame.setVisible(true);
         });
 		panelBH.add(btnAddHechosBH);
@@ -173,8 +173,7 @@ public class PrincipalFrame extends JFrame {
 
             respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea BORRAR todos los Hechos?", "Borrar Hechos", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if(respuesta==0){
-                //Aqui poner la cosa que borra hechos...
-
+                archivoHechos.borrarHechos();
                 JOptionPane.showMessageDialog(null, "¡Hechos Borrados!","Exito al borrar los hechos.",JOptionPane.WARNING_MESSAGE);
             }else if(respuesta==1){
                 JOptionPane.showMessageDialog(null, "¡Hechos sin cambios!","No hay cambios",JOptionPane.WARNING_MESSAGE);
@@ -190,14 +189,14 @@ public class PrincipalFrame extends JFrame {
 		
 		JButton btnEncadenamientoHaciaAdelante = new JButton("Encadenamiento Hacia Adelante");
 		btnEncadenamientoHaciaAdelante.addActionListener(e -> {
-            EncadenamientoAdelanteFrame frame = new EncadenamientoAdelanteFrame();
+            EncadenamientoAdelanteFrame frame = new EncadenamientoAdelanteFrame(motorInferencia);
             frame.setVisible(true);
         });
 		panelMotor.add(btnEncadenamientoHaciaAdelante);
 		
 		JButton btnEncadenamientoHaciaAtras = new JButton("Encadenamiento Hacia Atras");
 		btnEncadenamientoHaciaAtras.addActionListener(e -> {
-            EncadenamientoAtrasFrame frame = new EncadenamientoAtrasFrame();
+            EncadenamientoAtrasFrame frame = new EncadenamientoAtrasFrame(motorInferencia);
             frame.setVisible(true);
         });
 		panelMotor.add(btnEncadenamientoHaciaAtras);

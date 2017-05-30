@@ -1,5 +1,7 @@
 package se.determinista.GUI;
 
+import se.determinista.archivos.ArchivoHechos;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -19,27 +21,14 @@ public class AddHechosBCFrame extends JFrame {
 	private JPanel contentPane;
 	private final JPanel panel = new JPanel();
 	private JTextField txtAgregarHechos;
-
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddHechosBCFrame frame = new AddReglasBCFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	private ArchivoHechos archivoHechos;
 
 	/**
 	 * Create the frame.
+	 * @param archivoHechos
 	 */
-	public AddHechosBCFrame() {
+	public AddHechosBCFrame(ArchivoHechos archivoHechos) {
+		this.archivoHechos = archivoHechos;
 		setResizable(false);
 		setTitle("-=Sistema Experto=- Agregar Hechos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //Aqui se podria poner el la X que se ocupa.
@@ -64,13 +53,11 @@ public class AddHechosBCFrame extends JFrame {
 		txtAgregarHechos.setColumns(10);
 		
 		JButton btnAgregarHecho = new JButton("Agregar");
-		btnAgregarHecho.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//Cositas Para el sistema Experto...
-				
-				JOptionPane.showMessageDialog(null, "¡Hecho Agregado!","Exito al agregar el hecho.",JOptionPane.INFORMATION_MESSAGE);
-			}
-		});
+		btnAgregarHecho.addActionListener(e -> {
+			archivoHechos.insertarHecho(txtAgregarHechos.getText());
+
+            JOptionPane.showMessageDialog(null, "¡Hecho Agregado!","Exito al agregar el hecho.",JOptionPane.INFORMATION_MESSAGE);
+        });
 		btnAgregarHecho.setBounds(180, 109, 117, 25);
 		panel.add(btnAgregarHecho);
 		

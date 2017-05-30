@@ -47,25 +47,13 @@ public class ArchivoHechos
         return hechos;
     }
 
-    public void imprimirHechos() {
-        try {
-            ArrayList<String> hechos = obtenerHechos();
-            hechos.forEach(System.out::println);
-        } catch (Exception ex) {
-            System.out.println("\nFin de los hechos\n");
-        }
+    public String imprimirHechos() {
+        String retorno = "";
+        for (String hecho : obtenerHechos())
+            retorno += hecho + "\n";
+        return retorno;
     }
 
-    public void insertarHechos() {
-        String entrada;
-        do {
-            System.out.println("Ingrese un hecho a la base o FIN para finalizar");
-            entrada = new Scanner(System.in).next();
-            if (!entrada.equals("FIN")) {
-                insertarHecho(entrada);
-            }
-        } while (!entrada.equals("FIN"));
-    }
 
     public void borrarHechos() {
         try {

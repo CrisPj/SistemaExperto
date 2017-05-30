@@ -44,6 +44,7 @@ public class PrincipalFrame extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
             try {
+
                 PrincipalFrame frame = new PrincipalFrame();
                 frame.setVisible(true);
             } catch (Exception e) {
@@ -60,6 +61,8 @@ public class PrincipalFrame extends JFrame {
 		String nombreArchivo = Constantes.NOMBRE_ARCHIVOS;
 		archivoMaestro = new ArchivoMaestro(nombreArchivo, Constantes.LECTURA_ESCRITURA);
 		archivoHechos = new ArchivoHechos(nombreArchivo, Constantes.LECTURA_ESCRITURA);
+		// Se borran los hechos al inicio del programa:
+		archivoHechos.borrarHechos();
 		motorInferencia = new motorInferencia(archivoMaestro, archivoHechos);
 
 		setTitle("-=Sistema Experto=- Python Team ~ Inteligencia Aritificial~ITC");

@@ -120,7 +120,7 @@ public class ArchivoMaestro
                 for (int i = 0; i < Regla.TAM_REGISTRO; i++) {
                     currCharacteristic[i] = archivo.readChar();
                 }
-               retorno += ("" + ruleId + ": " + obtenerRegistros(recordsArray) + " -> " + new String(currCharacteristic) + "\n");
+               retorno += ("Regla " + ruleId + ":   " + obtenerRegistros(recordsArray) + " → " + new String(currCharacteristic) + "\n");
             } while (true);
         } catch (Exception ex) {
             System.out.println("\nTermine de leer el ArchivoMaestro\n");

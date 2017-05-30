@@ -63,7 +63,7 @@ public class ArchivoIndice
         try {
             archivo.seek(0);
             do {
-                retorno += ("ID: " + archivo.readByte() + "-->" + archivo.readLong() + "\n");
+                retorno += ("Regla " + archivo.readByte() + ":  #" + archivo.readLong() + "\n");
             } while (true);
         } catch (Exception ex) {
             System.out.println("\nTermine de leer ArchivoIndice\n");

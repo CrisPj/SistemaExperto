@@ -22,7 +22,7 @@ public class ArchivoMaestro
     }
 
 
-    private void crearArchivo(String nombre, String permisos) {
+    public void crearArchivo(String nombre, String permisos) {
         try {
             ruta = nombre;
             archivo = new RandomAccessFile(nombre + Constantes.EXTENCION_CONOCIMIENTO, permisos);
@@ -32,7 +32,7 @@ public class ArchivoMaestro
         }
     }
 
-    private void nuevoRegistro(Regla regla) {
+    public void nuevoRegistro(Regla regla) {
         StringBuffer buffer;
         try {
             archivo.seek(archivo.length());
@@ -102,8 +102,9 @@ public class ArchivoMaestro
         }
     }
 
-    public void imprimirReglas() {
+    public String imprimirReglas() {
         byte ruleId;
+        String retorno = "";
         String[] recordsArray = new String[Regla.CANTIDAD_REGISTROS];
         char[] currCharacteristic = new char[Regla.TAM_REGISTRO];
          try {
@@ -119,16 +120,16 @@ public class ArchivoMaestro
                 for (int i = 0; i < Regla.TAM_REGISTRO; i++) {
                     currCharacteristic[i] = archivo.readChar();
                 }
-                System.out.println("" + ruleId + ": " + obtenerRegistros(recordsArray) + " -> " + new String(currCharacteristic));
+               retorno += ("" + ruleId + ": " + obtenerRegistros(recordsArray) + " -> " + new String(currCharacteristic) + "\n");
             } while (true);
         } catch (Exception ex) {
             System.out.println("\nTermine de leer el ArchivoMaestro\n");
-
+             return retorno;
         }
     }
 
-    public void mostrarIndex() {
-        index.mostrarIndice();
+    public String mostrarIndex() {
+        return index.mostrarIndice();
     }
 
     public String obtenerRegistros(String[] registros) {

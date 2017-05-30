@@ -58,14 +58,16 @@ public class ArchivoIndice
         return reglas;
     }
 
-    public void mostrarIndice() {
+    public String mostrarIndice() {
+        String retorno = "";
         try {
             archivo.seek(0);
             do {
-                System.out.println("ID: " + archivo.readByte() + "-->" + archivo.readLong());
+                retorno += ("ID: " + archivo.readByte() + "-->" + archivo.readLong() + "\n");
             } while (true);
         } catch (Exception ex) {
             System.out.println("\nTermine de leer ArchivoIndice\n");
+            return retorno;
         }
     }
 

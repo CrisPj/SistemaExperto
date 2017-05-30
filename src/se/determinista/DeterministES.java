@@ -7,8 +7,8 @@ import se.determinista.GUI.PrincipalFrame;
 public class DeterministES {
 
     public static void main(String[] args) {
-        new MainMenu();
-        //PrincipalFrame frame = new PrincipalFrame();
-        //frame.setVisible(true);
+//        new MainMenu();
+        PrincipalFrame frame = new PrincipalFrame();
+        frame.setVisible(true);
     }
 }

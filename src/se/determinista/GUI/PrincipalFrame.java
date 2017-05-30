@@ -1,5 +1,10 @@
 package se.determinista.GUI;
 
+import se.determinista.archivos.ArchivoHechos;
+import se.determinista.archivos.ArchivoMaestro;
+import se.determinista.common.Constantes;
+import se.determinista.inferencia.motorInferencia;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -28,26 +33,35 @@ public class PrincipalFrame extends JFrame {
 
 	private JPanel contentPane;
 
+
+	private ArchivoMaestro archivoMaestro;
+	private ArchivoHechos archivoHechos;
+	private se.determinista.inferencia.motorInferencia motorInferencia;
+
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PrincipalFrame frame = new PrincipalFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                PrincipalFrame frame = new PrincipalFrame();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 	}
 
 	/**
 	 * Create the frame.
 	 */
 	public PrincipalFrame() {
+
+		String nombreArchivo = Constantes.NOMBRE_ARCHIVOS;
+		archivoMaestro = new ArchivoMaestro(nombreArchivo, Constantes.LECTURA_ESCRITURA);
+		archivoHechos = new ArchivoHechos(nombreArchivo, Constantes.LECTURA_ESCRITURA);
+		motorInferencia = new motorInferencia(archivoMaestro, archivoHechos);
+
 		setTitle("-=Sistema Experto=- Python Team ~ Inteligencia Aritificial~ITC");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,28 +74,23 @@ public class PrincipalFrame extends JFrame {
 		menuBar.add(mnArchivo);
 		
 		JMenuItem mntmSalir = new JMenuItem("Salir");
-		mntmSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				int respuesta;
-				respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea salir del Sistema Experto?", "Salir del Sistema Experto", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-				if(respuesta==0){
-					System.exit(0);
-				}
-			}
-		});
+		mntmSalir.addActionListener(arg0 -> {
+            int respuesta;
+            respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea salir del Sistema Experto?", "Salir del Sistema Experto", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if(respuesta==0){
+                System.exit(0);
+            }
+        });
 		mnArchivo.add(mntmSalir);
 		
 		JMenu mnAyuda = new JMenu("Ayuda");
 		menuBar.add(mnAyuda);
 		
 		JMenuItem mntmAcercaDe = new JMenuItem("Acerca de");
-		mntmAcercaDe.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				AcercaDeFrame frame = new AcercaDeFrame();
-				frame.setVisible(true);
-			}
-		});
+		mntmAcercaDe.addActionListener(arg0 -> {
+            AcercaDeFrame frame = new AcercaDeFrame();
+            frame.setVisible(true);
+        });
 		mnAyuda.add(mntmAcercaDe);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -95,24 +104,19 @@ public class PrincipalFrame extends JFrame {
 		panelReglas.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btnVerReglasBC = new JButton("Ver Reglas de la Base de Conocimiento");
-		btnVerReglasBC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				VisorGenericoFrame frame = new VisorGenericoFrame("Reglas","Aqui van todas las reglas"); //Remplazar con las reglas segundo parametro 
-				frame.setLocation(0, 0);
-				frame.setVisible(true);
-			}
-		});
+		btnVerReglasBC.addActionListener(arg0 -> {
+            VisorGenericoFrame frame = new VisorGenericoFrame("Reglas", archivoMaestro.imprimirReglas()); //Remplazar con las reglas segundo parametro
+            frame.setLocation(0, 0);
+            frame.setVisible(true);
+        });
 		panelReglas.add(btnVerReglasBC);
 		
 		JButton btnVerIndexBC = new JButton("Ver índice de reglas");
-		btnVerIndexBC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				VisorGenericoFrame frame = new VisorGenericoFrame("Indice de Reglas","Aqui van todas lo del index"); //Remplazar con lo del index segundo parametro 
-				frame.setLocation(0, 0);
-				frame.setVisible(true);
-			}
-		});
+		btnVerIndexBC.addActionListener(e -> {
+            VisorGenericoFrame frame = new VisorGenericoFrame("Indice de Reglas",archivoMaestro.mostrarIndex()); //Remplazar con lo del index segundo parametro
+            frame.setLocation(0, 0);
+            frame.setVisible(true);
+        });
 		panelReglas.add(btnVerIndexBC);
 		
 		JPanel panelBC = new JPanel();
@@ -122,29 +126,24 @@ public class PrincipalFrame extends JFrame {
 		panelBC.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btnAddReglasBC = new JButton("Agregar reglas a la BC");
-		btnAddReglasBC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				AddReglasBCFrame frame = new AddReglasBCFrame();
-				frame.setVisible(true);
-			}
-		});
+		btnAddReglasBC.addActionListener(arg0 -> {
+            AddReglasBCFrame frame = new AddReglasBCFrame(archivoMaestro);
+            frame.setVisible(true);
+        });
 		panelBC.add(btnAddReglasBC);
 		
 		JButton btnDeleteReglasBC = new JButton("Borrar todas las reglas de la BC");
-		btnDeleteReglasBC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int respuesta;
-				
-				respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea BORRAR todas las Reglas?", "Borrar Reglas", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-				if(respuesta==0){
-					//Aqui poner la cosa que borra reglas...
-					
-					JOptionPane.showMessageDialog(null, "¡Reglas Borradas!","Exito al borrar las regla.",JOptionPane.WARNING_MESSAGE);
-				}else if(respuesta==1){
-					JOptionPane.showMessageDialog(null, "¡Reglas sin cambios!","No hay cambios",JOptionPane.WARNING_MESSAGE);
-				}
-			}
-		});
+		btnDeleteReglasBC.addActionListener(e -> {
+            int respuesta;
+
+            respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea BORRAR todas las Reglas?", "Borrar Reglas", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if(respuesta==0){
+                archivoMaestro.eliminarReglas();
+                JOptionPane.showMessageDialog(null, "¡Reglas Borradas!","Exito al borrar las regla.",JOptionPane.WARNING_MESSAGE);
+            }else if(respuesta==1){
+                JOptionPane.showMessageDialog(null, "¡Reglas sin cambios!","No hay cambios",JOptionPane.WARNING_MESSAGE);
+            }
+        });
 		panelBC.add(btnDeleteReglasBC);
 		
 		JPanel panelBH = new JPanel();
@@ -154,39 +153,33 @@ public class PrincipalFrame extends JFrame {
 		panelBH.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btnVerAntecedentesBH = new JButton("Ver antecedentes de la BH");
-		btnVerAntecedentesBH.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				VisorGenericoFrame frame = new VisorGenericoFrame("Antecedentes","Aqui van todas los antecedentes"); //Remplazar con los antecedentes segundo parametro 
-				frame.setLocation(0, 0);
-				frame.setVisible(true);
-			}
-		});
+		btnVerAntecedentesBH.addActionListener(e -> {
+            VisorGenericoFrame frame = new VisorGenericoFrame("Antecedentes","Aqui van todas los antecedentes"); //Remplazar con los antecedentes segundo parametro
+            frame.setLocation(0, 0);
+            frame.setVisible(true);
+        });
 		panelBH.add(btnVerAntecedentesBH);
 		
 		JButton btnAddHechosBH = new JButton("Agregar hechos a la BH");
-		btnAddHechosBH.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AddHechosBCFrame frame = new AddHechosBCFrame();
-				frame.setVisible(true);
-			}
-		});
+		btnAddHechosBH.addActionListener(e -> {
+            AddHechosBCFrame frame = new AddHechosBCFrame();
+            frame.setVisible(true);
+        });
 		panelBH.add(btnAddHechosBH);
 		
 		JButton btnDeleteHechosBH = new JButton("Borrar todos los hechos de la BH");
-		btnDeleteHechosBH.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int respuesta;
-				
-				respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea BORRAR todos los Hechos?", "Borrar Hechos", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-				if(respuesta==0){
-					//Aqui poner la cosa que borra hechos...
-					
-					JOptionPane.showMessageDialog(null, "¡Hechos Borrados!","Exito al borrar los hechos.",JOptionPane.WARNING_MESSAGE);
-				}else if(respuesta==1){
-					JOptionPane.showMessageDialog(null, "¡Hechos sin cambios!","No hay cambios",JOptionPane.WARNING_MESSAGE);
-				}
-			}
-		});
+		btnDeleteHechosBH.addActionListener(e -> {
+            int respuesta;
+
+            respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea BORRAR todos los Hechos?", "Borrar Hechos", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if(respuesta==0){
+                //Aqui poner la cosa que borra hechos...
+
+                JOptionPane.showMessageDialog(null, "¡Hechos Borrados!","Exito al borrar los hechos.",JOptionPane.WARNING_MESSAGE);
+            }else if(respuesta==1){
+                JOptionPane.showMessageDialog(null, "¡Hechos sin cambios!","No hay cambios",JOptionPane.WARNING_MESSAGE);
+            }
+        });
 		panelBH.add(btnDeleteHechosBH);
 		
 		JPanel panelMotor = new JPanel();
@@ -196,31 +189,25 @@ public class PrincipalFrame extends JFrame {
 		panelMotor.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btnEncadenamientoHaciaAdelante = new JButton("Encadenamiento Hacia Adelante");
-		btnEncadenamientoHaciaAdelante.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				EncadenamientoAdelanteFrame frame = new EncadenamientoAdelanteFrame();
-				frame.setVisible(true);
-			}
-		});
+		btnEncadenamientoHaciaAdelante.addActionListener(e -> {
+            EncadenamientoAdelanteFrame frame = new EncadenamientoAdelanteFrame();
+            frame.setVisible(true);
+        });
 		panelMotor.add(btnEncadenamientoHaciaAdelante);
 		
 		JButton btnEncadenamientoHaciaAtras = new JButton("Encadenamiento Hacia Atras");
-		btnEncadenamientoHaciaAtras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				EncadenamientoAtrasFrame frame = new EncadenamientoAtrasFrame();
-				frame.setVisible(true);
-			}
-		});
+		btnEncadenamientoHaciaAtras.addActionListener(e -> {
+            EncadenamientoAtrasFrame frame = new EncadenamientoAtrasFrame();
+            frame.setVisible(true);
+        });
 		panelMotor.add(btnEncadenamientoHaciaAtras);
 		
 		JButton btnModuloDeJustificacin = new JButton("Modulo de Justificación.");
-		btnModuloDeJustificacin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				VisorGenericoFrame frame = new VisorGenericoFrame("Modulo de Justificación","Aqui van todas lo del modulo de justificacion"); //Remplazar con lo del modulo de justificacion segundo parametro 
-				frame.setLocation(0, 0);
-				frame.setVisible(true);
-			}
-		});
+		btnModuloDeJustificacin.addActionListener(e -> {
+            VisorGenericoFrame frame = new VisorGenericoFrame("Modulo de Justificación","Aqui van todas lo del modulo de justificacion"); //Remplazar con lo del modulo de justificacion segundo parametro
+            frame.setLocation(0, 0);
+            frame.setVisible(true);
+        });
 		panelMotor.add(btnModuloDeJustificacin);
 	}
 }

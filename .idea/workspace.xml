@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b605c185-80a5-4223-a446-4d375feeb227" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/AddHechosBCFrame.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/AddHechosBCFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/AddReglasBCFrame.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/AddReglasBCFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame$1.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/PrincipalFrame.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/PrincipalFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/archivos/ArchivoHechos.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/archivos/ArchivoHechos.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/archivos/ArchivoIndice.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/archivos/ArchivoIndice.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/archivos/ArchivoMaestro.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/archivos/ArchivoMaestro.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/EncadenamientoAdelanteFrame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/EncadenamientoAtrasFrame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAdelanteFrame.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAtrasFrame.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/GUI/InferenciaFrame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/inferencia/motorInferencia.class" afterPath="$PROJECT_DIR$/out/production/SE-Determinista/se/determinista/inferencia/motorInferencia.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" afterPath="$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java" afterPath="$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -46,13 +45,14 @@
       <file leaf-file-name="motorInferencia.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66502464">
-              <caret line="135" column="9" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.55172414">
+              <caret line="61" column="72" selection-start-line="61" selection-start-column="72" selection-end-line="61" selection-end-column="72" />
               <folding>
-                <element signature="e#2235#2236#0" expanded="true" />
-                <element signature="e#2321#2322#0" expanded="true" />
-                <element signature="e#3410#3411#0" expanded="true" />
-                <element signature="e#3477#3478#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2564#2565#0" expanded="true" />
+                <element signature="e#2650#2651#0" expanded="true" />
+                <element signature="e#3780#3781#0" expanded="true" />
+                <element signature="e#3847#3848#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -494,7 +494,7 @@
       <updated>1496117663003</updated>
       <workItem from="1496117670526" duration="2600000" />
       <workItem from="1496147206022" duration="9063000" />
-      <workItem from="1496180075735" duration="3092000" />
+      <workItem from="1496180075735" duration="3826000" />
     </task>
     <task id="LOCAL-00001" summary="Se ha cambiado la cadena de salida al mostrar reglas y direcciones de ellas.">
       <created>1496150494528</created>
@@ -530,7 +530,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14755000" />
+    <option name="totallyTimeSpent" value="15489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -615,14 +615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAdelanteFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="14" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -644,18 +636,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
           <folding>
-            <element signature="e#2235#2236#0" expanded="true" />
-            <element signature="e#2321#2322#0" expanded="true" />
-            <element signature="e#3410#3411#0" expanded="true" />
-            <element signature="e#3477#3478#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2564#2565#0" expanded="true" />
+            <element signature="e#2650#2651#0" expanded="true" />
+            <element signature="e#3780#3781#0" expanded="true" />
+            <element signature="e#3847#3848#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAtrasFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="10" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -678,14 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/EncadenamientoAdelanteFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,14 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/archivos/ArchivoHechos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -735,15 +705,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/determinista/GUI/InferenciaFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/determinista/inferencia/motorInferencia.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66502464">
-          <caret line="135" column="9" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.55172414">
+          <caret line="61" column="72" selection-start-line="61" selection-start-column="72" selection-end-line="61" selection-end-column="72" />
           <folding>
-            <element signature="e#2235#2236#0" expanded="true" />
-            <element signature="e#2321#2322#0" expanded="true" />
-            <element signature="e#3410#3411#0" expanded="true" />
-            <element signature="e#3477#3478#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2564#2565#0" expanded="true" />
+            <element signature="e#2650#2651#0" expanded="true" />
+            <element signature="e#3780#3781#0" expanded="true" />
+            <element signature="e#3847#3848#0" expanded="true" />
           </folding>
         </state>
       </provider>

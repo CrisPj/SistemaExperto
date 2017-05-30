@@ -21,22 +21,6 @@ public class InferenciaFrame extends JFrame {
 	private JTextField txtInputMeta;
 
 	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EncadenamientoAdelanteFrame frame = new EncadenamientoAdelanteFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
 	 * Create the frame.
 	 */
 	public InferenciaFrame(motorInferencia motorInferencia, String tipoDeInferencia) {
@@ -71,16 +55,14 @@ public class InferenciaFrame extends JFrame {
 		txtInputMeta.setColumns(10);
 		
 		JButton btnInferir = new JButton("Inferir");
-		btnInferir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String meta = txtInputMeta.getText();
-				if(tipoDeInferencia.equals("Encadenamiento Hacia Adelante")){
-					motorInferencia.inicializar(true,meta);
-				}else if(tipoDeInferencia.equals("Encadenamiento Hacia Atras")){
-					motorInferencia.inicializar(false,meta);
-				}
-			}
-		});
+		btnInferir.addActionListener(e -> {
+            String meta = txtInputMeta.getText();
+            if(tipoDeInferencia.equals("Encadenamiento Hacia Adelante")){
+                motorInferencia.inicializar(true,meta);
+            }else if(tipoDeInferencia.equals("Encadenamiento Hacia Atras")){
+                motorInferencia.inicializar(false,meta);
+            }
+        });
 		btnInferir.setBounds(182, 133, 117, 25);
 		panel.add(btnInferir);
 	}

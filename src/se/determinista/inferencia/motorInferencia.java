@@ -7,6 +7,7 @@ import se.determinista.arbol.Regla;
 import javax.swing.*;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class motorInferencia
@@ -61,22 +62,14 @@ public class motorInferencia
     }
 
     private void encadenamientoHaciaAtras() {
-
-        if (Verificar(archivoHechos,meta))
-        {
-            System.out.println("EXITO");
-        }
-        else System.out.println("FALLO");
-
+        System.out.println(Verificar(archivoHechos, meta) ? "EXITO" : "FALLO");
     }
 
     private boolean Verificar(ArchivoHechos archivoHechos, String meta)
     {
         boolean verificado = false;
         if (estaEnHechos(meta))
-        {
             return true;
-        }
         else
         {
             conjuntoConflicto = equiparar(archivoMaestro, archivoHechos);
@@ -138,7 +131,10 @@ public class motorInferencia
     }
 
     private void aplicarRegla(byte idRegla) {
-        archivoHechos.insertarHecho(archivoMaestro.obtenerRegla(idRegla).getConsecuente());
+        String aux = archivoMaestro.obtenerRegla(idRegla).getConsecuente();
+        aux = aux.replace("\u0000", "");
+        if (!estaEnHechos(aux))
+            archivoHechos.insertarHecho(aux);
         reglasAplicadas.add(idRegla);
     }
 }

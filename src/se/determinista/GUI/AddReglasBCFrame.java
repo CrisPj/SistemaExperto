@@ -79,7 +79,7 @@ public class AddReglasBCFrame extends JFrame {
 
 		JButton btnTerminarRegla = new JButton("Terminar");
 		btnTerminarRegla.addActionListener(e -> {
-
+			dispose();
 		});
 		btnTerminarRegla.setBounds(347, 109, 117, 25);
 		panel.add(btnTerminarRegla);

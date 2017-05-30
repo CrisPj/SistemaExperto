@@ -72,7 +72,7 @@ public class AddHechosBCFrame extends JFrame {
 		JButton btnTerminarHecho = new JButton("Terminar");
 		btnTerminarHecho.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 			}
 		});
 		btnTerminarHecho.setBounds(347, 109, 117, 25);

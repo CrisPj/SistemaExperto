@@ -16,6 +16,7 @@ public class motorInferencia
     private ArrayList<Byte> reglasAplicadas;
     private ArrayList<Byte> conjuntoConflicto;
     private String meta = null;
+    ArrayList<ArrayList<ArrayList<String>>> listaMJ;
 
     public motorInferencia(ArchivoMaestro archivoMaestro, ArchivoHechos archivoHechos)
     {
@@ -24,6 +25,7 @@ public class motorInferencia
         this.archivoHechos = archivoHechos;
         reglasAplicadas = new ArrayList<>();
         conjuntoConflicto = new ArrayList<>();
+        this.listaMJ = new ArrayList<ArrayList<ArrayList<String>>>();
     }
 
     public void justificacion()
@@ -43,6 +45,12 @@ public class motorInferencia
 
     private void encadenamientoHaciaDelante()
     {
+        //
+        int ciclo = 1;
+        ArrayList<ArrayList<ArrayList<String>>> listaMJ = new ArrayList<ArrayList<ArrayList<String>>>();
+        ArrayList<ArrayList<String>> rowMJ = new ArrayList<ArrayList<String>>();
+        ArrayList<String> campMJ = new ArrayList<String>();
+        //
         conjuntoConflicto.add((byte) 1);
         while (!estaEnHechos(meta) && (conjuntoConflicto.size() > 0 && conjuntoConflicto != null))
         {
@@ -50,6 +58,18 @@ public class motorInferencia
             if (conjuntoConflicto != null && conjuntoConflicto.size() > 0)
             {
                 byte idRegla = resolverConjuntoConflicto(conjuntoConflicto);
+                //
+                campMJ.add(Integer.toString(ciclo++));
+                rowMJ.add(campMJ);
+                campMJ = new ArrayList<String>();               //ciclo
+                rowMJ.add(archivoHechos.obtenerHechos());       //hechos
+                rowMJ.add(byteToStringList(conjuntoConflicto)); //conjunto conflicto
+                campMJ.add(Integer.toString(idRegla));
+                rowMJ.add(campMJ);
+                campMJ = new ArrayList<String>();               //solucion
+                listaMJ.add(rowMJ);
+                rowMJ = new ArrayList<ArrayList<String>>();     //add lista
+                //
                 aplicarRegla(idRegla);
             }
         }
@@ -63,6 +83,14 @@ public class motorInferencia
             archivoHechos.imprimirHechos();
             System.out.println("\nFin del reporte\n");
         }
+    }
+
+    private ArrayList<String> byteToStringList(ArrayList<Byte> array){
+        ArrayList<String> arrayStr = new ArrayList<String>();
+        for (int i=0; i<array.size(); i++){
+            arrayStr.add(array.get(i).toString());
+        }
+        return arrayStr;
     }
 
     private void encadenamientoHaciaAtras()
@@ -150,5 +178,9 @@ public class motorInferencia
         if (!estaEnHechos(aux))
             archivoHechos.insertarHecho(aux);
         reglasAplicadas.add(idRegla);
+    }
+
+    public ArrayList<ArrayList<ArrayList<String>>> getListaMJ(){
+        return listaMJ;
     }
 }

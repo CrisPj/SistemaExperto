@@ -183,6 +183,7 @@ public class PrincipalFrame extends JFrame {
             respuesta=JOptionPane.showConfirmDialog(null, "¿Realmente desea BORRAR todos los Hechos?", "Borrar Hechos", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if(respuesta==0){
                 archivoHechos.borrarHechos();
+				motorInferencia = new motorInferencia(archivoMaestro, archivoHechos);
                 JOptionPane.showMessageDialog(null, "¡Hechos Borrados!","Exito al borrar los hechos.",JOptionPane.WARNING_MESSAGE);
             }else if(respuesta==1){
                 JOptionPane.showMessageDialog(null, "¡Hechos sin cambios!","No hay cambios",JOptionPane.WARNING_MESSAGE);

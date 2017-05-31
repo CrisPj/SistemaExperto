@@ -31,7 +31,7 @@ public class ArchivoIndice
      * @param llave del registro
      * @param dirLogica del registro
      */
-    public void nuevoRegistro(byte llave, long dirLogica) {
+    public void nuevoRegistro(int llave, long dirLogica) {
         try {
             archivo.seek(archivo.length());
             archivo.writeByte(llave);

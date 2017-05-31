@@ -55,7 +55,7 @@ public class ArchivoMaestro
         }
     }
 
-    public Regla obtenerRegla(byte numeroRegla) {
+    public Regla obtenerRegla(Integer numeroRegla) {
         Regla regla = new Regla();
         String[] registros = new String[Regla.CANTIDAD_REGISTROS];
         char[] registroActual = new char[Regla.TAM_REGISTRO];

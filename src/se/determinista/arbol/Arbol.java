@@ -16,7 +16,7 @@ public class Arbol
             arbol = nodo;
     }
 
-    public long getReglaDirLogica(byte llave) {
+    public long getReglaDirLogica(Integer llave) {
         return buscarReglaDirLogica(llave, arbol);
     }
 

@@ -15,8 +15,8 @@ public class motorInferencia
 
     private ArchivoMaestro archivoMaestro;
     private ArchivoHechos archivoHechos;
-    private ArrayList<Byte> reglasAplicadas;
-    private ArrayList<Byte> conjuntoConflicto;
+    private ArrayList<Integer> reglasAplicadas;
+    private ArrayList<Integer> conjuntoConflicto;
     private String meta = null;
     private ArrayList<ArrayList<ArrayList<String>>> listaMJ = new ArrayList<ArrayList<ArrayList<String>>>();
 
@@ -25,8 +25,8 @@ public class motorInferencia
         this.archivoMaestro = archivoMaestro;
         this.archivoMaestro.generarArbol();
         this.archivoHechos = archivoHechos;
-        reglasAplicadas = new ArrayList<>();
-        conjuntoConflicto = new ArrayList<>();
+        reglasAplicadas = new ArrayList<Integer>();
+        conjuntoConflicto = new ArrayList<Integer>();
     }
 
     public void justificacion()
@@ -51,13 +51,13 @@ public class motorInferencia
         ArrayList<ArrayList<String>> rowMJ = new ArrayList<ArrayList<String>>();
         ArrayList<String> campMJ = new ArrayList<String>();
         //
-        conjuntoConflicto.add((byte) 1);
+        conjuntoConflicto.add((int) 1);
         while (!estaEnHechos(meta) && (conjuntoConflicto.size() > 0 && conjuntoConflicto != null))
         {
             conjuntoConflicto = equiparar(archivoMaestro, archivoHechos);
             if (conjuntoConflicto != null && conjuntoConflicto.size() > 0)
             {
-                byte idRegla = resolverConjuntoConflicto(conjuntoConflicto);
+                Integer idRegla = resolverConjuntoConflicto(conjuntoConflicto);
                 //
                 campMJ.add(Integer.toString(ciclo++));
                 rowMJ.add(campMJ);
@@ -90,7 +90,7 @@ public class motorInferencia
         }
     }
 
-    private ArrayList<String> byteToStringList(ArrayList<Byte> array){
+    private ArrayList<String> byteToStringList(ArrayList<Integer> array){
         ArrayList<String> arrayStr = new ArrayList<String>();
         for (int i=0; i<array.size(); i++){
             arrayStr.add(array.get(i).toString());
@@ -105,6 +105,8 @@ public class motorInferencia
 
     private boolean Verificar(ArchivoHechos archivoHechos, String meta)
     {
+        //Se reducen bytes de meta:
+        meta = meta.replace("\u0000", "");
         boolean verificado = false;
         if (estaEnHechos(meta))
             return true;
@@ -113,7 +115,7 @@ public class motorInferencia
             conjuntoConflicto = equiparar(archivoMaestro, archivoHechos);
             while ((conjuntoConflicto != null && conjuntoConflicto.size() > 0) && !verificado)
             {
-                byte id = resolverConjuntoConflicto(conjuntoConflicto);
+                Integer id = resolverConjuntoConflicto(conjuntoConflicto);
                 // Obtener id del elemento a remover
                 int idRM = -1;
                 for (int i=0; i<conjuntoConflicto.size();i++){
@@ -144,9 +146,9 @@ public class motorInferencia
         return archivoHechos.obtenerHechos().contains(meta);
     }
 
-    private ArrayList<Byte> equiparar(ArchivoMaestro baseConocimiento, ArchivoHechos baseHechos)
+    private ArrayList<Integer> equiparar(ArchivoMaestro baseConocimiento, ArchivoHechos baseHechos)
     {
-        ArrayList<Byte> idReglas = new ArrayList<>();
+        ArrayList<Integer> idReglas = new ArrayList<>();
         ArrayList<Regla> reglas = baseConocimiento.mostrarTodasReglas();
         for (Regla regla : reglas)
         {
@@ -168,25 +170,26 @@ public class motorInferencia
         return idReglas;
     }
 
-    private boolean refraccionRegla(byte idRegla)
+    private boolean refraccionRegla(int idRegla)
     {
         return reglasAplicadas.contains(idRegla);
     }
 
 
-    private byte resolverConjuntoConflicto(ArrayList<Byte> idReglas)
+    private Integer resolverConjuntoConflicto(ArrayList<Integer> idReglas)
     {
-        byte regla = idReglas.get(0);
-        for (byte ruleID : idReglas)
+        Integer regla = idReglas.get(0);
+        for (Integer ruleID : idReglas)
             if (ruleID < regla)
                 regla = ruleID;
         return regla;
     }
 
-    private void aplicarRegla(byte idRegla)
+    private void aplicarRegla(int idRegla)
     {
         String aux = archivoMaestro.obtenerRegla(idRegla).getConsecuente();
-        aux = aux.replace("\u0000", "");
+        //aux = aux.replace("\u0000", "");
+        aux = aux.trim();
 
         if (!estaEnHechos(aux))
             archivoHechos.insertarHecho(aux);

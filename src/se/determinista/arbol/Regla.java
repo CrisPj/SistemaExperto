@@ -6,24 +6,24 @@ public class Regla
     public static int CANTIDAD_REGISTROS = 5;
     public static int TAM_REGISTRO = 20;
 
-    private byte llave;
+    private int llave;
     private String[] reglas;
     private String consecuente;
 
     public Regla() {
     }
 
-    public Regla(byte llave, String[] reglas, String consecuente) {
+    public Regla(int llave, String[] reglas, String consecuente) {
         this.llave = llave;
         this.reglas = reglas;
         this.consecuente = consecuente;
     }
 
-    public byte getLlave() {
+    public int getLlave() {
         return llave;
     }
 
-    public void setLlave(byte llave) {
+    public void setLlave(int llave) {
         this.llave = llave;
     }
 

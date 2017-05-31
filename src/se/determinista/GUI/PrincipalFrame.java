@@ -28,6 +28,7 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class PrincipalFrame extends JFrame {
 
@@ -37,6 +38,7 @@ public class PrincipalFrame extends JFrame {
 	private ArchivoMaestro archivoMaestro;
 	private ArchivoHechos archivoHechos;
 	private se.determinista.inferencia.motorInferencia motorInferencia;
+	private String[][] listaStr;
 
 	/**
 	 * Launch the application.
@@ -211,9 +213,7 @@ public class PrincipalFrame extends JFrame {
 		
 		JButton btnModuloDeJustificacin = new JButton("Modulo de Justificación.");
 		btnModuloDeJustificacin.addActionListener(e -> {
-            VisorGenericoFrame frame = new VisorGenericoFrame("Modulo de Justificación","Aqui van todas lo del modulo de justificacion"); //Remplazar con lo del modulo de justificacion segundo parametro
-            frame.setLocation(0, 0);
-            frame.setVisible(true);
+            motorInferencia.showMJ();
         });
 		panelMotor.add(btnModuloDeJustificacin);
 	}

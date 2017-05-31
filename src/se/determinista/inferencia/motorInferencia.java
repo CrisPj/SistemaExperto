@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 
+import static se.determinista.GUI.MakeTable.makeTable;
+
 public class motorInferencia
 {
 
@@ -16,7 +18,7 @@ public class motorInferencia
     private ArrayList<Byte> reglasAplicadas;
     private ArrayList<Byte> conjuntoConflicto;
     private String meta = null;
-    ArrayList<ArrayList<ArrayList<String>>> listaMJ;
+    private ArrayList<ArrayList<ArrayList<String>>> listaMJ = new ArrayList<ArrayList<ArrayList<String>>>();
 
     public motorInferencia(ArchivoMaestro archivoMaestro, ArchivoHechos archivoHechos)
     {
@@ -25,7 +27,6 @@ public class motorInferencia
         this.archivoHechos = archivoHechos;
         reglasAplicadas = new ArrayList<>();
         conjuntoConflicto = new ArrayList<>();
-        this.listaMJ = new ArrayList<ArrayList<ArrayList<String>>>();
     }
 
     public void justificacion()
@@ -47,7 +48,6 @@ public class motorInferencia
     {
         //
         int ciclo = 1;
-        ArrayList<ArrayList<ArrayList<String>>> listaMJ = new ArrayList<ArrayList<ArrayList<String>>>();
         ArrayList<ArrayList<String>> rowMJ = new ArrayList<ArrayList<String>>();
         ArrayList<String> campMJ = new ArrayList<String>();
         //
@@ -74,9 +74,14 @@ public class motorInferencia
             }
         }
         if (estaEnHechos(meta) && !meta.equals(""))
-            JOptionPane.showMessageDialog(null, "Exito, meta alcanzada; " + meta, "EXITO", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Éxito, meta alcanzada: " + meta +
+                    ".\nPuedes ver módulo de justificación para más detalles.",
+                    "EXITO", JOptionPane.INFORMATION_MESSAGE);
         else if (meta.equals(""))
-            JOptionPane.showMessageDialog(null, "Exito, meta alcanzada: " + archivoHechos.obtenerHechos().get(archivoHechos.obtenerHechos().size()-1), "EXITO", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Se ha llegado a la meta: "
+                    + archivoHechos.obtenerHechos().get(archivoHechos.obtenerHechos().size()-1)
+                    + ".\nPuedes ver módulo de justificación para más detalles.",
+                    "EXITO", JOptionPane.INFORMATION_MESSAGE);
         else
         {
             System.out.println("Estatus:\n");
@@ -182,5 +187,31 @@ public class motorInferencia
 
     public ArrayList<ArrayList<ArrayList<String>>> getListaMJ(){
         return listaMJ;
+    }
+
+    public void showMJ(){
+        String[] titulosMast = {"Ciclo","Base de hechos","Conjunto conflicto","Resolución"};
+        String tituloMast = "Justificación";
+        makeTable(titulosMast, getArrayDataMJ(listaMJ), tituloMast);
+    }
+    public String[][] getArrayDataMJ(ArrayList<ArrayList<ArrayList<String>>> lista){
+        String[][] listaStr = new String[lista.size()][4];
+        for (int i=0; i<lista.size(); i++){
+            listaStr[i][0] = lista.get(i).get(0).get(0); //ciclo
+            listaStr[i][1] = getListToStr(lista.get(i).get(1));
+            listaStr[i][2] = getListToStr(lista.get(i).get(2));
+            listaStr[i][3] = lista.get(i).get(3).get(0); //ciclo
+        }
+        return listaStr;
+    }
+    private String getListToStr(ArrayList<String> list){
+        String BHstr = "{";
+        for (int i=0; i<list.size()-1; i++){
+            BHstr += list.get(i);
+            BHstr += ", ";
+        }
+        BHstr += list.get(list.size()-1);
+        BHstr += "}";
+        return BHstr;
     }
 }

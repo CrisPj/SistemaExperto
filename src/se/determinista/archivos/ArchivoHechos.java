@@ -52,7 +52,6 @@ public class ArchivoHechos
         return retorno;
     }
 
-
     public void borrarHechos() {
         try {
             file.setLength(0);

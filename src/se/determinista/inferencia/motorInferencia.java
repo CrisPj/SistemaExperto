@@ -114,7 +114,14 @@ public class motorInferencia
             while ((conjuntoConflicto != null && conjuntoConflicto.size() > 0) && !verificado)
             {
                 byte id = resolverConjuntoConflicto(conjuntoConflicto);
-                conjuntoConflicto.remove(id);
+                // Obtener id del elemento a remover
+                int idRM = -1;
+                for (int i=0; i<conjuntoConflicto.size();i++){
+                    if (conjuntoConflicto.get(i)==id){
+                        idRM = i;
+                    }
+                }
+                conjuntoConflicto.remove(idRM);
                 ArrayDeque<String> nuevasMetas = new ArrayDeque<>();
                 nuevasMetas.add(archivoMaestro.obtenerRegla(id).getConsecuente());
                 verificado = true;
@@ -180,6 +187,7 @@ public class motorInferencia
     {
         String aux = archivoMaestro.obtenerRegla(idRegla).getConsecuente();
         aux = aux.replace("\u0000", "");
+
         if (!estaEnHechos(aux))
             archivoHechos.insertarHecho(aux);
         reglasAplicadas.add(idRegla);

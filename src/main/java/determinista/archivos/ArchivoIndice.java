@@ -3,6 +3,7 @@ package determinista.archivos;
 
 import determinista.arbol.Indice;
 
+import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +15,19 @@ public class ArchivoIndice
 {
 
     private RandomAccessFile archivo;
+    private List<Indice> indices;
 
     /**
      * @param nombre Nombre del archivo
      * @param permisos Permisos que tendra el archivo
      */
-    public ArchivoIndice(String nombre, String permisos) {
+    public ArchivoIndice(String nombre, String permisos)
+    {
+        indices = new ArrayList<>();
         try {
             archivo = new RandomAccessFile(nombre, permisos);
+            if (archivo.length() > 0)
+                readFile();
         } catch (Exception ex) {
             System.out.println("Fallo al crear el archivo indice\n"+ ex.getMessage());
         }
@@ -34,7 +40,8 @@ public class ArchivoIndice
      * @param llave del registro
      * @param dirLogica del registro
      */
-    public void nuevoRegistro(int llave, long dirLogica) {
+    public void nuevo(int llave, long dirLogica) {
+        indices.add(new Indice(llave,dirLogica));
         try {
             archivo.seek(archivo.length());
             archivo.writeByte(llave);
@@ -50,29 +57,71 @@ public class ArchivoIndice
      */
     public ArrayList<String> getDirRegistros() {
         ArrayList<String> reglas = new ArrayList<>();
-        try {
-            archivo.seek(0);
-            do {
-                reglas.add(archivo.readByte() + "-" + archivo.readLong());
-            } while (true);
-        } catch (Exception ex) {
-            System.out.println("Fin del índice: " + reglas.size());
+        for (Indice indice : indices)
+        {
+            reglas.add(indice.getLlave() + "-" + indice.getDireccion());
         }
         return reglas;
     }
 
     public List<Indice> mostrarIndice() {
-        List<Indice> indices = new ArrayList<>();
-        try {
-            archivo.seek(0);
-            do {
-                indices.add(new Indice(archivo.readByte(), archivo.readLong()));
-            } while (true);
-        } catch (Exception ex) {
-            System.out.println("\nTermine de leer ArchivoIndice\n");
             return indices;
+    }
+
+    public long buscar(int llave)
+    {
+        for (Indice indice : indices)
+            if (indice.getLlave() == llave)
+                return indice.getDireccion();
+        return -1;
+    }
+
+    private void readFile()
+    {
+        try {
+            do {
+                archivo.seek(0);
+                indices.add(new Indice(archivo.readByte(), archivo.readLong()));
+            }while (true);
+        } catch (IOException e) {
+            System.out.println("Se ha leido el archivo de indices por completo");
         }
     }
+
+    public void writeFile()
+    {
+        limpiarArchivo();
+        try {
+            archivo.seek(0);
+            for (Indice indice : indices) {
+                archivo.writeByte(indice.getLlave());
+                archivo.writeLong(indice.getDireccion());
+            }
+        } catch (IOException e) {
+            System.out.println("Ha habido un error al procesar el archivo de indcies");
+            System.exit(0);
+        }
+    }
+
+    public void eliminar(int llave)
+    {
+        for (Indice indice : indices)
+            if (indice.getLlave() == llave) {
+                indices.remove(indice);
+            }
+    }
+
+    public void limpiarLista()
+    {
+        indices.clear();
+    }
+
+    public void limpiarTodo()
+    {
+        limpiarArchivo();
+        limpiarLista();
+    }
+
 
     public void limpiarArchivo() {
         try {

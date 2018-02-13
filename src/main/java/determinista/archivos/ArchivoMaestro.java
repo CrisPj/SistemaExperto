@@ -9,23 +9,26 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class ArchivoMaestro
 {
 
     private RandomAccessFile archivo;
     private ArchivoIndice index;
-    private determinista.arbol.Arbol Arbol;
+    private Arbol Arbol;
     private String ruta;
+    private List<Regla> reglas;
 
 
-    public ArchivoMaestro(String nombre, String permisos) {
+    public ArchivoMaestro(String nombre, String permisos)
+    {
+        reglas = new ArrayList<>();
         crearArchivo(nombre, permisos);
     }
 
 
-    public void crearArchivo(String nombre, String permisos) {
+    public void crearArchivo(String nombre, String permisos)
+    {
         try {
             ruta = nombre;
             archivo = new RandomAccessFile(nombre + Constantes.EXTENCION_CONOCIMIENTO, permisos);
@@ -36,10 +39,11 @@ public class ArchivoMaestro
     }
 
     public void nuevoRegistro(Regla regla) {
+        reglas.add(regla);
         StringBuffer buffer;
         try {
             archivo.seek(archivo.length());
-            index.nuevoRegistro(regla.getLlave(), archivo.getFilePointer());
+            index.nuevo(regla.getLlave(), archivo.getFilePointer());
             archivo.writeByte(regla.getLlave());
             for (int i = 0; i < Regla.CANTIDAD_REGISTROS; i++) {
                 try {
@@ -86,29 +90,9 @@ public class ArchivoMaestro
         return regla;
     }
 
-    public void insertarNuevasReglas() {
-        if (new java.io.File(ruta + Constantes.EXTENCION_CONOCIMIENTO).exists()) {
-            String input;
-            do {
-                System.out.println("Ingrese una nueva regla con el formato ID-Ant1&Ant2&...&Ant5-Consecuente \n O  \"x\" para salir");
-                input = new Scanner(System.in).next();
-                if (!input.equals("x"))
-                    try {
-                        nuevoRegistro(mostrarRegla(input));
-                    } catch (Exception ex) {
-                        System.out.println("Regla mal formada");
-                    }
-            } while (!input.equals("x"));
-        } else {
-            crearArchivo(Constantes.NOMBRE_ARCHIVOS, Constantes.LECTURA_ESCRITURA);
-            insertarNuevasReglas();
-        }
-    }
-
     public List<Regla> imprimirReglas() {
         byte ruleId;
         List<Regla> reglas = new ArrayList<>();
-        String retorno = "";
         String[] recordsArray = new String[Regla.CANTIDAD_REGISTROS];
         char[] currCharacteristic = new char[Regla.TAM_REGISTRO];
          try {
@@ -124,7 +108,6 @@ public class ArchivoMaestro
                 for (int i = 0; i < Regla.TAM_REGISTRO; i++) {
                     currCharacteristic[i] = archivo.readChar();
                 }
-               retorno += ("Regla " + ruleId + ":   " + obtenerRegistros(recordsArray) + " → " + new String(currCharacteristic) + "\n");
                 reglas.add(new Regla(ruleId,obtenerRegistrosList(recordsArray),new String(currCharacteristic).trim()));
             } while (true);
         } catch (Exception ex) {
@@ -135,19 +118,6 @@ public class ArchivoMaestro
 
     public List<Indice> mostrarIndex() {
         return index.mostrarIndice();
-    }
-
-    public String obtenerRegistros(String[] registros) {
-        int counter = 0;
-        String records = "";
-        for (String registro : registros) {
-            if (counter < Regla.CANTIDAD_REGISTROS) {
-                if (!registro.trim().isEmpty()) {
-                    records += registro + "&";
-                }
-            }
-        }
-        return records.substring(0, records.length() - 1);
     }
 
     public String[] obtenerRegistrosList(String[] registros) {
@@ -198,6 +168,11 @@ public class ArchivoMaestro
             System.out.println("Todas las reglas leidas");
         }
         return reglas;
+    }
+
+
+
+    public void eliminarRegla(int llave) {
     }
 
 

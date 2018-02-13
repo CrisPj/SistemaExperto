@@ -1,14 +1,14 @@
-package se.determinista.inferencia;
+package determinista.inferencia;
 
-import se.determinista.arbol.Regla;
-import se.determinista.archivos.ArchivoHechos;
-import se.determinista.archivos.ArchivoMaestro;
+import determinista.arbol.Regla;
+import determinista.archivos.ArchivoHechos;
+import determinista.archivos.ArchivoMaestro;
 
 import javax.swing.*;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 
-import static se.determinista.GUI.MakeTable.makeTable;
+//import static determinista.GUI.MakeTable.makeTable;
 
 public class motorInferencia
 {
@@ -203,7 +203,7 @@ public class motorInferencia
     public void showMJ(){
         String[] titulosMast = {"Ciclo","Base de hechos","Conjunto conflicto","Resolución"};
         String tituloMast = "Justificación";
-        makeTable(titulosMast, getArrayDataMJ(listaMJ), tituloMast);
+ //       makeTable(titulosMast, getArrayDataMJ(listaMJ), tituloMast);
     }
     public String[][] getArrayDataMJ(ArrayList<ArrayList<ArrayList<String>>> lista){
         String[][] listaStr = new String[lista.size()][4];

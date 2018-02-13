@@ -1,8 +1,11 @@
 
-package se.determinista.archivos;
+package determinista.archivos;
+
+import determinista.arbol.Indice;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author PythonTeam :v
@@ -58,16 +61,16 @@ public class ArchivoIndice
         return reglas;
     }
 
-    public String mostrarIndice() {
-        String retorno = "";
+    public List<Indice> mostrarIndice() {
+        List<Indice> indices = new ArrayList<>();
         try {
             archivo.seek(0);
             do {
-                retorno += ("Regla " + archivo.readByte() + ":  #" + archivo.readLong() + "\n");
+                indices.add(new Indice(archivo.readByte(), archivo.readLong()));
             } while (true);
         } catch (Exception ex) {
             System.out.println("\nTermine de leer ArchivoIndice\n");
-            return retorno;
+            return indices;
         }
     }
 

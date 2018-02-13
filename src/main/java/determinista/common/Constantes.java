@@ -1,4 +1,4 @@
-package se.determinista.common;
+package determinista.common;
 
 public final class Constantes
 {

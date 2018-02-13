@@ -1,4 +1,4 @@
-package se.determinista.arbol;
+package determinista.arbol;
 
 public class Regla
 {

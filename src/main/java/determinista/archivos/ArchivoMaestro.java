@@ -1,11 +1,14 @@
-package se.determinista.archivos;
+package determinista.archivos;
 
-import se.determinista.arbol.Arbol;
-import se.determinista.arbol.Regla;
-import se.determinista.common.Constantes;
+import determinista.arbol.Arbol;
+import determinista.arbol.Indice;
+import determinista.arbol.Regla;
+import determinista.common.Constantes;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ArchivoMaestro
@@ -13,7 +16,7 @@ public class ArchivoMaestro
 
     private RandomAccessFile archivo;
     private ArchivoIndice index;
-    private se.determinista.arbol.Arbol Arbol;
+    private determinista.arbol.Arbol Arbol;
     private String ruta;
 
 
@@ -102,8 +105,9 @@ public class ArchivoMaestro
         }
     }
 
-    public String imprimirReglas() {
+    public List<Regla> imprimirReglas() {
         byte ruleId;
+        List<Regla> reglas = new ArrayList<>();
         String retorno = "";
         String[] recordsArray = new String[Regla.CANTIDAD_REGISTROS];
         char[] currCharacteristic = new char[Regla.TAM_REGISTRO];
@@ -121,14 +125,15 @@ public class ArchivoMaestro
                     currCharacteristic[i] = archivo.readChar();
                 }
                retorno += ("Regla " + ruleId + ":   " + obtenerRegistros(recordsArray) + " → " + new String(currCharacteristic) + "\n");
+                reglas.add(new Regla(ruleId,obtenerRegistrosList(recordsArray),new String(currCharacteristic).trim()));
             } while (true);
         } catch (Exception ex) {
             System.out.println("\nTermine de leer el ArchivoMaestro\n");
-             return retorno;
+             return reglas;
         }
     }
 
-    public String mostrarIndex() {
+    public List<Indice> mostrarIndex() {
         return index.mostrarIndice();
     }
 
@@ -143,6 +148,19 @@ public class ArchivoMaestro
             }
         }
         return records.substring(0, records.length() - 1);
+    }
+
+    public String[] obtenerRegistrosList(String[] registros) {
+        int counter = 0;
+        List<String> records = new ArrayList<String>();
+        for (String registro : registros) {
+            if (counter < Regla.CANTIDAD_REGISTROS) {
+                if (!registro.trim().isEmpty()) {
+                    records.add(registro.trim());
+                }
+            }
+        }
+        return Arrays.copyOf(records.toArray(), records.size(), String[].class);
     }
 
     public void generarArbol() {

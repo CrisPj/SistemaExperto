@@ -1,7 +1,7 @@
-package se.determinista.arbol;
+package determinista.arbol;
 
-import se.determinista.archivos.ArchivoIndice;
-import se.determinista.common.Constantes;
+import determinista.archivos.ArchivoIndice;
+import determinista.common.Constantes;
 
 import java.util.ArrayList;
 

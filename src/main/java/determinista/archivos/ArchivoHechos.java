@@ -1,7 +1,7 @@
-package se.determinista.archivos;
+package determinista.archivos;
 
-import se.determinista.arbol.Regla;
-import se.determinista.common.Constantes;
+import determinista.arbol.Regla;
+import determinista.common.Constantes;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;

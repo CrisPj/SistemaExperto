@@ -79,8 +79,9 @@ public class ArchivoIndice
     private void readFile()
     {
         try {
+            archivo.seek(0);
             do {
-                archivo.seek(0);
+
                 indices.add(new Indice(archivo.readByte(), archivo.readLong()));
             }while (true);
         } catch (IOException e) {

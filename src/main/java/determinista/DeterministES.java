@@ -16,22 +16,30 @@ public class DeterministES extends AbstractVerticle {
         Router router = Router.router(vertx);
         router.route("/").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
+                .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+                .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                 .end(Json.encodePrettily("Version:EAP"))
         );
         router.route("/reglas").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
+                .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+                .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                 .end(Json.encodePrettily(api.getAllRules())));
 
         router.post("/addRegla").handler(DeterministES::addRegla);
 
         router.delete("/rmRegla").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
+                .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+                .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                 .end(Json.encodePrettily(api.rmRegla(Integer.parseInt(routingContext.getBodyAsString())))));
 
 
 
         router.route("/hechos").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
+                .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+                .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                 .end(Json.encodePrettily(api.getAllHechos())));
 
 
@@ -39,10 +47,14 @@ public class DeterministES extends AbstractVerticle {
 
         router.delete("/rmHecho").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
+                .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+                .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                 .end(Json.encodePrettily(api.rmHecho(routingContext.getBodyAsString()))));
 
         router.route("/indices").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
+                .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+                .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                 .end(Json.encodePrettily(api.getIndex())));
 
         vertx.createHttpServer()
@@ -55,6 +67,8 @@ public class DeterministES extends AbstractVerticle {
             routingContext.response()
                     .setStatusCode(201)
                     .putHeader("content-type", "application/json; charset=utf-8")
+                    .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+                    .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                     .end(Json.encodePrettily(api.getAllHechos()));
     }
 
@@ -63,11 +77,15 @@ public class DeterministES extends AbstractVerticle {
             routingContext.response()
                     .setStatusCode(201)
                     .putHeader("content-type", "application/json; charset=utf-8")
+                    .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+                    .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                     .end(Json.encodePrettily(api.getAllRules()));
         else
             routingContext.response()
                     .setStatusCode(404)
                     .putHeader("content-type", "application/json; charset=utf-8")
+                    .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+                    .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                     .end("error");
 
     }

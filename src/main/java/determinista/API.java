@@ -2,6 +2,7 @@ package determinista;
 
 import determinista.arbol.Indice;
 import determinista.arbol.Regla;
+import determinista.arbol.ReglaHackeada;
 import determinista.archivos.ArchivoHechos;
 import determinista.archivos.ArchivoMaestro;
 import determinista.common.Constantes;
@@ -26,9 +27,26 @@ public class API {
         return archivoMaestro.mostrarIndex();
     }
 
-    List<Regla> getAllRules()
+    List<ReglaHackeada> getAllRules()
     {
-     return archivoMaestro.imprimirReglas();
+     ArrayList<Regla> reglitas = archivoMaestro.imprimirReglas();
+     List<ReglaHackeada> retorno = new ArrayList<>();
+        for (Regla regls : reglitas) {
+            StringBuilder a= new StringBuilder();
+            for (String reg :regls.getReglas())
+            {
+
+                a.append(reg).append("&");
+                if (reg.equals(""))
+                {
+                    break;
+                }
+
+            }
+            retorno.add(new ReglaHackeada(regls.getLlave(),a.toString().substring(0,a.toString().length()-2),regls.getConsecuente()));
+        }
+        return retorno;
+
     }
 
     public void addHecho(String hecho)
@@ -58,7 +76,8 @@ public class API {
         return new Regla(Byte.parseByte(entrada.split("-")[0]), entrada.split("-")[1].split("\\&"), entrada.split("-")[2]);
     }
 
-    public void  rmHecho(String hecho) {
+    public boolean rmHecho(String hecho) {
         archivoHechos.borrarHecho(hecho);
+        return true;
     }
 }

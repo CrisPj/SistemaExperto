@@ -6,6 +6,7 @@ import determinista.arbol.ReglaHackeada;
 import determinista.archivos.ArchivoHechos;
 import determinista.archivos.ArchivoMaestro;
 import determinista.common.Constantes;
+import io.vertx.core.json.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,12 +50,14 @@ public class API {
 
     }
 
-    public void addHecho(String hecho)
+    public void addHecho(JsonObject hecho)
     {
-        archivoHechos.insertarHecho(hecho);
+
+        archivoHechos.insertarHecho(hecho.getString("hecho"));
     }
 
     public ArrayList<String> getAllHechos() {
+
         return archivoHechos.obtenerHechos();
     }
 
@@ -76,8 +79,8 @@ public class API {
         return new Regla(Byte.parseByte(entrada.split("-")[0]), entrada.split("-")[1].split("\\&"), entrada.split("-")[2]);
     }
 
-    public boolean rmHecho(String hecho) {
-        archivoHechos.borrarHecho(hecho);
+    public boolean rmHecho(JsonObject hecho) {
+        archivoHechos.borrarHecho(hecho.getString("hecho"));
         return true;
     }
 }

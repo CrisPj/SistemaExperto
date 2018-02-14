@@ -26,8 +26,9 @@ public class ArchivoHechos
 
     private void readFile() {
         try {
+            file.seek(0);
             do {
-                file.seek(0);
+
                 char[] hecho = new char[Regla.TAM_REGISTRO];
                 for (int i = 0; i < Regla.TAM_REGISTRO; i++)
                     hecho[i] = file.readChar();
@@ -77,10 +78,7 @@ public class ArchivoHechos
 
     public void borrarHecho(String borrar)
     {
-        for (String hecho : hechos) {
-            if (hecho.equals(borrar))
-                hechos.remove(hecho);
-        }
+        hechos.removeIf(e -> e.equals(borrar));
     }
 
     public void borrarHechos() {

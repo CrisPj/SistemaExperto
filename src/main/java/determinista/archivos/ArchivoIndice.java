@@ -106,10 +106,7 @@ public class ArchivoIndice
 
     public void eliminar(int llave)
     {
-        for (Indice indice : indices)
-            if (indice.getLlave() == llave) {
-                indices.remove(indice);
-            }
+        indices.removeIf(e-> e.getLlave() == llave);
     }
 
     public void limpiarLista()

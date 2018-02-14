@@ -117,10 +117,7 @@ public class ArchivoMaestro {
     }
 
     public boolean eliminarRegla(int llave) {
-        for (Regla r : reglas)
-            if (r.getLlave() == llave)
-                return reglas.remove(r);
-
+        reglas.removeIf(r-> r.getLlave() == llave);
         writeFile();
         return false;
     }

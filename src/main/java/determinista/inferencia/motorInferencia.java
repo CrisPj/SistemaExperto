@@ -149,7 +149,7 @@ public class motorInferencia
     private ArrayList<Integer> equiparar(ArchivoMaestro baseConocimiento, ArchivoHechos baseHechos)
     {
         ArrayList<Integer> idReglas = new ArrayList<>();
-        ArrayList<Regla> reglas = baseConocimiento.mostrarTodasReglas();
+        ArrayList<Regla> reglas = baseConocimiento.imprimirReglas();
         for (Regla regla : reglas)
         {
             String records[] = regla.getReglas();

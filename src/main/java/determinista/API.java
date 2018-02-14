@@ -40,6 +40,11 @@ public class API {
         return archivoHechos.obtenerHechos();
     }
 
+    public boolean rmRegla(int id)
+    {
+        return archivoMaestro.eliminarRegla(id);
+    }
+
     public boolean addRegla(String regla) {
         try {
             archivoMaestro.nuevoRegistro(mostrarRegla(regla));
@@ -51,5 +56,9 @@ public class API {
 
     private Regla mostrarRegla(String entrada) throws Exception {
         return new Regla(Byte.parseByte(entrada.split("-")[0]), entrada.split("-")[1].split("\\&"), entrada.split("-")[2]);
+    }
+
+    public void  rmHecho(String hecho) {
+        archivoHechos.borrarHecho(hecho);
     }
 }

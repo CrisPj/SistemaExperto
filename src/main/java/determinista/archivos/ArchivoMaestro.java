@@ -116,16 +116,13 @@ public class ArchivoMaestro {
         Arbol.generarArbol();
     }
 
-    private Regla mostrarRegla(String entrada) throws Exception {
-        return new Regla(Byte.parseByte(entrada.split("-")[0]), entrada.split("-")[1].split("\\&"), entrada.split("-")[2]);
-    }
-
-    public void eliminarRegla(int llave) {
+    public boolean eliminarRegla(int llave) {
         for (Regla r : reglas)
             if (r.getLlave() == llave)
-                reglas.remove(r);
+                return reglas.remove(r);
 
         writeFile();
+        return false;
     }
 
     private void writeFile() {

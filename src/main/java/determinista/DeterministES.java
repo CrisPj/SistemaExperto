@@ -16,18 +16,30 @@ public class DeterministES extends AbstractVerticle {
         Router router = Router.router(vertx);
         router.route("/").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
-                .end(Json.encodePrettily("Funciona"))
+                .end(Json.encodePrettily("Version:EAP"))
         );
         router.route("/reglas").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
                 .end(Json.encodePrettily(api.getAllRules())));
 
+        router.post("/addRegla").handler(DeterministES::addRegla);
+
+        router.delete("/rmRegla").handler(routingContext -> routingContext.response()
+                .putHeader("content-type", "application/json; charset=utf-8")
+                .end(Json.encodePrettily(api.rmRegla(Integer.parseInt(routingContext.getBodyAsString())))));
+
+
+
         router.route("/hechos").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
                 .end(Json.encodePrettily(api.getAllHechos())));
 
-        router.post("/addRegla").handler(DeterministES::addRegla);
+
         router.post("/addHecho").handler(DeterministES::addHecho);
+
+        router.delete("/rmHecho").handler(routingContext -> routingContext.response()
+                .putHeader("content-type", "application/json; charset=utf-8")
+                .end(Json.encodePrettily(api.rmHecho(routingContext.getBodyAsString()))));
 
         router.route("/indices").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")

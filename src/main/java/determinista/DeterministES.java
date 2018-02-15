@@ -36,26 +36,32 @@ public class DeterministES extends AbstractVerticle {
                 .putHeader("content-type", "application/json; charset=utf-8")
                 .end(Json.encodePrettily(api.getAllRules())));
 
-        router.post("/addRegla").handler(DeterministES::addRegla);
+        router.route(HttpMethod.POST,"/addRegla").handler(DeterministES::addRegla);
 
-        router.delete("/rmRegla").handler(routingContext -> routingContext.response()
+        router.route(HttpMethod.POST,"/rmReglas").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
-                .end(Json.encodePrettily(api.rmRegla(Integer.parseInt(routingContext.getBodyAsString())))));
+                .end(Json.encodePrettily(api.rmReglas())));
 
 
+
+
+        router.route(HttpMethod.POST,"/rmRegla").handler(routingContext -> routingContext.response()
+                .putHeader("content-type", "application/json; charset=utf-8")
+                .end(Json.encodePrettily(api.rmRegla(routingContext.getBodyAsJson()))));
 
         router.route("/hechos").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
                 .end(Json.encodePrettily(api.getAllHechos())));
 
-
-
         router.route(HttpMethod.POST,"/addHecho").handler(DeterministES::addHecho);
-
 
         router.route(HttpMethod.POST,"/rmHecho").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
                 .end(Json.encodePrettily(api.rmHecho(routingContext.getBodyAsJson()))));
+
+        router.route("/rmHechos").handler(routingContext -> routingContext.response()
+                .putHeader("content-type", "application/json; charset=utf-8")
+                .end(Json.encodePrettily(api.rmHechos())));
 
         router.route(HttpMethod.POST,"/adelante").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
@@ -85,7 +91,7 @@ public class DeterministES extends AbstractVerticle {
     }
 
     private static void addRegla(RoutingContext routingContext) {
-        if(api.addRegla(routingContext.getBodyAsString()))
+        if(api.addRegla(routingContext.getBodyAsJson()))
             routingContext.response()
                     .setStatusCode(201)
                     .putHeader("content-type", "application/json; charset=utf-8")

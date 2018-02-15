@@ -7,6 +7,7 @@ import determinista.archivos.ArchivoHechos;
 import determinista.archivos.ArchivoMaestro;
 import determinista.common.Constantes;
 import determinista.inferencia.motorInferencia;
+import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonObject;
 
 import java.util.ArrayList;
@@ -76,14 +77,21 @@ public class API {
         return archivoHechos.obtenerHechos();
     }
 
-    public boolean rmRegla(int id)
+    public boolean rmRegla(JsonObject json)
     {
-        return archivoMaestro.eliminarRegla(id);
+        archivoMaestro.eliminarRegla(json.getInteger("llave"));
+        return true;
     }
 
-    public boolean addRegla(String regla) {
+    public boolean rmReglas()
+    {
+        archivoMaestro.eliminarReglas();
+        return true;
+    }
+
+    public boolean addRegla(JsonObject regla) {
         try {
-            archivoMaestro.nuevoRegistro(mostrarRegla(regla));
+            archivoMaestro.nuevoRegistro(mostrarRegla(regla.getString("regla")));
             return true;
         } catch (Exception e) {
             return false;
@@ -91,11 +99,18 @@ public class API {
     }
 
     private Regla mostrarRegla(String entrada) throws Exception {
-        return new Regla(Byte.parseByte(entrada.split("-")[0]), entrada.split("-")[1].split("\\&"), entrada.split("-")[2]);
+        int llave = archivoMaestro.imprimirReglas().get(archivoMaestro.imprimirReglas().size()-1).getLlave()+1;
+        Regla r = new Regla(llave, entrada.split("-")[0].split("\\&"), entrada.split("-")[1]);;
+        return r;
     }
 
     public boolean rmHecho(JsonObject hecho) {
         archivoHechos.borrarHecho(hecho.getString("hecho"));
+        return true;
+    }
+
+    public boolean rmHechos(){
+        archivoHechos.borrarHechos();
         return true;
     }
 }

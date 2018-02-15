@@ -82,6 +82,7 @@ public class ArchivoHechos
     }
 
     public void borrarHechos() {
+        hechos.clear();
         try {
             file.setLength(0);
         } catch (Exception ex) {

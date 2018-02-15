@@ -6,6 +6,7 @@ import determinista.arbol.ReglaHackeada;
 import determinista.archivos.ArchivoHechos;
 import determinista.archivos.ArchivoMaestro;
 import determinista.common.Constantes;
+import determinista.inferencia.motorInferencia;
 import io.vertx.core.json.JsonObject;
 
 import java.util.ArrayList;
@@ -21,6 +22,20 @@ public class API {
         archivoHechos = new ArchivoHechos(nombreArchivo, Constantes.LECTURA_ESCRITURA);
         // Se borran los hechos al inicio del programa:
         archivoHechos.borrarHechos();
+    }
+
+    public ArrayList<Integer> hacerEncadenamientoAdelante(JsonObject meta)
+    {
+        motorInferencia mt = new motorInferencia(archivoMaestro,archivoHechos);
+        mt.inicializar(true,meta.getString("meta"));
+        return mt.justificacion();
+    }
+
+    public ArrayList<Integer> hacerEncadenamientoAtras(JsonObject meta)
+    {
+        motorInferencia mt = new motorInferencia(archivoMaestro,archivoHechos);
+        mt.inicializar(false,meta.getString("meta"));
+        return mt.justificacion();
     }
 
     List<Indice> getIndex()

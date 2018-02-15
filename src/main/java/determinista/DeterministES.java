@@ -25,6 +25,9 @@ public class DeterministES extends AbstractVerticle {
                 .allowedHeader("Access-Control-Allow-Origin")
                 .allowedHeader("Access-Control-Allow-Headers")
                 .allowedHeader("Content-Type"));
+
+        router.route().handler(BodyHandler.create());
+
         router.route("/").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
                 .end(Json.encodePrettily("Version:EAP"))
@@ -43,25 +46,27 @@ public class DeterministES extends AbstractVerticle {
 
         router.route("/hechos").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
-                .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
-                .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                 .end(Json.encodePrettily(api.getAllHechos())));
 
 
-        router.route("/addHecho*").handler(BodyHandler.create());
+
         router.route(HttpMethod.POST,"/addHecho").handler(DeterministES::addHecho);
 
-        router.route("/rmHecho*").handler(BodyHandler.create());
+
         router.route(HttpMethod.POST,"/rmHecho").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
-                .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
-                .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                 .end(Json.encodePrettily(api.rmHecho(routingContext.getBodyAsJson()))));
+
+        router.route(HttpMethod.POST,"/adelante").handler(routingContext -> routingContext.response()
+                .putHeader("content-type", "application/json; charset=utf-8")
+                .end(Json.encodePrettily(api.hacerEncadenamientoAdelante(routingContext.getBodyAsJson()))));
+
+        router.route(HttpMethod.POST,"/atras").handler(routingContext -> routingContext.response()
+                .putHeader("content-type", "application/json; charset=utf-8")
+                .end(Json.encodePrettily(api.hacerEncadenamientoAtras(routingContext.getBodyAsJson()))));
 
         router.route("/indices").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
-                .putHeader("Access-Control-Allow-Origin", "http://localhost:3000")
-                .putHeader("Access-Control-Allow-Methods","GET, POST, OPTIONS")
                 .end(Json.encodePrettily(api.getIndex())));
 
         vertx.createHttpServer()

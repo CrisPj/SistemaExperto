@@ -4,8 +4,8 @@ import determinista.arbol.Regla;
 import determinista.archivos.ArchivoHechos;
 import determinista.archivos.ArchivoMaestro;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class motorInferencia
 {
@@ -16,6 +16,7 @@ public class motorInferencia
     private ArrayList<Integer> conjuntoConflicto;
     private String meta = null;
     private ArrayList<ArrayList<ArrayList<String>>> listaMJ = new ArrayList<ArrayList<ArrayList<String>>>();
+    private ArrayList<Integer> justs = new ArrayList<>();
 
     public motorInferencia(ArchivoMaestro archivoMaestro, ArchivoHechos archivoHechos)
     {
@@ -24,11 +25,12 @@ public class motorInferencia
         this.archivoHechos = archivoHechos;
         reglasAplicadas = new ArrayList<Integer>();
         conjuntoConflicto = new ArrayList<Integer>();
+        justs.clear();
     }
 
-    public void justificacion()
+    public ArrayList<Integer> justificacion()
     {
-
+        return justs;
     }
 
     public void inicializar(boolean opcion, String metita)
@@ -55,6 +57,7 @@ public class motorInferencia
             if (conjuntoConflicto != null && conjuntoConflicto.size() > 0)
             {
                 Integer idRegla = resolverConjuntoConflicto(conjuntoConflicto);
+                justs.add(idRegla);
                 //
                 campMJ.add(Integer.toString(ciclo++));
                 rowMJ.add(campMJ);
@@ -87,8 +90,8 @@ public class motorInferencia
 
     private ArrayList<String> byteToStringList(ArrayList<Integer> array){
         ArrayList<String> arrayStr = new ArrayList<String>();
-        for (int i=0; i<array.size(); i++){
-            arrayStr.add(array.get(i).toString());
+        for (Integer anArray : array) {
+            arrayStr.add(anArray.toString());
         }
         return arrayStr;
     }
@@ -98,37 +101,40 @@ public class motorInferencia
         System.out.println(Verificar(archivoHechos, meta) ? "EXITO" : "FALLO");
     }
 
-    private boolean Verificar(ArchivoHechos archivoHechos, String meta)
+    private boolean Verificar(ArchivoHechos archivoHechos, String m)
     {
-        //Se reducen bytes de meta:
-        meta = meta.replace("\u0000", "");
+
         boolean verificado = false;
-        if (estaEnHechos(meta))
+        if (estaEnHechos(m))
             return true;
         else
         {
-            conjuntoConflicto = equiparar(archivoMaestro, archivoHechos);
+            conjuntoConflicto = equiparar2(archivoMaestro, m);
+            System.out.println("DEbug");
+            conjuntoConflicto.forEach(System.out::print);
             while ((conjuntoConflicto != null && conjuntoConflicto.size() > 0) && !verificado)
             {
                 Integer id = resolverConjuntoConflicto(conjuntoConflicto);
+                justs.add(id);
                 // Obtener id del elemento a remover
                 int idRM = -1;
                 for (int i=0; i<conjuntoConflicto.size();i++){
-                    if (conjuntoConflicto.get(i)==id){
-                        idRM = i;
-                    }
+                    if (conjuntoConflicto.get(i).equals(id)) idRM = i;
                 }
                 conjuntoConflicto.remove(idRM);
-                ArrayDeque<String> nuevasMetas = new ArrayDeque<>();
-                nuevasMetas.add(archivoMaestro.obtenerRegla(id).getConsecuente());
+                ArrayList<String> nuevasMetas = new ArrayList<>(Arrays.asList(archivoMaestro.obtenerRegla(id).getReglas()));
                 verificado = true;
-                while (!nuevasMetas.isEmpty() && verificado)
+                while (!nuevasMetas.isEmpty())
                 {
-                    String Meta = nuevasMetas.pop();
-                    verificado = Verificar(archivoHechos, Meta);
-                    if (verificado)
-                    {
-                        aplicarRegla(id);
+                    String Meta = nuevasMetas.remove(0);
+                    if (!Meta.isEmpty()) {
+                        verificado = Verificar(archivoHechos, Meta);
+                        if (verificado) {
+                            aplicarRegla(id);
+                        }
+                    }
+                    else {
+                        nuevasMetas.clear();
                     }
                 }
             }
@@ -140,6 +146,24 @@ public class motorInferencia
     {
         return archivoHechos.obtenerHechos().contains(meta);
     }
+
+    private ArrayList<Integer> equiparar2(ArchivoMaestro baseConocimiento, String m)
+    {
+        ArrayList<Integer> idReglas = new ArrayList<>();
+        ArrayList<Regla> reglas = baseConocimiento.imprimirReglas();
+        for (Regla regla : reglas) {
+                if (m.equals(regla.getConsecuente())) {
+                    if (!refraccionRegla(regla.getLlave())) {
+                        Integer llave = regla.getLlave();
+                        idReglas.add(llave);
+                    }
+                }
+        }
+//        hechos.clear();
+  //      idReglas.stream().map(idRegla -> Arrays.asList(reglas.get(idRegla).getReglas())).forEach(hechos::addAll);
+        return idReglas;
+    }
+
 
     private ArrayList<Integer> equiparar(ArchivoMaestro baseConocimiento, ArchivoHechos baseHechos)
     {
@@ -183,7 +207,6 @@ public class motorInferencia
     private void aplicarRegla(int idRegla)
     {
         String aux = archivoMaestro.obtenerRegla(idRegla).getConsecuente();
-        //aux = aux.replace("\u0000", "");
         aux = aux.trim();
 
         if (!estaEnHechos(aux))

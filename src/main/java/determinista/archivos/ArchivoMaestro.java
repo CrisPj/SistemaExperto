@@ -141,6 +141,13 @@ public class ArchivoMaestro {
     }
 
 
+    public boolean eliminarTodo()
+    {
+        eliminarReglas();
+        reglas.clear();
+        return true;
+    }
+
     public void eliminarReglas() {
         try {
             archivo.setLength(0);

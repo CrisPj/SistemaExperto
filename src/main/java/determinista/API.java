@@ -85,7 +85,7 @@ public class API {
 
     public boolean rmReglas()
     {
-        archivoMaestro.eliminarReglas();
+        archivoMaestro.eliminarTodo();
         return true;
     }
 

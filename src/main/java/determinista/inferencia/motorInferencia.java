@@ -1,11 +1,10 @@
 package determinista.inferencia;
 
-import determinista.arbol.Regla;
 import determinista.archivos.ArchivoHechos;
 import determinista.archivos.ArchivoMaestro;
+import determinista.modelos.Regla;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class motorInferencia
 {
@@ -16,19 +15,20 @@ public class motorInferencia
     private ArrayList<Integer> conjuntoConflicto;
     private String meta = null;
     private ArrayList<ArrayList<ArrayList<String>>> listaMJ = new ArrayList<ArrayList<ArrayList<String>>>();
-    private ArrayList<Integer> justs = new ArrayList<>();
+    private ArrayList<Regla> justs = new ArrayList<>();
 
     public motorInferencia(ArchivoMaestro archivoMaestro, ArchivoHechos archivoHechos)
     {
         this.archivoMaestro = archivoMaestro;
         this.archivoMaestro.generarArbol();
         this.archivoHechos = archivoHechos;
+
         reglasAplicadas = new ArrayList<Integer>();
         conjuntoConflicto = new ArrayList<Integer>();
         justs.clear();
     }
 
-    public ArrayList<Integer> justificacion()
+    public ArrayList<Regla> justificacion()
     {
         return justs;
     }
@@ -40,12 +40,18 @@ public class motorInferencia
         if (!meta.equals("TERMINAR"))
             if (opcion)
                 encadenamientoHaciaDelante();
-            else encadenamientoHaciaAtras();
+            else neuronal();
+    }
+
+    private void neuronal() {
+
     }
 
     private void encadenamientoHaciaDelante()
     {
         //
+        if (archivoHechos.obtenerHechos().size()==0)
+            return;
         int ciclo = 1;
         ArrayList<ArrayList<String>> rowMJ = new ArrayList<ArrayList<String>>();
         ArrayList<String> campMJ = new ArrayList<String>();
@@ -57,7 +63,8 @@ public class motorInferencia
             if (conjuntoConflicto != null && conjuntoConflicto.size() > 0)
             {
                 Integer idRegla = resolverConjuntoConflicto(conjuntoConflicto);
-                justs.add(idRegla);
+                justs.add(archivoMaestro.obtenerRegla(idRegla));
+
                 //
                 campMJ.add(Integer.toString(ciclo++));
                 rowMJ.add(campMJ);
@@ -96,51 +103,6 @@ public class motorInferencia
         return arrayStr;
     }
 
-    private void encadenamientoHaciaAtras()
-    {
-        System.out.println(Verificar(archivoHechos, meta) ? "EXITO" : "FALLO");
-    }
-
-    private boolean Verificar(ArchivoHechos archivoHechos, String m)
-    {
-
-        boolean verificado = false;
-        if (estaEnHechos(m))
-            return true;
-        else
-        {
-            conjuntoConflicto = equiparar2(archivoMaestro, m);
-            System.out.println("DEbug");
-            conjuntoConflicto.forEach(System.out::print);
-            while ((conjuntoConflicto != null && conjuntoConflicto.size() > 0) && !verificado)
-            {
-                Integer id = resolverConjuntoConflicto(conjuntoConflicto);
-                justs.add(id);
-                // Obtener id del elemento a remover
-                int idRM = -1;
-                for (int i=0; i<conjuntoConflicto.size();i++){
-                    if (conjuntoConflicto.get(i).equals(id)) idRM = i;
-                }
-                conjuntoConflicto.remove(idRM);
-                ArrayList<String> nuevasMetas = new ArrayList<>(Arrays.asList(archivoMaestro.obtenerRegla(id).getReglas()));
-                verificado = true;
-                while (!nuevasMetas.isEmpty())
-                {
-                    String Meta = nuevasMetas.remove(0);
-                    if (!Meta.isEmpty()) {
-                        verificado = Verificar(archivoHechos, Meta);
-                        if (verificado) {
-                            aplicarRegla(id);
-                        }
-                    }
-                    else {
-                        nuevasMetas.clear();
-                    }
-                }
-            }
-        }
-        return verificado;
-    }
 
     private boolean estaEnHechos(String meta)
     {

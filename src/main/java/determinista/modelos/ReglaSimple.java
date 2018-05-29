@@ -1,6 +1,6 @@
-package determinista.arbol;
+package determinista.modelos;
 
-public class ReglaHackeada
+public class ReglaSimple
 {
 
     public static int CANTIDAD_REGISTROS = 5;
@@ -10,10 +10,10 @@ public class ReglaHackeada
     private String reglas;
     private String consecuente;
 
-    public ReglaHackeada() {
+    public ReglaSimple() {
     }
 
-    public ReglaHackeada(int llave, String reglas, String consecuente) {
+    public ReglaSimple(int llave, String reglas, String consecuente) {
         this.llave = llave;
         this.reglas = reglas;
         this.consecuente = consecuente;

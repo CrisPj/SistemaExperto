@@ -1,4 +1,4 @@
-package determinista.arbol;
+package determinista.modelos;
 
 public class Indice {
     private int llave;

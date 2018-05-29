@@ -1,6 +1,6 @@
 package determinista.archivos;
 
-import determinista.arbol.Regla;
+import determinista.modelos.Regla;
 import determinista.common.Constantes;
 
 import java.io.IOException;

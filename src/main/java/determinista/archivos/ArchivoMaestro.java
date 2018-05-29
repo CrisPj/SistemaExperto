@@ -1,8 +1,8 @@
 package determinista.archivos;
 
-import determinista.arbol.Arbol;
-import determinista.arbol.Indice;
-import determinista.arbol.Regla;
+import determinista.modelos.Arbol;
+import determinista.modelos.Indice;
+import determinista.modelos.Regla;
 import determinista.common.Constantes;
 
 import java.io.IOException;

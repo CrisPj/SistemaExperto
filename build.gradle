@@ -6,13 +6,10 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 dependencies {
-    compile 'io.vertx:vertx-web:3.5.0'
+    compile 'io.vertx:vertx-web:3.5.1'
 }
 
 repositories {
-    maven {
-        url "https://oss.sonatype.org/content/repositories/iovertx-3720/"
-    }
     mavenCentral()
 }
 mainClassName = "determinista.DeterministES"

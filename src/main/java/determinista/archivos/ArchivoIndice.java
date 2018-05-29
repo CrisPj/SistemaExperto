@@ -1,7 +1,7 @@
 
 package determinista.archivos;
 
-import determinista.arbol.Indice;
+import determinista.modelos.Indice;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;

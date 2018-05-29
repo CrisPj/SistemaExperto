@@ -1,4 +1,4 @@
-package determinista.arbol;
+package determinista.modelos;
 
 public class Nodo
 {

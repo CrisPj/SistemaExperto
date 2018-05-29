@@ -43,8 +43,6 @@ public class DeterministES extends AbstractVerticle {
                 .end(Json.encodePrettily(api.rmReglas())));
 
 
-
-
         router.route(HttpMethod.POST,"/rmRegla").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
                 .end(Json.encodePrettily(api.rmRegla(routingContext.getBodyAsJson()))));
@@ -69,11 +67,15 @@ public class DeterministES extends AbstractVerticle {
 
         router.route(HttpMethod.POST,"/atras").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
-                .end(Json.encodePrettily(api.hacerEncadenamientoAtras(routingContext.getBodyAsJson()))));
+                .end(Json.encodePrettily(api.hacerEncadenamientoAtras())));
 
         router.route("/indices").handler(routingContext -> routingContext.response()
                 .putHeader("content-type", "application/json; charset=utf-8")
                 .end(Json.encodePrettily(api.getIndex())));
+
+        router.route("/entrenar").handler(routingContext -> routingContext.response()
+                .putHeader("content-type", "application/json; charset=utf-8")
+                .end(Json.encodePrettily(api.entrenar())));
 
         vertx.createHttpServer()
         .requestHandler(router::accept)

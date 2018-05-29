@@ -1,4 +1,4 @@
-package determinista.arbol;
+package determinista.modelos;
 
 import determinista.archivos.ArchivoIndice;
 import determinista.common.Constantes;
